@@ -1,0 +1,54 @@
+/* pages/car/car.wxss */
+.tab-h {
+  height: 350rpx;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  line-height: 80rpx;
+  background: #f7f7f7;
+  font-size: 16px;
+  white-space: nowrap;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
+}
+.continer{
+  margin-top: 370rpx;
+  background-color: aqua;
+  height: 350rpx;
+}
+.classic{
+ width: 30%;
+ border-radius: 50rpx;
+ margin-top: 50rpx;
+}
+.quickly{
+  margin-top: 20rpx;
+  margin-right: 20rpx;
+  border-radius: 50%;
+  width: 100rpx;
+  height: 100rpx;
+  background-color: rgb(255, 127, 187);
+}
+.left{
+  height: 100rpx;
+  width: 33.33%;
+  position: fixed;
+  bottom: 0rpx;
+  left: 0rpx;
+}
+.center{
+  height: 100rpx;
+  width: 33.33%;
+  position: fixed;
+  bottom: 0rpx;
+  left: 33.33%;
+}
+.right{
+  height: 100rpx;
+  width: 33.33%;
+  position: fixed;
+  bottom: 0rpx;
+  right: 0rpx;
+}

@@ -1,0 +1,12 @@
+<!--pages/car/car.wxml-->
+<scroll-view scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}">
+    <view>ppt</view>
+  </scroll-view>
+<view class="continer">
+<button class='classic'>全部</button>
+<button class='classic'>筛选</button>
+</view>
+<button class='quickly'>十</button>
+<button class="left" bindtap="ToCar">拼车</button>
+<button class="center" bindtap="ToSet">发布</button>
+<button class="right" bindtap="ToMine">我的</button>
