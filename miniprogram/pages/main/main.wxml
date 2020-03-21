@@ -8,7 +8,7 @@
     </block>
   </view>
 </view>
-
+<!-- 盖章 -->
 
 <button bindtap="ToCar" class="car">拼车</button>
 <button bindtap="ToMind" class="mind">心理咨询</button>
