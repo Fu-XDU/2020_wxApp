@@ -41,6 +41,24 @@ Page({
         }
       })
     }
+    wx.request({
+      url: 'https://flxdu.cn' +'/api/hello', //仅为示例，并非真实的接口地址
+      data: {
+        name: 'world',
+        age: 1
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success(res) {
+        if(res.statusCode == 200){
+          console.log("服务器连接成功")
+        }
+      },
+      fail(err){
+        console.log("服务器连接成功",err)
+      }
+    })
   },
   getUserInfo: function(e) {
     console.log(e)

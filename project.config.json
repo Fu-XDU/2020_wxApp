@@ -10,7 +10,7 @@
 	},
 	"appid": "wxbae8c6ab08f04022",
 	"projectname": "Program1",
-	"libVersion": "2.2.5",
+	"libVersion": "2.10.2",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
 	"condition": {
@@ -31,8 +31,7 @@
 		},
 		"miniprogram": {
 			"current": 0,
-			"list": [
-			]
+			"list": []
 		}
 	}
 }
