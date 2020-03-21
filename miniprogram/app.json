@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/functions/car/car",
     "pages/main/main",
+    "pages/functions/car/car",
     "pages/functions/mind/mind",
     "pages/logs/logs",
     "pages/functions/express/express",
