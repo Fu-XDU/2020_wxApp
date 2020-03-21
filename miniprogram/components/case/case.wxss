@@ -1,0 +1,19 @@
+.case{
+  display: flex;
+  flex-direction: column;
+  border:2px solid green;
+  border-radius: 30rpx;
+  margin-bottom: 15rpx;
+  margin-left: 5rpx;
+  margin-right: 5rpx;
+}
+.inside{
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid gray;
+  margin: 10rpx 25rpx 10rpx 25rpx;
+  border-radius: 30rpx;
+}
+.inside_button{
+  margin: 50px 0px 3px 20px;
+}

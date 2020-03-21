@@ -1,0 +1,48 @@
+<view class="info">
+<form bindsubmit="handle_submit">
+  <view class="form_item">
+    <text class="iconfont icon-chufadihedidian"></text>
+    <input bindfocus="getLocation" placeholder="选择出发地" class="chufadihedidian" value="{{start}}" name="start" bindinput="handleloc1"></input>
+  </view>
+  <view class="form_item">
+    <text class="iconfont icon-chufadihedidian"></text>
+    <input class="chufadihedidian" bindfocus="getLocation1" placeholder="选择目的地"  value="{{end}}" bindinput="handleloc2" name="end"></input>
+  </view>
+  <view class="form_item">
+    <text class="iconfont icon-date-2"></text>
+    <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+    <input class="date" value='{{time}}' placeholder='选择出发时间' name="time"/> 
+    </picker>
+</view>
+  <view class="form_item">
+    <text class="iconfont icon-xingming1"></text>
+    <input class="xingming1" placeholder="姓名" name="user_name" value="{{user_name}}" bindinput="handle_user_name"></input>
+  </view>
+  <view class="continer form_item">
+    <text class="iconfont icon-xingbie"></text>
+    <input value="{{gender}}" class="xingbie" placeholder="您的性别" name="sex"></input>
+    <radio-group bindchange="handleChange">
+      <radio value="男">男</radio>
+      <radio value="女">女</radio>
+    </radio-group>
+  </view>
+  <view class="continer form_item">
+    <text class="iconfont icon-lujing"></text>
+    <input class="lujing" placeholder="手机号码" name="tel"></input>
+    <button size="mini" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">获取您的手机号码</button>
+  </view>
+  <view class="form_item">
+    <text class="iconfont icon-weibiaoti-_huabanfuben"></text>
+    <input bindinput="handle_people_num" class="people_num" placeholder="人数" name="people_num" ></input>
+    <icon type="{{isOK?'success':'warn'}}"></icon>
+  </view>
+  <view class="form_item">
+    <text class="iconfont icon-beizhu_icon"></text>
+    <input class="beizhu" placeholder="备注信息" name="tips" value="{{tips}}" bindinput="handle_tips"></input>
+  </view>
+  <view>
+    <button class="send" type="primary" form-type="submit" disabled="{{!can_reserve}}" bindtap="addData" >发布约车</button>
+    <!-- bindtap="reserved_to_car" -->
+  </view>
+</form>
+</view>

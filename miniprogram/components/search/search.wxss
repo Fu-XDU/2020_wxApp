@@ -1,0 +1,15 @@
+.search{
+  height: 55rpx;
+  padding: 10rpx;
+  background-color: pink;
+}
+navigator{
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 35rpx;
+    color: #666;
+    font-size: 30rpx;
+}

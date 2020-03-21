@@ -1,0 +1,22 @@
+<!-- 
+  <sorted_bar titleItems="{{items}}" bind:selectChange="handle_selectChange"/> -->
+<sorted_pane titleItems="{{items}}" title_cls="size">
+  <view slot="0">
+    <view class="text_container">
+      <view class="text">情绪管理（Emotion Management）是指通过研究个体和群体对自身情绪和他人情绪的认识、协调、引导、互动和控制，充分挖掘和培植个体和群体的情绪智商、培养驾驭情绪的能力，从而确保个体和群体保持良好的情绪状态，并由此产生良好的管理效果。</view>
+    </view>
+    <case/>
+  </view>
+  <view slot="1">
+    <view class="text_container">
+      <view class="text">人际关系指人们在人际交往过程中结成的心理关系、心理上的距离。交往双方在个性、态度、情感等方面的融洽或不融洽、相互吸引或相互排斥，必然会导致双方人际关系的亲密或疏远。人际关系包括三种成分：认识成分（指相互认识、相互了解）、动作成分（指交往动作）和情感成分（指积极情绪或消极情绪、爱或恨、满意或不满意）。其中情感成分是核心成分。人际关系反映了交往双方需要的满足程度。</view>
+    </view>
+    <case/>
+  </view>
+  <view slot="2">
+    <view class="text_container">
+      <view class="text">恋爱是两个人互相爱慕行动的表现。在不同的时代有不同定义，现代定义为无论性别的两个人基于一定条件和共同恋爱的人生理想，在各自内心形成的对对方最真挚的仰慕，并渴望对方成为自己终生伴侣最强烈、最稳定、最专一的感情。</view>
+    </view>
+    <case/>
+  </view>
+</sorted_pane>

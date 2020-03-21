@@ -1,0 +1,9 @@
+.content{
+  /* background-color: pink; */
+  display: flex;
+  flex-direction: column;
+}
+.container{
+  /* background-color: gray; */
+  flex: 1;
+}

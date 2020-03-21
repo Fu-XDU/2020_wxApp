@@ -1,0 +1,4 @@
+<view class="search_bar">
+  <input placeholder="请输入关键字" name="search_input" bindinput="handle_search"></input>
+</view>
+

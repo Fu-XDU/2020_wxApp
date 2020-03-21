@@ -1,0 +1,27 @@
+<view class="search">
+  <search></search>
+</view>
+<swiper autoplay interval="1000" circular indicator-dots>
+  <swiper-item> <image mode="widthFix" src="http://i2.chinanews.com/simg/cmshd/2019/10/05/998e12aa71f248d4a797761b18e48418.jpg"/></swiper-item>
+  <swiper-item><image mode="widthFix" src="http://image1.chinanews.com.cn/cnsupload/big/2019/10-01/4-426/a7e426b0dd6c43d2bc710fafe810a0d5.jpg"></image></swiper-item>
+  <swiper-item><image mode="widthFix" src="http://i2.chinanews.com/simg/cmshd/2019/10/01/c5391220f28d49bdbd14c58a4300bde0.jpg"></image>
+  </swiper-item>
+</swiper>
+<view class="continer">
+  <button class='classic' bindtap="getData">全部</button>
+  <button class='classic'>筛选</button>
+  <!-- <navigator url="/pages/functions/car/all_info/all_info">查看全部拼车信息</navigator>
+  <navigator>筛选</navigator> -->
+</view>
+
+<block wx:for="{{Car_Launch_Info}}">
+  <view class="car_info_card">
+    <car_info car_infomation="{{Car_Launch_Info}}"/>
+  </view>
+</block>
+
+<button class='quickly' bindtap="ToSet">+</button>
+
+<button class="left" bindtap="ToCar">拼车</button>
+<button class="center" bindtap="ToSet">发布</button>
+<button class="right" bindtap="ToMine">我的</button>
