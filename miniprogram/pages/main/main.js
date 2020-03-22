@@ -42,8 +42,16 @@ Page({
       })
     }
     wx.request({
-      url: app.globalData.apiUrl + '/1api/ping',
+      url: app.globalData.apiUrl + '/api/ping',
       data: {},
+      success(res) {
+        if (res.statusCode == 200)
+          console.log('Get', app.globalData.apiUrl + '/api/ping', res.statusCode, res.data)
+      }
+    })
+    wx.request({
+      url: app.globalData.apiUrl + '/api/db',
+      data: { sql:"SELECT * FROM book"},
       success(res) {
         if (res.statusCode == 200)
           console.log('Get', app.globalData.apiUrl + '/api/ping', res.statusCode, res.data)
