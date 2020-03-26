@@ -1,5 +1,5 @@
-const DB = wx.cloud.database()
-const Car_Launch_InfoCollection=DB.collection("Car_Launch_Info")
+// const DB = wx.cloud.database()
+// const Car_Launch_InfoCollection=DB.collection("Car_Launch_Info")
   const app = getApp() 
  const date = new Date();
   const years = [];
@@ -60,9 +60,38 @@ Page({
     //判断约车能否成功
     can_reserve:false,
   },
-  handle_submit:function(e){
-    console.log(e)
-  },
+ 
+  submit: function (e) { 
+    // var info=e.detail.value;
+    console.log(e.detail.value),
+    wx.request({
+    url: app.globalData.apiUrl + '/api/db',
+    data: 
+    { 
+       sql:"INSERT INTO Car_Launch_Info VALUES(e.detail.value.start+e.detail.value.end+e.detail.value.time+e.detail.value.user_name+e.detail.value.sex+e.detail.value.tel+e.detail.value.tips))",
+    },
+    success(res) {
+      if (res.statusCode == 200){
+        console.log('INSERT', app.globalData.apiUrl + '/api/ping', res.statusCode, res.data);
+        wx.showToast({  
+            title: '提交成功！！！',//这里打印出登录成功  
+            icon: 'success',
+            duration: 2000 
+          })
+          wx.navigateTo({
+            url: '/pages/functions/car/car'
+          })
+      }
+      else { 
+          wx.showToast({  
+            title: '提交失败！！！',  
+            icon: 'loading',  
+            duration: 1500,
+          })
+        }
+      }
+  })
+},
   handle_people_num:function(e)
   {
     let people_num=e.detail.value
@@ -118,12 +147,12 @@ Page({
       }
     })
   },
-  reserved_to_car: function(e) {
-    wx.navigateTo({
-      url: '/pages/functions/car/car'
-    })
-    // console.log('用户进入拼车界面')
-  },
+  // reserved_to_car: function(e) {
+  //   wx.navigateTo({
+  //     url: '/pages/functions/car/car'
+  //   })
+  //   // console.log('用户进入拼车界面')
+  // },
     onLoad: function() {
       //设置默认的年份
       this.setData({
@@ -216,32 +245,6 @@ Page({
       data.multiIndex[e.detail.column] = e.detail.value;
       this.setData(data);
     },
-    //发布约车
-    addData:function(event){
-      console.log(event)
-      Car_Launch_InfoCollection.add({
-      data:{
-        // 出发地
-        start: this.data.start,
-        // 目的地
-        end:this.data.end,
-        user_name:this.data.user_name,
-        time: this.data.time,
-        gender:this.data.gender,
-        tel:this.data.tel,
-        people_num:this.data.people_num,
-        tips:this.data.tips
-        }, 
-        success:res=>{
-          console.log(res)
-        }
-     }),
-     wx.navigateTo({
-      url: '../car/car'
-    })
-     
-    }
-   
   
 })
   

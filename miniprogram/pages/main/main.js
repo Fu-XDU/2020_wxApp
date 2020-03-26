@@ -42,7 +42,7 @@ Page({
       })
     }
     wx.request({
-      url: app.globalData.apiUrl + '/1api/ping',
+      url: app.globalData.apiUrl + '/api/ping',
       data: {},
       success(res) {
         if (res.statusCode == 200)
