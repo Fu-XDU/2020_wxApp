@@ -2,16 +2,16 @@
 <form bindsubmit="submit">
   <view class="form_item">
     <text class="iconfont icon-chufadihedidian"></text>
-    <input bindfocus="getLocation" placeholder="选择出发地" class="chufadihedidian" value="{{start}}" name="start" bindinput="handleloc1"></input>
+    <input bindtap="getLocation" placeholder="选择出发地" class="chufadihedidian" value="{{start}}" name="start" bindinput="handleloc1" disabled="true"></input>
   </view>
   <view class="form_item">
     <text class="iconfont icon-chufadihedidian"></text>
-    <input class="chufadihedidian" bindfocus="getLocation1" placeholder="选择目的地"  value="{{end}}" bindinput="handleloc2" name="end"></input>
+    <input class="chufadihedidian" bindtap="getLocation1" placeholder="选择目的地"  value="{{end}}" bindinput="handleloc2" name="end" disabled="true"></input>
   </view>
   <view class="form_item">
     <text class="iconfont icon-date-2"></text>
-    <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
-    <input class="date" value='{{time}}' placeholder='选择出发时间' name="time"/> 
+    <picker mode="multiSelector" bindchange="bindMultiPickerChange" value="{{multiIndex}}" range="{{multiArray}}">
+    <input class="date" value='{{time}}' placeholder='选择出发时间' name="time" disabled="true"/> 
     </picker>
 </view>
   <view class="form_item">
@@ -20,7 +20,7 @@
   </view>
   <view class="continer form_item">
     <text class="iconfont icon-xingbie"></text>
-    <input value="{{gender}}" class="xingbie" placeholder="您的性别" name="sex"></input>
+    <input value="{{gender}}" class="xingbie" placeholder="您的性别" name="sex" disabled="true"></input>
     <radio-group bindchange="handleChange">
       <radio value="男">男</radio>
       <radio value="女">女</radio>
@@ -28,12 +28,12 @@
   </view>
   <view class="continer form_item">
     <text class="iconfont icon-lujing"></text>
-    <input class="lujing" placeholder="手机号码" name="tel"></input>
-    <button size="mini" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">获取您的手机号码</button>
+    <input class="lujing" placeholder="手机号码" name="tel" type="number"></input>
+    <button size="mini" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">获取本机手机号码</button>
   </view>
   <view class="form_item">
     <text class="iconfont icon-weibiaoti-_huabanfuben"></text>
-    <input bindinput="handle_people_num" class="people_num" placeholder="人数" name="people_num" ></input>
+    <input bindinput="handle_people_num" class="people_num" placeholder="人数" name="people_num" type="number"></input>
     <icon type="{{isOK?'success':'warn'}}"></icon>
   </view>
   <view class="form_item">

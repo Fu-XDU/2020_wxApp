@@ -32,8 +32,9 @@ Page({
         sql:"CREATE TABLE Car_ Launch_ Info(start char( 20),end char(20), time char(10),user_ name char(20),sex char(5),tel int(5),people_ num int,tips char(50))"
       },
       success(res) {
-        if (res.statusCode == 200)
-          console.log('Create successfully', app.globalData.apiUrl + '/api/ping', res.statusCode, res.data)
+        if (res.data == '操作成功！')
+          console.log('Create successfully', app.globalData.apiUrl + '/api/db', res.statusCode, res.data)
+        else console.log(res.data);
       }
      })
   },

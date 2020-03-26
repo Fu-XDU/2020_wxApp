@@ -29,9 +29,21 @@
 		"game": {
 			"list": []
 		},
-		"miniprogram": {
-			"current": 0,
+		"gamePlugin": {
+			"current": -1,
 			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": 0,
+					"name": "pages/functions/car/set/set",
+					"pathName": "pages/functions/car/set/set",
+					"query": "",
+					"scene": null
+				}
+			]
 		}
 	}
 }

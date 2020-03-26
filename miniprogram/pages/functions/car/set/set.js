@@ -1,251 +1,150 @@
 // const DB = wx.cloud.database()
 // const Car_Launch_InfoCollection=DB.collection("Car_Launch_Info")
-  const app = getApp() 
- const date = new Date();
-  const years = [];
-  const months = [];
-  const days = [];
-  const hours = [];
-  const minutes = [];
-  //获取年
-  for (let i = 2020; i <= date.getFullYear() + 5; i++) {
-    years.push("" + i);
-  }
-  //获取月份
-  for (let i = 1; i <= 12; i++) {
-    if (i < 10) {
-      i = "0" + i;
-    }
-    months.push("" + i);
-  }
-  //获取日期
-  for (let i = 1; i <= 31; i++) {
-    if (i < 10) {
-      i = "0" + i;
-    }
-    days.push("" + i);
-  }
-  //获取小时
-  for (let i = 0; i < 24; i++) {
-    if (i < 10) {
-      i = "0" + i;
-    }
-    hours.push("" + i);
-  }
-  //获取分钟
-  for (let i = 0; i < 60; i++) {
-    if (i < 10) {
-      i = "0" + i;
-    }
-    minutes.push("" + i);
-  }
+const app = getApp()
+var days = [];
+var hours = ['00', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23'];
+var minutes = ['00', '05', '10', '15', '20', '25', '30', '35', '40', '45', '50', '55'];
 Page({
-  getPhoneNumber(e){
+  getPhoneNumber(e) {
     console.log(e)
   },
-  data:{
-    gender:"",
+  data: {
+    gender: '',
     // 出发地
     start: '',
     // 目的地
-    end:'',
+    end: '',
     time: '',
-    user_name:'',
-    tips:"无备注！",
-    multiArray: [years, months, days, hours, minutes],
-    multiIndex: [0, 9, 16, 10, 17],
+    user_name: '',
+    tips: '',
+    multiArray: [],
+    multiIndex: [],
     choose_year: '',
     //判断输入人数是否正确
-    isOK:false,
+    isOK: false,
+    people_num: 0,
     //判断约车能否成功
-    can_reserve:false,
+    can_reserve: false,
   },
- 
-  submit: function (e) { 
+
+  submit: function(e) {
     // var info=e.detail.value;
     console.log(e.detail.value),
-    wx.request({
-    url: app.globalData.apiUrl + '/api/db',
-    data: 
-    { 
-       sql:"INSERT INTO Car_Launch_Info VALUES(e.detail.value.start+e.detail.value.end+e.detail.value.time+e.detail.value.user_name+e.detail.value.sex+e.detail.value.tel+e.detail.value.tips))",
-    },
-    success(res) {
-      if (res.statusCode == 200){
-        console.log('INSERT', app.globalData.apiUrl + '/api/ping', res.statusCode, res.data);
-        wx.showToast({  
-            title: '提交成功！！！',//这里打印出登录成功  
-            icon: 'success',
-            duration: 2000 
-          })
-          wx.navigateTo({
-            url: '/pages/functions/car/car'
-          })
-      }
-      else { 
-          wx.showToast({  
-            title: '提交失败！！！',  
-            icon: 'loading',  
-            duration: 1500,
-          })
+      console.log('INSERT INTO Car_Launch_Info VALUES(' + "'" + e.detail.value.start + "'" + ',' + "'" + e.detail.value.end + "'" + ',' + "'" + e.detail.value.time + "'" + ',' + "'" + e.detail.value.user_name + "'" + ',' + "'" + e.detail.value.sex + "'" + ',' + "'" + e.detail.value.tel + "'" + ',' + "'" + '123' + "'" + ',' + "'" + e.detail.value.tips + "'" + ')')
+      wx.request({
+        url: app.globalData.apiUrl + '/api/db',
+        data: {
+          sql: 'INSERT INTO Car_Launch_Info VALUES(' + "'" + e.detail.value.start + "'" + ',' + "'" + e.detail.value.end + "'" + ',' + "'" + e.detail.value.time + "'" + ',' + "'" + e.detail.value.user_name + "'" + ',' + "'" + e.detail.value.sex + "'" + ',' + "'" + e.detail.value.tel + "'" + ',' + "'" + '123' + "'" + ',' + "'" + e.detail.value.tips + "'" + ')'
+          //123是e.detail.value.people_num,需要加上，代码里面没有
+        },
+        success(res) {
+          if (res.data == '操作成功！') {
+            wx.showToast({
+              title: '提交成功！！！', //这里打印出登录成功  
+              icon: 'success',
+              duration: 2000
+            })
+            wx.navigateTo({
+              url: '/pages/functions/car/car'
+            })
+          } else {
+            wx.showToast({
+              title: '提交失败！！！',
+              icon:'none',
+              duration: 1500,
+            })
+          }
         }
-      }
-  })
-},
-  handle_people_num:function(e)
-  {
-    let people_num=e.detail.value
+      })
+  },
+  handle_people_num: function(e) {
+    let people_num = e.detail.value
     this.setData({
-      isOK:people_num>=1
+      isOK: people_num >= 1
     })
   },
   //选择性别
-  handleChange:function(e){
+  handleChange: function(e) {
     // console.log(e)
-    let gender=e.detail.value;
+    let gender = e.detail.value;
 
     this.setData({
-      gender:gender,
-      can_reserve: (this.data.start && this.data.end && gender)!=''
+      gender: gender,
+      can_reserve: (this.data.start && this.data.end && gender) != ''
     })
   },
-  handle_user_name:function(e){
+  handle_user_name: function(e) {
     // console.log(e)
     this.setData({
-      user_name:e.detail.value
+      user_name: e.detail.value
     })
   },
-  handle_tips:function(e){
+  handle_tips: function(e) {
     // console.log(e)
     this.setData({
-      tips:e.detail.value
+      tips: e.detail.value
     })
   },
-  getLocation: function () {
+  getLocation: function() {
     var _this = this;
     wx.chooseLocation({
-      success: function (res) {
+      success: function(res) {
         var start = res.name
         var end = res.end
         _this.setData({
           start: start,
-          can_reserve: (start && _this.data.end && _this.data.gender)!=''
+          can_reserve: (start && _this.data.end && _this.data.gender) != ''
         })
       }
     })
   },
-  getLocation1: function () {
+  getLocation1: function() {
     var _this = this;
     wx.chooseLocation({
-      success: function (res) {
+      success: function(res) {
         var start = res.name
         var end = res.end
         _this.setData({
-          end:start,
-          can_reserve: (_this.data.start && end && _this.data.gender)!=''
+          end: start,
+          can_reserve: (_this.data.start && end && _this.data.gender) != ''
         })
       }
     })
   },
-  // reserved_to_car: function(e) {
-  //   wx.navigateTo({
-  //     url: '/pages/functions/car/car'
-  //   })
-  //   // console.log('用户进入拼车界面')
-  // },
-    onLoad: function() {
-      //设置默认的年份
-      this.setData({
-        choose_year: this.data.multiArray[0][0]
-      })
-    },
-    //获取时间日期
-    bindMultiPickerChange: function(e) {
-      // console.log('picker发送选择改变，携带值为', e.detail.value)
-      this.setData({
-        multiIndex: e.detail.value
-      })
-      const index = this.data.multiIndex;
-      const year = this.data.multiArray[0][index[0]];
-      const month = this.data.multiArray[1][index[1]];
-      const day = this.data.multiArray[2][index[2]];
-      const hour = this.data.multiArray[3][index[3]];
-      const minute = this.data.multiArray[4][index[4]];
-      // console.log(`${year}-${month}-${day}-${hour}-${minute}`);
-      this.setData({
-        time: year + '-' + month + '-' + day + ' ' + hour + ':' + minute
-      })
-      // console.log(this.data.time);
-    },
-    //监听picker的滚动事件
-    bindMultiPickerColumnChange: function(e) {
-      //获取年份
-      if (e.detail.column == 0) {
-        let choose_year = this.data.multiArray[e.detail.column][e.detail.value];
-        console.log(choose_year);
-        this.setData({
-          choose_year
-        })
-      }
-      //console.log('修改的列为', e.detail.column, '，值为', e.detail.value);
-      if (e.detail.column == 1) {
-        let num = parseInt(this.data.multiArray[e.detail.column][e.detail.value]);
-        let temp = [];
-        if (num == 1 || num == 3 || num == 5 || num == 7 || num == 8 || num == 10 || num == 12) { //判断31天的月份
-          for (let i = 1; i <= 31; i++) {
-            if (i < 10) {
-              i = "0" + i;
-            }
-            temp.push("" + i);
-          }
-          this.setData({
-            ['multiArray[2]']: temp
-          });
-        } else if (num == 4 || num == 6 || num == 9 || num == 11) { //判断30天的月份
-          for (let i = 1; i <= 30; i++) {
-            if (i < 10) {
-              i = "0" + i;
-            }
-            temp.push("" + i);
-          }
-          this.setData({
-            ['multiArray[2]']: temp
-          });
-        } else if (num == 2) { //判断2月份天数
-          let year = parseInt(this.data.choose_year);
-          console.log(year);
-          if (((year % 400 == 0) || (year % 100 != 0)) && (year % 4 == 0)) {
-            for (let i = 1; i <= 29; i++) {
-              if (i < 10) {
-                i = "0" + i;
-              }
-              temp.push("" + i);
-            }
-            this.setData({
-              ['multiArray[2]']: temp
-            });
-          } else {
-            for (let i = 1; i <= 28; i++) {
-              if (i < 10) {
-                i = "0" + i;
-              }
-              temp.push("" + i);
-            }
-            this.setData({
-              ['multiArray[2]']: temp
-            });
-          }
-        }
-        console.log(this.data.multiArray[2]);
-      }
-      var data = {
-        multiArray: this.data.multiArray,
-        multiIndex: this.data.multiIndex
-      };
-      data.multiIndex[e.detail.column] = e.detail.value;
-      this.setData(data);
-    },
-  
+  /*
+   * 获取下一天时间
+   */
+  getNextDate: function(date, day) {　　
+    var date = new Date(date);
+    date.setDate(date.getDate() + day);
+    var m = date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1;
+    var d = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
+    var week = ["日", "一", "二", "三", "四", "五", "六"][date.getDay()];　　
+    return m + '月' + d + '日 周' + week;
+  },
+  /*
+   * 获取数据存入日期选择器中
+   */
+  getDate: function() {
+    var date = new Date();
+    //获取接下来七天日期
+    for (var i = 0; i < 7; ++i)
+      days.push(this.getNextDate(new Date(), i))
+    this.setData({
+      multiArray: [days, hours, minutes],
+      multiIndex: [0, date.getMinutes() > 55 ? (date.getHours()+1)%24 : date.getHours(), (5 + date.getMinutes() - date.getMinutes() % 5) / 5]
+    })
+  },
+  /*
+   * 处理日期选择器确定
+   */
+  bindMultiPickerChange: function(e) {
+    this.setData({
+      time: days[e.detail.value[0]] + ' ' + hours[e.detail.value[1]] + ':' + minutes[e.detail.value[2]]
+    })
+    console.log('用户选择出发时间:', this.data.time)
+  },
+  onLoad: function() {
+    this.getDate();//触发获取日期选择器数据
+  }
 })
-  
- 
