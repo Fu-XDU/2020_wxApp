@@ -8,15 +8,15 @@
   </swiper-item>
 </swiper>
 <view class="continer">
-  <button class='classic' bindtap="getData">全部</button>
+  <button class='classic'>全部</button>
   <button class='classic'>筛选</button>
   <!-- <navigator url="/pages/functions/car/all_info/all_info">查看全部拼车信息</navigator>
   <navigator>筛选</navigator> -->
 </view>
 
-<block wx:for="{{Car_Launch_Info}}">
+<block wx:for="{{postList}}" wx:key="index">
   <view class="car_info_card">
-    <car_info car_infomation="{{Car_Launch_Info}}"/>
+    <car_info car_infomation="{{postList}}"/>
   </view>
 </block>
 

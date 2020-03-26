@@ -1,5 +1,5 @@
-const DB = wx.cloud.database()
-const Mind_Reserve_InfoCollection=DB.collection("Mind_Reserve_Info")
+// const DB = wx.cloud.database()
+// const Mind_Reserve_InfoCollection=DB.collection("Mind_Reserve_Info")
 Page({
   data: {
     page:0
@@ -9,11 +9,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (option) {
-    Mind_Reserve_InfoCollection.get().then(res=>{
-      this.setData({
-        Mind_Reserve_Info:res.data
-      })
-    })
+    // Mind_Reserve_InfoCollection.get().then(res=>{
+    //   this.setData({
+    //     Mind_Reserve_Info:res.data
+    //   })
+    // })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -26,7 +26,21 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    var that=this;
+    wx.request({
+      url: 'https://flxdu.cn/api/db?sql=SELECT * FROM book',//服务器地址
+      method:"GET",
+      data:{},//有参数需传给后台需在这里定义
+      header:{//设置请求的header
+        'content-type':'aplication/json'
+      },
+      success:function(res){
+        // console.log(res.data)
+        that.setData({
+          postList:res.data,
+        })
+      }
+    })
   },
 
   /**
@@ -47,33 +61,33 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    Mind_Reserve_InfoCollection.get().then(res=>{
-      this.setData({
-        Mind_Reserve_Info:res.data
-      },res=>{
-        console.log("数据更新完成")
-        wx.stopPullDownRefresh()
-      })
-    })
+    // Mind_Reserve_InfoCollection.get().then(res=>{
+    //   this.setData({
+    //     Mind_Reserve_Info:res.data
+    //   },res=>{
+    //     console.log("数据更新完成")
+    //     wx.stopPullDownRefresh()
+    //   })
+    // })
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    console.log("触底啦~")
-    let page=this.data.page+20;
-    Mind_Reserve_InfoCollection.skip(page).get().then(res=>{
-      let new_data=res.data
-      let old_data=this.data.Mind_Reserve_Info
-      this.setData({
-        Mind_Reserve_Info:old_data.concat(new_data),
-        page:page
-      },res=>{
-        console.log(res);
-      }
-      )
-    })
+    // console.log("触底啦~")
+    // let page=this.data.page+20;
+    // Mind_Reserve_InfoCollection.skip(page).get().then(res=>{
+    //   let new_data=res.data
+    //   let old_data=this.data.Mind_Reserve_Info
+    //   this.setData({
+    //     Mind_Reserve_Info:old_data.concat(new_data),
+    //     page:page
+    //   },res=>{
+    //     console.log(res);
+    //   }
+    //   )
+    // })
   },
 
   /**
