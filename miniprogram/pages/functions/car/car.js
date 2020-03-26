@@ -1,24 +1,6 @@
-const DB = wx.cloud.database()
-const Car_Launch_InfoCollection=DB.collection("Car_Launch_Info")
 const app = getApp()
 Page({
-  getData(){
-    let that=this
-    wx.cloud.database().collection("Car_Launch_Info").get({
-      success(res){
-        console.log("请求成功",res),
-        that.setData({
-          items:res.data
-        })
-      },
-      fail(res){
-        console.log("请求失败",res)
-      }
-    })
-  },
   data: {
-    items:[
-    ],
     page:0
   },
   ToCar: function(e) {
@@ -43,12 +25,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    Car_Launch_InfoCollection.get().then(res=>{
-      // console.log(res)
-      this.setData({
-        Car_Launch_Info:res.data
-      })
-    })
+    wx.request({
+      url: app.globalData.apiUrl + '/api/db',
+      // data: { sql:"DROP TABLE Car_Launch_Info"},
+      data: { 
+        sql:"CREATE TABLE Car_ Launch_ Info(start char( 20),end char(20), time char(10),user_ name char(20),sex char(5),tel int(5),people_ num int,tips char(50))"
+      },
+      success(res) {
+        if (res.statusCode == 200)
+          console.log('Create successfully', app.globalData.apiUrl + '/api/ping', res.statusCode, res.data)
+      }
+     })
   },
 
   /**
@@ -62,7 +49,21 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    // var that=this;
+    // wx.request({
+    //   url: 'https://flxdu.cn/api/db?sql=SELECT * FROM book',//服务器地址
+    //   method:"GET",
+    //   data:{},//有参数需传给后台需在这里定义
+    //   header:{//设置请求的header
+    //     'content-type':'aplication/json'
+    //   },
+    //   success:function(res){
+    //     console.log(res.data)
+    //     // that.setData({
+    //     //   postList:res.data,
+    //     // })
+    //   }
+    // })
   },
 
   /**
@@ -83,33 +84,33 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    Car_Launch_InfoCollection.get().then(res=>{
-      this.setData({
-        Car_Launch_Info:res.data
-      },res=>{
-        console.log("数据更新完成")
-        wx.stopPullDownRefresh()
-      })
-    })
+    // Car_Launch_InfoCollection.get().then(res=>{
+    //   this.setData({
+    //     Car_Launch_Info:res.data
+    //   },res=>{
+    //     console.log("数据更新完成")
+    //     wx.stopPullDownRefresh()
+    //   })
+    // })
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    console.log("触底啦~")
-    let page=this.data.page+20;
-    Car_Launch_InfoCollection.skip(page).get().then(res=>{
-      let new_data=res.data
-      let old_data=this.data.Car_Launch_Info
-      this.setData({
-        Car_Launch_Info:old_data.concat(new_data),
-        page:page
-      },res=>{
-        console.log(res);
-      }
-      )
-    })
+    // console.log("触底啦~")
+    // let page=this.data.page+20;
+    // Car_Launch_InfoCollection.skip(page).get().then(res=>{
+    //   let new_data=res.data
+    //   let old_data=this.data.Car_Launch_Info
+    //   this.setData({
+    //     Car_Launch_Info:old_data.concat(new_data),
+    //     page:page
+    //   },res=>{
+    //     console.log(res);
+    //   }
+    //   )
+    // })
   },
 
   /**

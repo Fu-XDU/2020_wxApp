@@ -1,4 +1,4 @@
-const DB = wx.cloud.database().collection("Mind_Reserve_Info")
+// const DB = wx.cloud.database().collection("Mind_Reserve_Info")
 Page({
   
   data: {
@@ -32,8 +32,41 @@ Page({
     questionValue:"",
     items:[]
   },
-  submit:function(e){
-    console.log(e)
+  submit: function (e) {
+        wx.request({
+          url: 'https://flxdu.cn/api/db?sql=SELECT * FROM book',
+          header: {
+            "Content-Type": "application/x-www-form-urlencoded"  
+          },  
+          method: "POST",  
+          data: { 
+            // accountValue:this.data.accountValue,
+            // nameValue:this.data.nameValue,
+            // questionValue:this.data.questionValue
+            nameValue: e.detail.value.nameValue, 
+            accountValue: e.detail.value.accountValue, 
+            questionValue: e.detail.value.questionValue
+          },
+          success: function (res) {
+            // console.log(res.data);
+            if (res.data.status == 0) { 
+              wx.showToast({  
+                title: '提交失败！！！',  
+                icon: 'loading',  
+                duration: 1500 
+              })  
+            } else { 
+              wx.showToast({  
+                title: '提交成功！！！',//这里打印出登录成功  
+                icon: 'success',
+                duration: 2000 
+              }),
+              wx.navigateTo({
+                url: '../mind/talk/talk'
+              })
+          }
+        }
+        })
   },
   // 判断学号是否输入有误
   handleaccountinput:function(e){
@@ -109,25 +142,25 @@ Page({
     console.log('用户进入论坛页面')
   },
   
-  reserved_to_talk: function(e) {
-    wx.navigateTo({
-      url: '../mind/talk/talk'
-    }),
-     //预约
-    DB.add({
-      data:{
-        accountValue:this.data.accountValue,
-        nameValue:this.data.nameValue,
-        questionValue:this.data.questionValue
-      },
-    success(res){
-      console.log("suc",res)
-    },
-    fail(res){
-      console.log("fail",res)
-    }
-    })
-  },
+  // reserved_to_talk: function(e) {
+  //   wx.navigateTo({
+  //     url: '../mind/talk/talk'
+  //   }),
+  //    //预约
+  //   DB.add({
+  //     data:{
+  //       accountValue:this.data.accountValue,
+  //       nameValue:this.data.nameValue,
+  //       questionValue:this.data.questionValue
+  //     },
+  //   success(res){
+  //     console.log("suc",res)
+  //   },
+  //   fail(res){
+  //     console.log("fail",res)
+  //   }
+  //   })
+  // },
  
   /**
    * 生命周期函数--监听页面加载
