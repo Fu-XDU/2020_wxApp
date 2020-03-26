@@ -51,7 +51,8 @@ Page({
     })
     wx.request({
       url: app.globalData.apiUrl + '/api/db',
-      data: { sql:"SELECT * FROM book"},
+      data: {
+        sql:"INSERT INTO book VALUES('aha language','fuming')"},
       success(res) {
         if (res.statusCode == 200)
           console.log('Get', app.globalData.apiUrl + '/api/ping', res.statusCode, res.data)
