@@ -31,31 +31,31 @@ Page({
     // var info=e.detail.value;
     console.log(e.detail.value),
       console.log('INSERT INTO Car_Launch_Info VALUES(' + "'" + e.detail.value.start + "'" + ',' + "'" + e.detail.value.end + "'" + ',' + "'" + e.detail.value.time + "'" + ',' + "'" + e.detail.value.user_name + "'" + ',' + "'" + e.detail.value.sex + "'" + ',' + "'" + e.detail.value.tel + "'" + ',' + "'" + '123' + "'" + ',' + "'" + e.detail.value.tips + "'" + ')')
-      wx.request({
-        url: app.globalData.apiUrl + '/api/db',
-        data: {
-          sql: 'INSERT INTO Car_Launch_Info VALUES(' + "'" + e.detail.value.start + "'" + ',' + "'" + e.detail.value.end + "'" + ',' + "'" + e.detail.value.time + "'" + ',' + "'" + e.detail.value.user_name + "'" + ',' + "'" + e.detail.value.sex + "'" + ',' + "'" + e.detail.value.tel + "'" + ',' + "'" + '123' + "'" + ',' + "'" + e.detail.value.tips + "'" + ')'
-          //123是e.detail.value.people_num,需要加上，代码里面没有
-        },
-        success(res) {
-          if (res.data == '操作成功！') {
-            wx.showToast({
-              title: '提交成功！！！', //这里打印出登录成功  
-              icon: 'success',
-              duration: 2000
-            })
-            wx.navigateTo({
-              url: '/pages/functions/car/car'
-            })
-          } else {
-            wx.showToast({
-              title: '提交失败！！！',
-              icon:'none',
-              duration: 1500,
-            })
-          }
+    wx.request({
+      url: app.globalData.apiUrl + '/api/db',
+      data: {
+        sql: 'INSERT INTO Car_Launch_Info VALUES(' + "'" + e.detail.value.start + "'" + ',' + "'" + e.detail.value.end + "'" + ',' + "'" + e.detail.value.time + "'" + ',' + "'" + e.detail.value.user_name + "'" + ',' + "'" + e.detail.value.sex + "'" + ',' + "'" + e.detail.value.tel + "'" + ',' + "'" + '123' + "'" + ',' + "'" + e.detail.value.tips + "'" + ')'
+        //123是e.detail.value.people_num,需要加上，代码里面没有
+      },
+      success(res) {
+        if (res.data == '操作成功！') {
+          wx.showToast({
+            title: '提交成功！！！', //这里打印出登录成功  
+            icon: 'success',
+            duration: 2000
+          })
+          wx.navigateTo({
+            url: '/pages/functions/car/car'
+          })
+        } else {
+          wx.showToast({
+            title: '提交失败！！！',
+            icon: 'none',
+            duration: 1500,
+          })
         }
-      })
+      }
+    })
   },
   handle_people_num: function(e) {
     let people_num = e.detail.value
@@ -132,7 +132,7 @@ Page({
       days.push(this.getNextDate(new Date(), i))
     this.setData({
       multiArray: [days, hours, minutes],
-      multiIndex: [0, date.getMinutes() > 55 ? (date.getHours()+1)%24 : date.getHours(), (5 + date.getMinutes() - date.getMinutes() % 5) / 5]
+      multiIndex: [date.getHours() == 23 && date.getMinutes() >= 55 ? 1:0, date.getMinutes() >= 55 ? (date.getHours() + 1) % 24 : date.getHours(), (5 + date.getMinutes() - date.getMinutes() % 5) / 5]
     })
   },
   /*
@@ -145,6 +145,6 @@ Page({
     console.log('用户选择出发时间:', this.data.time)
   },
   onLoad: function() {
-    this.getDate();//触发获取日期选择器数据
+    this.getDate(); //触发获取日期选择器数据
   }
 })
