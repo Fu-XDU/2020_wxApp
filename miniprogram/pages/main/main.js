@@ -49,15 +49,6 @@ Page({
           console.log('Get', app.globalData.apiUrl + '/api/ping', res.statusCode, res.data)
       }
     })
-    wx.request({
-      url: app.globalData.apiUrl + '/api/db',
-      data: {
-        sql:"INSERT INTO book VALUES('aha language','fuming')"},
-      success(res) {
-        if (res.statusCode == 200)
-          console.log('Get', app.globalData.apiUrl + '/api/ping', res.statusCode, res.data)
-      }
-    })
   },
   getUserInfo: function(e) {
     console.log(e)
@@ -88,9 +79,8 @@ Page({
   },
   ToBaoguo: function(e) {
     wx.navigateTo({
-      url: '../functions/express/express'
+      url: '../functions/express/exp_main/exp_main'
     })
     console.log('用户进入快递取件界面')
   },
 })
-//2222222

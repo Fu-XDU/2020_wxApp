@@ -1,0 +1,3 @@
+<!--miniprogram/pages/functions/express/exp_main/exp_main.wxml-->
+<button bindtap="toOrder">下单</button>
+<button bindtap="toReceipt">接单</button>

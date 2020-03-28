@@ -4,7 +4,6 @@
     "pages/functions/car/car",
     "pages/functions/mind/mind",
     "pages/logs/logs",
-    "pages/functions/express/express",
     "pages/functions/menu/menu",
     "pages/functions/car/set/set",
     "pages/functions/car/mine/mine",
@@ -15,7 +14,10 @@
     "pages/functions/mind/search/search",
     "pages/functions/car/Search/Search",
     "pages/functions/car/all_info/all_info",
-    "pages/functions/car/myReserved/myReserved"
+    "pages/functions/car/myReserved/myReserved",
+    "pages/functions/express/exp_main/exp_main",
+    "pages/functions/express/exp_order/exp_order",
+    "pages/functions/express/exp_receipt/exp_receipt"
   ],
   "window": {
     "backgroundTextStyle": "light",
