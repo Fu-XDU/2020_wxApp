@@ -39,7 +39,7 @@
     <input name="questionValue" class="account" placeholder="请输入您的问题" bindinput="handle_Question_input"></input>
   </view>
   <view class="form_item">
-    <button type="primary" class="reserve_button" form-type="submit" disabled="{{!can_reserve}}" bindtap="reserved_to_talk" >我 要 预 约</button>
+    <button type="primary" class="reserve_button" form-type="submit" disabled="{{!can_reserve}}">我 要 预 约</button>
   </view>
   <!-- bindtap="reserved_to_talk" -->
 </form>
