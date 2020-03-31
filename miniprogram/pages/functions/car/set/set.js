@@ -47,14 +47,15 @@ Page({
           wx.navigateTo({
             url: '/pages/functions/car/car'
           })
-        } else {
+        }
+     else {
           wx.showToast({
             title: '提交失败！！！',
             icon: 'none',
             duration: 1500,
           })
         }
-      }
+     }
     })
   },
   handle_people_num: function(e) {
