@@ -137,18 +137,18 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.request({
-      url: app.globalData.apiUrl + '/api/db',
-      // data: { sql:"DROP TABLE Car_Launch_Info"},
-      data: { 
-        sql:"CREATE TABLE Mind_Reserve_Info(accountValue int(15),nameValue char(20),pickerValue int(3),questionValue char(50))"
-      },
-      success(res) {
-        if (res.data == '操作成功！')
-          console.log('Create successfully', app.globalData.apiUrl + '/api/db', res.statusCode, res.data)
-        else console.log(res.data);
-      }
-     })
+    // wx.request({
+    //   url: app.globalData.apiUrl + '/api/db',
+    //   // data: { sql:"DROP TABLE Mind_Reserve_Info"},
+    //   data: { 
+    //     sql:"CREATE TABLE Mind_Reserve_Info(accountValue int(5),nameValue char(20),pickerValue int(3),questionValue char(50))"
+    //   },
+    //   success(res) {
+    //     if (res.data == '操作成功！')
+    //       console.log('Create successfully', app.globalData.apiUrl + '/api/db', res.statusCode, res.data)
+    //     else console.log(res.data);
+    //   }
+    //  })
   },
   
 
