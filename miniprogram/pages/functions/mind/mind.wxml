@@ -28,7 +28,7 @@
     <view class="section__title">
       <text class="iconfont icon-zhuanyeyukecheng"></text>
     </view>
-    <picker name="pickerValue" bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+    <picker name="pickerValue" bindchange="bindPickerChange" value="{{major}}" range="{{array}}">
     <view class="zhuanyeyukecheng">
       {{array[index]}}
     </view>

@@ -31,7 +31,7 @@ Page({
     accountValue:"",
     nameValue:"",
     questionValue:"",
-    items:[]
+    major:""
   },
   // 判断学号是否输入有误
   handleaccountinput:function(e){
@@ -65,10 +65,13 @@ Page({
   },
   // 预约时选择专业
   bindPickerChange: function(e) {
+    // console.log(e)
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
-      index: e.detail.value
+      index: e.detail.value,
+      major:this.data.array[e.detail.value]
     })
+    // console.log(this.data.array[this.data.index])
   },
   ToHome: function(e) {
     wx.navigateTo({
@@ -109,27 +112,27 @@ Page({
   
   submit: function(e) {
     console.log(e.detail.value)
-      console.log('INSERT INTO Mind_Reserve_Info VALUES(' + "'" + e.detail.value.accountValue + "'" + ',' + "'" + e.detail.value.nameValue + "'" + ',' + "'" + e.detail.value.pickerValue + "'" + ',' + "'" + e.detail.value.questionValue + "'"  + ')')
+      console.log('INSERT INTO Mind_Reserve_Info VALUES(' +  "'" + e.detail.value.accountValue + "'"  + ',' + "'" + e.detail.value.nameValue + "'" + ','  + "'" + e.detail.value.pickerValue + "'" + ',' + "'" + e.detail.value.questionValue + "'"  + ')')
     wx.request({
       url: app.globalData.apiUrl + '/api/db',
       data: {
-        sql: 'INSERT INTO Mind_Reserve_Info VALUES(' + "'" + e.detail.value.accountValue + "'" + ',' + "'" + e.detail.value.nameValue + "'" + ',' + "'" + e.detail.value.pickerValue + "'" + ',' + "'" + e.detail.value.questionValue + "'"  + ')'
+        sql: 'INSERT INTO Mind_Reserve_Info VALUES(' + "'" + e.detail.value.accountValue + "'" + ',' + "'" + e.detail.value.nameValue + "'" + ','  + "'" + e.detail.value.pickerValue + "'" + ',' + "'" + e.detail.value.questionValue + "'"  + ')'
       },
       success(res) {
         console.log(res);
-        // if (res.data == '操作成功！') {
-        //   wx.showToast({
-        //     title: '提交成功！！！', //这里打印出登录成功  
-        //     icon: 'success',
-        //     duration: 2000
-        //   })
-        // } else {
-        //   wx.showToast({
-        //     title: '提交失败！！！',
-        //     icon: 'none',
-        //     duration: 1500,
-        //   })
-        // }
+        if (res.data == '操作成功！') {
+          wx.showToast({
+            title: '提交成功！！！', //这里打印出登录成功  
+            icon: 'success',
+            duration: 2000
+          })
+        } else {
+          wx.showToast({
+            title: '提交失败！！！',
+            icon: 'none',
+            duration: 1500,
+          })
+        }
       }
     })
   },
@@ -137,18 +140,19 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // wx.request({
-    //   url: app.globalData.apiUrl + '/api/db',
-    //   // data: { sql:"DROP TABLE Mind_Reserve_Info"},
-    //   data: { 
-    //     sql:"CREATE TABLE Mind_Reserve_Info(accountValue int(5),nameValue char(20),pickerValue int(3),questionValue char(50))"
-    //   },
-    //   success(res) {
-    //     if (res.data == '操作成功！')
-    //       console.log('Create successfully', app.globalData.apiUrl + '/api/db', res.statusCode, res.data)
-    //     else console.log(res.data);
-    //   }
-    //  })
+    wx.request({
+      url: app.globalData.apiUrl + '/api/db',
+      // data: { sql:"DROP TABLE Mind_Reserve_Info"},
+      data: { 
+        sql:"CREATE TABLE Mind_Reserve_Info(Stu_id varchar(15),name varchar(20),major varchar(10),problem varchar(50))"
+      },
+      success(res) {
+        if (res.data == '操作成功！')
+          // console.log('suc')
+          console.log('Create successfully', app.globalData.apiUrl + '/api/db', res.statusCode, res.data)
+        else console.log(res.data);
+      }
+     })
   },
   
 
