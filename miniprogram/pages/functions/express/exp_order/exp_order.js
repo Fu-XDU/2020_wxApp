@@ -100,7 +100,7 @@ Page({
         util.httpsGet("/api/db?sql=INSERT INTO Exp_Orders(name, phone, dormitory, dormitoryid, delivery_station, delivery_code, size, weight, remarks, state, order_time, order_number, openid)VALUES(\"" + this.data.name + '","' + this.data.phone + '","' + this.data.dormitory + '","' +
           this.data.dormitoryid + '","' + this.data.delivery_station + '","' + this.data.delivery_code + '","' + this.data.size + '","' + this.data.weight + '","' + this.data.remarks + '","' + this.data.state + '","' + this.data.order_time + '","' + this.data.order_number + '","' + app.globalData.openid + '")').then((res) => {
           console.log("订单提交成功", res)
-          wx.redirectTo({
+            wx.redirectTo({
             url: '../exp_orderSuccess/exp_orderSuccess'
           })
         }).catch((err) => {
