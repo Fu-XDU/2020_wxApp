@@ -49,6 +49,25 @@
 					"pathName": "pages/functions/express/exp_main/exp_main",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/functions/mind/mind",
+					"pathName": "pages/functions/mind/mind",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/functions/express/exp_order/exp_order",
+					"pathName": "pages/functions/express/exp_order/exp_order",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/main/main",
+					"pathName": "pages/main/main",
+					"scene": null
 				}
 			]
 		}
