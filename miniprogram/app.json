@@ -18,7 +18,10 @@
     "pages/functions/express/exp_main/exp_main",
     "pages/functions/express/exp_order/exp_order",
     "pages/functions/express/exp_receipt/exp_receipt",
-    "pages/functions/express/exp_orderSuccess/exp_orderSuccess"
+    "pages/functions/express/exp_orderSuccess/exp_orderSuccess",
+    "pages/functions/menu/menu_zhuyuan/menu_zhuyaun",
+    "pages/functions/menu/menu_haitang/menu_haitang",
+    "pages/functions/menu/menu_dingxiang/menu_dingxiang"
   ],
   "window": {
     "backgroundTextStyle": "light",

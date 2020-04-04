@@ -1,5 +1,5 @@
 <!--pages/menu/menu.wxml-->
 <text class="top">欢迎浏览</text>
-<button>竹园</button>
-<button>海棠</button>
-<button>丁香</button>
+<button bindtap="ToZhuyuan">竹园</button>
+<button bindtap="ToHaitang">海棠</button>
+<button bindtap="ToDingxiang">丁香</button>
