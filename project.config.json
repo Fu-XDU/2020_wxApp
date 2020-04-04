@@ -1,16 +1,42 @@
 {
-	"miniprogramRoot": "miniprogram/",
-	"cloudfunctionRoot": "cloudfunctions/",
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
 	"setting": {
 		"urlCheck": true,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
-		"newFeature": true
+		"newFeature": true,
+		"coverView": true,
+		"autoAudits": false,
+		"showShadowRootInWxmlPanel": true,
+		"scopeDataCheck": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": false,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		},
+		"uglifyFileName": true
 	},
+	"compileType": "miniprogram",
+	"libVersion": "2.10.4",
 	"appid": "wxbae8c6ab08f04022",
 	"projectname": "Program1",
-	"libVersion": "2.10.3",
+	"miniprogramRoot": "miniprogram/",
+	"cloudfunctionRoot": "cloudfunctions/",
+	"cloudfunctionTemplateRoot": "",
+	"watchOptions": {
+		"ignore": []
+	},
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"scripts": {},
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
 	"condition": {
@@ -52,7 +78,6 @@
 				},
 				{
 					"id": -1,
-<<<<<<< Updated upstream
 					"name": "pages/functions/mind/mind",
 					"pathName": "pages/functions/mind/mind",
 					"query": "",
@@ -62,14 +87,14 @@
 					"id": -1,
 					"name": "pages/functions/express/exp_order/exp_order",
 					"pathName": "pages/functions/express/exp_order/exp_order",
+					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
-=======
->>>>>>> Stashed changes
 					"name": "pages/main/main",
 					"pathName": "pages/main/main",
+					"query": "",
 					"scene": null
 				}
 			]

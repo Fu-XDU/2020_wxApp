@@ -61,7 +61,6 @@ const login = function () {
       }
     })
   })
-  
 }
 
 module.exports = {
