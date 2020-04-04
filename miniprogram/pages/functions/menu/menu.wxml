@@ -1,2 +1,5 @@
 <!--pages/menu/menu.wxml-->
-<text>pages/menu/menu.wxml</text>
+<text class="top">欢迎浏览</text>
+<button>竹园</button>
+<button>海棠</button>
+<button>丁香</button>

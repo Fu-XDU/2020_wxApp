@@ -52,6 +52,7 @@
 				},
 				{
 					"id": -1,
+<<<<<<< Updated upstream
 					"name": "pages/functions/mind/mind",
 					"pathName": "pages/functions/mind/mind",
 					"query": "",
@@ -65,6 +66,8 @@
 				},
 				{
 					"id": -1,
+=======
+>>>>>>> Stashed changes
 					"name": "pages/main/main",
 					"pathName": "pages/main/main",
 					"scene": null
