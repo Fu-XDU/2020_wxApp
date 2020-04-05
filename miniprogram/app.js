@@ -21,7 +21,7 @@ App({
       console.log("用户登录成功", res)
       _this.globalData.openid = res.result.openid
       util.httpsGet('/api/ping').then((res) => {
-        if (res.statusCode==200)
+        if (res.statusCode == 200)
           console.log("服务器连接成功", res)
         else {
           util.networkError();
@@ -35,7 +35,6 @@ App({
       util.networkError();
     })
   },
-
   globalData: {
     userInfo: null,
     apiUrl: 'https://flxdu.cn',

@@ -11,13 +11,14 @@ Page({
       url: '../logs/logs'
     })
   },
-  onLoad: function () {
-  },
+  onLoad: function () {},
+  onReady: function () {},
   ToCar: function(e) {
     wx.navigateTo({
       url: '../functions/car/car'
     })
     console.log('用户进入拼车界面')
+
   },
   ToMind: function(e) {
     wx.navigateTo({
