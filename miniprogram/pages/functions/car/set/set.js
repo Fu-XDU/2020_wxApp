@@ -22,20 +22,18 @@ Page({
     choose_year: '',
     //判断输入人数是否正确
     isOK: false,
-    people_num: 0,
+    people_num: "",
     //判断约车能否成功
     can_reserve: false,
   },
 
   submit: function(e) {
-    // var info=e.detail.value;
     console.log(e.detail.value),
-      console.log('INSERT INTO Car_Launch_Info VALUES(' + "'" + e.detail.value.start + "'" + ',' + "'" + e.detail.value.end + "'" + ',' + "'" + e.detail.value.time + "'" + ',' + "'" + e.detail.value.user_name + "'" + ',' + "'" + e.detail.value.sex + "'" + ',' + "'" + e.detail.value.tel + "'" + ',' + "'" + '123' + "'" + ',' + "'" + e.detail.value.tips + "'" + ')')
+      console.log('INSERT INTO Car_Launch_Info VALUES(' + "'" + app.globalData.openid + "'" + ',' + "'" + e.detail.value.start + "'" + ',' + "'" + e.detail.value.end + "'" + ',' + "'" + e.detail.value.time + "'" + ',' + "'" + e.detail.value.user_name + "'" + ',' + "'" + e.detail.value.sex + "'" + ',' + e.detail.value.tel + ',' + e.detail.value.people_num + ',' + "'" + e.detail.value.tips + "'" + ')')
     wx.request({
       url: app.globalData.apiUrl + '/api/db',
       data: {
-        sql: 'INSERT INTO Car_Launch_Info VALUES(' + "'" + e.detail.value.start + "'" + ',' + "'" + e.detail.value.end + "'" + ',' + "'" + e.detail.value.time + "'" + ',' + "'" + e.detail.value.user_name + "'" + ',' + "'" + e.detail.value.sex + "'" + ',' + "'" + e.detail.value.tel + "'" + ',' + "'" + '123' + "'" + ',' + "'" + e.detail.value.tips + "'" + ')'
-        //123是e.detail.value.people_num,需要加上，代码里面没有
+        sql: 'INSERT INTO Car_Launch_Info VALUES(' + "'" + app.globalData.openid + "'" + ',' + "'" + e.detail.value.start + "'" + ',' + "'" + e.detail.value.end + "'" + ',' + "'" + e.detail.value.time + "'" + ',' + "'" + e.detail.value.user_name + "'" + ',' + "'" + e.detail.value.sex + "'" + ',' + e.detail.value.tel + ',' + e.detail.value.people_num  + ',' + "'" + e.detail.value.tips + "'" + ')'
       },
       success(res) {
         if (res.data == '操作成功！') {
@@ -61,6 +59,7 @@ Page({
   handle_people_num: function(e) {
     let people_num = e.detail.value
     this.setData({
+      people_num:e.detail.value,
       isOK: people_num >= 1
     })
   },

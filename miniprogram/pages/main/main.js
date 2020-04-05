@@ -1,7 +1,6 @@
 //index.js
 //获取应用实例
 const app = getApp()
-
 Page({
   data: {
     userInfo: {},
@@ -44,6 +43,7 @@ Page({
     wx.request({
       url: app.globalData.apiUrl + '/api/ping',
       data: {},
+      
       success(res) {
         if (res.statusCode == 200)
           console.log('Get', app.globalData.apiUrl + '/api/ping', res.statusCode, res.data)
@@ -57,7 +57,6 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
-
   },
   ToCar: function(e) {
     wx.navigateTo({

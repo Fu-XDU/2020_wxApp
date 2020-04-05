@@ -1,7 +1,8 @@
 {
   "pages": [
+   "pages/functions/car/car",
     "pages/main/main",
-    "pages/functions/car/car",
+    
     "pages/functions/mind/mind",
     "pages/logs/logs",
     "pages/functions/menu/menu",
@@ -12,7 +13,7 @@
     "pages/functions/mind/introductions/introductions",
     "pages/functions/mind/guide/guide",
     "pages/functions/mind/search/search",
-    "pages/functions/car/Search/Search",
+     "pages/functions/car/Search/Search",
     "pages/functions/car/all_info/all_info",
     "pages/functions/car/myReserved/myReserved",
     "pages/functions/express/exp_main/exp_main",

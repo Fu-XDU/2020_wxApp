@@ -1,13 +1,34 @@
-// miniprogram/pages/functions/car/Search/Search.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    search_input:""
   },
 
+  handle_search_input:function(e){
+    // console.log(e.detail.value)
+    this.setData({
+      search_input:e.detail.value
+    })
+  },
+
+  submit:function(e){
+    console.log(e.detail.value)
+    console.log('select * from Car_Launch_Info where start=' + e.detail.value)
+    wx.request({
+      url: app.globalData.apiUrl + '/api/db',
+      data:{
+        sql:'select * from Car_Launch_Info where start="' + e.detail.value+ '"'
+      },
+      //or end='e.detail.value' or user_name='e.detail.value'
+      success(res){
+        console.log(res)
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

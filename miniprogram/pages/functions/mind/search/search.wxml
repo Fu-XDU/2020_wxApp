@@ -1,4 +1,6 @@
 <view class="search_bar">
-  <input placeholder="请输入关键字" name="search_input" bindinput="handle_search"></input>
+  <form bindsubmit="submit">
+    <input placeholder="请输入关键字" bindinput="handle_search_input" value="{{search_input}}" name="search_input"></input>
+    <button form-type="submit">查询</button>
+  </form>
 </view>
-
