@@ -37,7 +37,10 @@
     "pages/myBudgets/myBudgets",
     "pages/newBudget/newBudget",
     "pages/newBudget/newBudgetSucceed/newBudgetSucceed",
-    "pages/income/income"
+    "pages/income/income",
+    "pages/expenditure/expenditure",
+    "pages/transaction/transaction",
+    "pages/history/history"
   ],
   "window": {
     "backgroundTextStyle": "light",

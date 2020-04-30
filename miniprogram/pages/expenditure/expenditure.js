@@ -1,4 +1,4 @@
-// miniprogram/pages/income/income.js
+/* miniprogram/pages/expenditure/expenditure.js */
 const app = getApp()
 const util = require("../../utils/util.js")
 Page({
@@ -8,7 +8,7 @@ Page({
    */
   data: {
     data: null,
-    income: 0,
+    expenditure: 0,
     remarks: null,
     remarkindex: 1,
     remarkinput: null,
@@ -18,38 +18,38 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function (options) {
     this.setData({
       data: app.globalData.userData[options.name],
       remarks: app.globalData.remarks
     })
     //sconsole.log(this.data.data)
   },
-  bindPickerChange: function(e) {
+  bindPickerChange: function (e) {
     if (e.target.id == "remarks") {
       this.setData({
         remarkindex: e.detail.value,
       })
     }
   },
-  handleInput: function(e) {
+  handleInput: function (e) {
     if (e.target.id == "remarks") {
       this.setData({
         remarkinput: e.detail.value,
       })
-    } else if (e.target.id == "income") {
+    } else if (e.target.id == "expenditure") {
       this.setData({
-        income: Number(e.detail.value),
+        expenditure: Number(e.detail.value),
       })
     }
   },
-  checkForm: function() {
+  checkForm: function () {
     var _this = this
     return new Promise((resolve, reject) => {
-      if (_this.data.income == 0) {
+      if (_this.data.expenditure == 0) {
         wx.showModal({
           title: '提示',
-          content: '收入为0！',
+          content: '支出为0！',
           showCancel: false
         })
         reject();
@@ -73,36 +73,36 @@ Page({
       }
     })
   },
-  submit: function() {
+  submit: function () {
     this.checkForm().then((res) => {
       var remarkstosubmit = "";
       if (this.data.remarkindex > 0) remarkstosubmit = this.data.remarks[this.data.remarkindex]
       else if (!!remarkinput) remarkstosubmit = this.data.remarkinput
       util.getHttpTime("yyyy-MM-dd").then((time) => {
-        util.httpsGet("db?sql=INSERT INTO " + app.globalData.openid + "history" + this.data.data.id + "" + "(" + this.data.income+""+"name, nameid, value, time, remarks)VALUES(\"" + this.data.data.name + '",' + this.data.data.id + ',' + this.data.income + ',"' +
-          time + '","' + remarkstosubmit + '")_AddIncome').then((res) => {
-          if (res.data == '1') {
-            console.log("收入提交成功", res.data)
-            wx.showModal({
-              title: '提示',
-              content: '收入添加成功',
-              showCancel: false,
-              success(res) {
-                if (res.confirm) {
-                  wx.reLaunch({
-                    url: '../main/main'
-                  })
+        util.httpsGet("db?sql=INSERT INTO " + app.globalData.openid + "history" + this.data.data.id + "" + "(-" + this.data.expenditure + "" + "name, nameid, value, time, remarks)VALUES(\"" + this.data.data.name + '",' + this.data.data.id + ',-' + this.data.expenditure + ',"' +
+          time + '","' + remarkstosubmit + '")_AddExpenditure').then((res) => {
+            if (res.data == '1') {
+              console.log("支出提交成功", res.data)
+              wx.showModal({
+                title: '提示',
+                content: '支出添加成功',
+                showCancel: false,
+                success(res) {
+                  if (res.confirm) {
+                    wx.reLaunch({
+                      url: '../main/main'
+                    })
+                  }
                 }
-              }
-            })
-          } else {
-            console.error("收入提交失败", res.data)
+              })
+            } else {
+              console.error("支出提交失败", res.data)
+              util.networkError();
+            }
+          }).catch((err) => {
+            console.error("支出提交失败", err)
             util.networkError();
-          }
-        }).catch((err) => {
-          console.error("收入提交失败", err)
-          util.networkError();
-        })
+          })
       })
     })
 
@@ -110,49 +110,49 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function() {
+  onReady: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
+  onShow: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function() {
+  onHide: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function() {
+  onUnload: function () {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function() {
+  onPullDownRefresh: function () {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function() {
+  onReachBottom: function () {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
+  onShareAppMessage: function () {
 
   }
 })

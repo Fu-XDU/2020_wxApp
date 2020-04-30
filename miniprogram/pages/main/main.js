@@ -55,7 +55,7 @@ Page({
           currentDataName: app.globalData.userData[this.data.dataKey[++this.data.currentDataIndex]].name
         })
       }
-    } else if (e.target.id == "previous"){
+    } else if (e.target.id == "previous") {
       if (this.data.currentDataIndex == 0) {
         console.log("没有上个一个预算了")
       } else {
@@ -65,15 +65,20 @@ Page({
       }
     }
   },
-  tomyBudgets: function(e) {
+  navigate: function(e) {
+    var url = null;
+    if (e.target.id == "myBudgets")
+      url = '../myBudgets/myBudgets'
+    else if (e.target.id == "income")
+      url = "../income/income?name=" + this.data.currentDataName
+    else if (e.target.id == "expenditure")
+      url = "../expenditure/expenditure?name=" + this.data.currentDataName
+    else if (e.target.id == "transaction")
+      url = "../transaction/transaction?name=" + this.data.currentDataName
+    else if (e.target.id == "history")
+      url = '../history/history?name=' + this.data.currentDataName
     wx.navigateTo({
-      url: '../myBudgets/myBudgets'
+      url: url
     })
   },
-  toIncome: function(e) {
-    wx.navigateTo({
-      url: "../income/income?name=" + this.data.currentDataName
-    });
-  },
-
 })
