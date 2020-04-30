@@ -3,7 +3,8 @@
 <view>预算币种:{{currencyType[data[currentDataName].currency]}}</view>
 <view>预算类型:{{dataType[data[currentDataName].dataType]}}</view>
 <view>剩余天数:{{data[currentDataName].remaindays}}</view>
-<view>今日剩余:{{data[currentDataName].todayleft}}</view>
+<view>今日剩余:{{data[currentDataName].todayleft}}</view> 
+ <!-- 222 -->
 <button bindtap="tomyBudgets">我的预算</button>
 <button bindtap="toIncome">收入</button>
 <button>支出</button>
