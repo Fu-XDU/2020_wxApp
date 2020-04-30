@@ -23,6 +23,7 @@ Page({
       data: app.globalData.userData[options.name],
       remarks: app.globalData.remarks
     })
+    console.log(this.data.data)
   },
   bindPickerChange: function(e) {
     if (e.target.id == "remarks") {
