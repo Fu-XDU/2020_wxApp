@@ -17,6 +17,6 @@
 </picker>
 <input placeholder="预算金额" value="{{total}}" bindinput="handleInput" maxlength="15" type="digit" id="total"> </input>
 <input wx:if="{{total>0}}" placeholder="剩余资金" value="{{balance}}" bindinput="handleInput" maxlength="15" type="digit" id="balance"> </input>
-<picker mode="selector" bindchange="bindPickerChange" value="{{rolloverindex}}" range="{{rolloverboxes}}" id="rollover">滚存：{{rolloverboxes[rolloverindex]}}
+<picker wx:if="{{typeindex != 2}}" mode="selector" bindchange="bindPickerChange" value="{{rolloverindex}}" range="{{rolloverboxes}}" id="rollover">滚存：{{rolloverboxes[rolloverindex]}}
 </picker>
 <button bindtap="submitForm">提交</button>

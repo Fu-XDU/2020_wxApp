@@ -80,7 +80,6 @@ Page({
         wx.redirectTo({
           url: './newBudgetSucceed/newBudgetSucceed'
         })
-        
       } else {
         console.error("预算提交失败", res)
         util.networkError();
@@ -119,6 +118,7 @@ Page({
         this.data.beginTime = Number(this.data.beginTimeindex) + 1
         this.submitToDb()
       } else {
+        this.data.rolloverindex = 1
         this.submitToDb()
       }
     })

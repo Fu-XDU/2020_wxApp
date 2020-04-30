@@ -26,8 +26,8 @@ Page({
       this.data.leftdata.push(key)
       this.data.todayleft.push(this.data.budgets[key].todayleft)
       this.data.totalleft.push(this.data.budgets[key].balance)
-      this.data.todayspent.push(1234)
-      this.data.totalspent.push(this.data.budgets[key].total - this.data.budgets[key].balance)
+      this.data.todayspent.push(this.data.budgets[key].todaypay)
+      this.data.totalspent.push(this.data.budgets[key].totalpay)
     }
     this.setData({
       leftdata: this.data.leftdata

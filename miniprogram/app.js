@@ -35,7 +35,6 @@ App({
                 for (var i = 0; i < res.data.length; ++i) {
                   _this.globalData.userData[res.data[i].name] = res.data[i]
                   _this.globalData.userData[res.data[i].name].history = []
-                  _this.globalData.userData[res.data[i].name].todayleft = Math.floor((_this.globalData.userData[res.data[i].name].balance / (_this.globalData.userData[res.data[i].name].remaindays == 0 ? 1 : _this.globalData.userData[res.data[i].name].remaindays)) * (_this.globalData.userData[res.data[i].name].remaindays == 0 ? 0 : 100)) / 100;
                 }
                 this.tableCallback(_this.globalData.registered);
                 util.httpsGet('db?sql=select name,nameid,peer,peerid,time,value from ' + _this.globalData.openid + 'history').then((res) => {
@@ -75,6 +74,7 @@ App({
     dataType: ["每月", "每周", "一次性"],
     historyType: ["收入", "支出"],
     currencyType: ["RMB"],
+    remarks: ['手动输入','书籍和杂志', '衣服', '化妆品', '偿还债务', '饮料和小吃', '外出就餐', '娱乐', '食品', '燃油', '一般', '礼物', '假期！', '家庭用品', '儿童', '药物', '音乐', '房租', '购物', '体育运动', '交通', '公共设施账单'],
     //如果用户没注册 就用这个
     userData: {
       "unregistered": {
