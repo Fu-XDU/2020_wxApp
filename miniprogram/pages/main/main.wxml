@@ -1,0 +1,13 @@
+<view>预算名称:{{data[currentDataName].name}}</view>
+<view>预算余额:{{data[currentDataName].balance}}</view>
+<view>预算币种:{{currencyType[data[currentDataName].currency]}}</view>
+<view>预算类型:{{dataType[data[currentDataName].dataType]}}</view>
+<view>剩余天数:{{data[currentDataName].remaindays}}</view>
+<view>今日剩余:{{data[currentDataName].todayleft}}</view>
+<button bindtap="tomyBudgets">我的预算</button>
+<button bindtap="toIncome">收入</button>
+<button>支出</button>
+<button>转账</button>
+<button>{{data[currentDataName].name}}历史</button>
+<button bindtap="sideBudget" id="previous">上一个预算</button>
+<button bindtap="sideBudget" id="next">下一个预算</button>

@@ -1,0 +1,15 @@
+<view class="car_info_card">
+  <block wx:for="{{my_info}}" wx:key="index">
+    <view class="car">
+      <view class="info_place">
+        <view>{{item.start}} TO {{item.end}}</view>
+        <view>时间：{{item.time}}</view>
+      </view>
+      <view class="info_user">
+        <view>姓名：{{item.user_name}}</view>
+        <view>备注：{{item.tips}}</view>
+        <button size="mini" classs="btn">取消约车</button>
+      </view>
+    </view>
+  </block>
+</view>

@@ -1,0 +1,13 @@
+<block wx:for="{{car_infomation}}" wx:key="index">
+<view class="car">
+  <view class="info_place">
+    <view>{{item.start}} TO {{item.end}}</view>
+    <view>时间：{{item.time}}</view>
+  </view>
+  <view class="info_user">
+    <view>姓名：{{item.user_name}}</view>
+    <view>备注：{{item.tips}}</view>
+    <button size="mini" classs="btn">约TA</button>
+  </view>
+</view>
+</block>

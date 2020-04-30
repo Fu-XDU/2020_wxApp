@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "case":"/components/case/case"
+  },
+  "navigationBarTitleText": "搜索"
+}

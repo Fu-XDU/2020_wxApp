@@ -1,0 +1,11 @@
+<view class="content title_cls">
+  <sorted_bar id="sp-sb" titleItems="{{titleItems}}" bind:selectChange="handle_selectChange"/>
+    <swiper circular class="container" current="{{current_index}}" bindchange="handle_change">
+    <block wx:for="{{titleItems}}" wx:key="index">
+    <swiper-item>
+        <slot name="{{index}}"/>
+      </swiper-item>
+    </block>
+    </swiper>
+    <slot></slot>
+ </view>

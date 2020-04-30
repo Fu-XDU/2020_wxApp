@@ -1,0 +1,3 @@
+<button bindtap="ToFloor1">一楼</button>
+<button bindtap="ToFloor2">二楼</button>
+<button bindtap="ToFloor3">三楼</button>

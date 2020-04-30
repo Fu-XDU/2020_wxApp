@@ -1,0 +1,76 @@
+<!--miniprogram/pages/functions/express/exp_receipt_order_detail/exp_receipt_order_detail.wxml-->
+<view class="page">
+  <view class="content">
+    <view class="detail">
+      <view>
+        <view class="code">取件码</view>
+        <view class="kdcode" wx:if="{{order.delivery_code}}">{{order.delivery_code}}</view>
+        <view class="kdcode" wx:else>*-*-***</view>
+      </view>
+      <view wx:if="{{order.name}}">
+        <text class="title">姓名：</text>
+        <text>{{order.name}}</text>
+      </view>
+      <view>
+        <text class="title">站点：</text>
+        <text>{{order.delivery_station}}</text>
+      </view>
+      <view>
+        <text class="title">送至：</text>
+        <text>{{order.dormitory}} {{order.dormitoryid}}</text>
+      </view>
+      <view>
+        <text class="title">大小：</text>
+        <text>{{order.size}}</text>
+      </view>
+      <view>
+        <text class="title">重量：</text>
+        <text>{{order.weight}}</text>
+      </view>
+      <view wx:if="{{order.phone}}">
+        <text class="title">电话：</text>
+        <text>{{order.phone}}</text>
+        <text bindtap="call" class="call">打电话</text>
+      </view>
+      <view>
+        <text class="title">发布时间：</text>
+        <text>{{order.order_time}}</text>
+      </view>
+      <view wx:if="{{order.school}}">
+        <text class="title">学校：</text>
+        <text>{{order.school}}</text>
+      </view>
+    </view>
+    <view class="detail2">
+      <view class="mone">
+        <view class="money">
+          <text>赏金</text>
+          <text class="num">{{order.money}}</text>
+          <text>元</text>
+        </view>
+      </view>
+      <view class="notes">
+        <text class="title2">备注：</text>
+        <text>{{order.remarks}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="footer">
+    <view wx:if="{{order.state=='0'}}">
+      <button bindtap="receiveOrder" class="button">接单</button>
+    </view>
+    <view wx:elif="{{order.state=='1'}}">
+      <text class="post_status">已取件</text>
+      <icon class="icon" color="#ddd" size="40rpx" type="success"></icon>
+    </view>
+    <view wx:elif="{{order.state=='2'}}">
+      <text class="post_status">已送达</text>
+      <icon class="icon" color="#f66" size="40rpx" type="success"></icon>
+    </view>
+    <view wx:elif="{{order.state=='3'}}">
+      <text class="post_status">已取消</text>
+      <icon bindtap="haveTaken" class="icon" color="#ddd" size="40rpx" type="success"></icon>
+      <button bindtap="haveTaken" class="button">已取消</button>
+    </view>
+  </view>
+</view>

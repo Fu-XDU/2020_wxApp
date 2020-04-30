@@ -1,0 +1,15 @@
+<!--pages/functions/express/exp_order/exp_order.wxml-->
+<text>pages/functions/express/exp_order/exp_order.wxml</text>
+<input placeholder="姓名" value="{{name}}" bindinput="handle_name_input" maxlength="30"></input>
+<input placeholder="电话" value="{{phone}}" bindinput="handle_phone_input" type="number" maxlength="11"></input>
+<picker mode="selector" bindchange="bindDormitoriesPickerChange" value="{{dormitory_index}}" range="{{dormitories_list}}">宿舍楼：{{dormitories_list[dormitory_index]}}
+</picker>
+<input placeholder="宿舍号(选填)" value="{{dormitoryid}}" bindinput="handle_dormitoryid_input" maxlength="15"> </input>
+<input placeholder="快递站点" value="{{delivery_station}}" bindinput="handle_delivery_station_input" maxlength="15"> </input>
+<input placeholder="取件码" value="{{delivery_code}}" bindinput="handle_delivery_code_input" maxlength="15"> </input>
+<picker mode="selector" bindchange="bindSizePickerChange" value="{{size_index}}" range="{{size_list}}">大小：{{size_list[size_index]}}
+</picker>
+<picker mode="selector" bindchange="bindWeightPickerChange" value="{{weight_index}}" range="{{weight_list}}">重量：{{weight_list[weight_index]}}
+</picker>
+<input placeholder="备注(选填,最多五十字)" value="{{remarks}}" bindinput="handle_remarks_input" maxlength="50"></input>
+<button bindtap="handle_submit_Button">提交</button>

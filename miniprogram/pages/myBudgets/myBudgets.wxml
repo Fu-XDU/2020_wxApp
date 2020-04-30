@@ -1,0 +1,10 @@
+<!--miniprogram/pages/myBudgets/myBudgets.wxml-->
+<button size="mini" plain="{{leftplain}}" bindtap="buttonTap" id="left">剩余</button>
+<button size="mini" plain="{{!leftplain}}" bindtap="buttonTap" id="spent">已花费</button>
+<button size="mini" plain="{{rightplain}}" bindtap="buttonTap" id="today">今日</button>
+<button size="mini" plain="{{!rightplain}}" bindtap="buttonTap" id="total">总计</button>
+<view wx:for="{{leftdata}}" wx:for-index="idx" wx:key="*this">
+  <view>{{item}}:{{rightdata[idx]}}</view>
+</view>
+
+<button bindtap="newBudget">添加新预算</button>

@@ -1,0 +1,4 @@
+<!--miniprogram/pages/functions/menu/menu_haitang/menu_haitang.wxml-->
+
+<button bindtap="ToFloor1">一楼</button>  
+<button bindtap="ToFloor2">二楼</button>

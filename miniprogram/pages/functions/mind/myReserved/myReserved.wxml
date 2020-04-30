@@ -1,0 +1,3 @@
+<view>
+  <case Cases="{{my_info}}"/>
+</view>

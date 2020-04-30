@@ -1,0 +1,22 @@
+<!--miniprogram/pages/newBudget/newBudget.wxml-->
+<text>miniprogram/pages/newBudget/newBudget.wxml</text>
+<input placeholder="为您的预算命名" value="{{name}}" bindinput="handleInput" maxlength="30" id="name"></input>
+<picker mode="selector" bindchange="bindPickerChange" value="{{typeindex}}" range="{{typeboxes}}" id="type">预算类型：{{typeboxes[typeindex]}}
+</picker>
+<picker wx:if="{{typeindex != 2}}" mode="selector" bindchange="bindPickerChange" value="{{beginTimeindex}}" range="{{beginTimeboxes}}" id="beginTimeSelector">起始日期：{{beginTimeboxes[beginTimeindex]}}
+</picker>
+<!--⬇时间多项选择器-->
+<view wx:else>
+  <picker mode="date" start="2020-05-01" end="2021-05-01" bindchange="bindPickerChange" value="{{beginTime}}" id="beginTimeMultiSelector">起始日期：{{beginTime}}
+  </picker>
+  <picker mode="date" start="{{beginTime}}" end="2021-05-01" bindchange="bindPickerChange" value="{{endTime}}" id="endTimeMultiSelector">结束日期：{{endTime}}
+  </picker>
+</view>
+<!--⬆时间多项选择器-->
+<picker mode="selector" bindchange="bindPickerChange" value="{{currencyindex}}" range="{{currencyboxes}}" id="currency">货币：{{currencyboxes[currencyindex]}}
+</picker>
+<input placeholder="预算金额" value="{{total}}" bindinput="handleInput" maxlength="15" type="digit" id="total"> </input>
+<input wx:if="{{total>0}}" placeholder="剩余资金" value="{{balance}}" bindinput="handleInput" maxlength="15" type="digit" id="balance"> </input>
+<picker mode="selector" bindchange="bindPickerChange" value="{{rolloverindex}}" range="{{rolloverboxes}}" id="rollover">滚存：{{rolloverboxes[rolloverindex]}}
+</picker>
+<button bindtap="submitForm">提交</button>

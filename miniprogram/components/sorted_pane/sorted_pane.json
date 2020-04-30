@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "sorted_bar":"/components/sorted_bar/sorted_bar"
+  }
+}

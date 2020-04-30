@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "case":"/components/case/case"
+  },
+  "navigationBarTitleText": "论坛",
+  "enablePullDownRefresh": true,
+  "onReachBottomDistance":100
+}

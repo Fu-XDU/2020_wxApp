@@ -1,0 +1,124 @@
+/* miniprogram/pages/functions/express/exp_receipt/exp_receipt.wxss */
+.navbar {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    position: fixed;
+    z-index: 500;
+    top: 0;
+    width: 100%;
+    border-bottom: 1rpx solid #ccc;
+    background-color: #ffffff;
+}
+
+.navbar__item {
+    position: relative;
+    display: block;
+    -webkit-box-flex: 1;
+    flex: 1;
+    padding: 13px 0;
+    text-align: center;
+}
+
+.navbar__item.bar__item_on {
+    color: #ff6666;
+}
+
+.navbar__title {
+    font-size: 30rpx;
+}
+
+.navbar__slider {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 200rpx;
+    height: 3px;
+    background-color: #ff6666;
+    transition: transform .3s;
+    transition: transform .3s,-webkit-transform .3s;
+}
+
+.content {
+  margin: 120rpx 40rpx 0;
+  font-size: 26rpx;
+  line-height: 1.5;
+}
+
+.content-list {
+  position: relative;
+  background-color: #fff;
+  margin-bottom: 30rpx;
+  padding: 20rpx;
+  border-radius: 10rpx;
+  height: 190rpx;
+}
+
+.money {
+  float: left;
+  height: 190rpx;
+  width: 120rpx;
+  text-align: center;
+  background-color: #f66;
+  color: #fff;
+  border-radius: 10rpx;
+  margin-right: 20rpx;
+}
+
+.num {
+  font-size: 50rpx;
+  margin-top: 34rpx;
+}
+
+.title {
+  color: #aaa;
+}
+
+.notes {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+}
+
+.size, .time, .note {
+  color: #555;
+}
+
+.button {
+  position: absolute;
+  font-size: 26rpx;
+  right: 20rpx;
+  color: #fff;
+  background-color: #f66;
+  border-radius: 10rpx;
+  z-index: 999;
+}
+
+.get-order {
+  top: 20rpx;
+  padding: 30rpx 18rpx;
+}
+
+.detail {
+  bottom: 20rpx;
+}
+
+.icon {
+  position: absolute;
+  right: 20rpx;
+  top: 28rpx;
+}
+
+.post_status {
+  position: absolute;
+  right: 56rpx;
+  top: 20rpx;
+  color: #999;
+}
+
+.noMore {
+  color: #ccc;
+  text-align: center;
+  margin: 60rpx 0;
+}

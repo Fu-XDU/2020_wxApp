@@ -1,0 +1,8 @@
+<!--miniprogram/pages/income/income.wxml-->
+<view>预算名称:{{data.name}}</view>
+<view>今日收入</view>
+<view>今日剩余:</view>
+<view>本月剩余:</view>
+<view>添加注释:</view>
+<text>添加收入:</text><input placeholder=" " value="{{income}}" bindinput="handleInput" maxlength="15" type="digit" id="income"> </input>
+

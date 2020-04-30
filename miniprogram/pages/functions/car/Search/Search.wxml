@@ -1,0 +1,16 @@
+<view>
+  <form bindsubmit="submit">
+    <input placeholder="请输入关键字" bindinput="handle_search_input" value="{{search_input}}" name="search_input"></input>
+    <button form-type="submit">查询</button>
+  </form>
+  <view wx:if="{{search_suc && is_searched}}">
+   <block wx:for="{{search_result}}" wx:key="index">
+    <view class="car_info_card">
+       <car_info car_infomation="{{search_result}}"/>
+    </view>
+   </block>
+  </view>
+  <view wx:if="{{is_searched && !search_suc}}">
+    未找到相关结果
+  </view>
+</view>

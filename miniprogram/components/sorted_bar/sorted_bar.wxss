@@ -1,0 +1,29 @@
+.title{
+  height: 100rpx;
+  width: 100%;
+  /* background-color: pink; */
+  display: flex;
+}
+.title_items{
+  flex: 1;
+  /* border: 1rpx solid red; */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  border-bottom: 1rpx solid gray;
+}
+.title_items .mainTitle{
+  font-size: 32rpx;
+  color: gray;
+}
+.title_items .subTitle{
+  font-size: 20rpx;
+  color: gray
+}
+.active .mainTitle{
+  color: black;
+}
+.active .subTitle{
+  color: black;
+}

@@ -1,0 +1,47 @@
+<!--miniprogram/pages/functions/express/exp_receipt/exp_receipt.wxml-->
+<template name="navbar">
+    <view class="navbar">
+        <view bindtap="tabClick" class="navbar__item {{navbarData.activeIndex==index?'bar__item_on':''}}" id="{{index}}" wx:for="{{navbarData.tabs}}" wx:key="*this">
+            <view class="navbar__title">{{item}}</view>
+        </view>
+        <view class="navbar__slider" style="left: {{navbarData.sliderLeft}}px; transform: translateX({{navbarData.sliderOffset}}px); -webkit-transform: translateX({{navbarData.sliderOffset}}px);"></view>
+    </view>
+</template>
+<view class="content">
+  <view bindtap="detail" class="content-list" data-id="{{item.id}}" wx:for="{{orders}}">
+    <view class="money">
+      <view class="num">{{item.money}}</view>
+      <view class="yuan">RMB</view>
+    </view>
+    <view class="info">
+      <view>
+        <text class="title">取件码：</text>
+        <text>{{item.delivery_code}}</text>
+      </view>
+      <view>
+        <text class="title">姓名：</text>
+        <text>{{item.name}}</text>
+      </view>
+      <view>
+        <text class="title">站点：</text>
+        <text>{{item.delivery_station}}</text>
+      </view>
+      <view>
+        <text class="title">送至：</text>
+        <text>{{item.dormitory}}</text>
+      </view>
+      <view>
+        <text class="title">大小：</text>
+        <text>{{item.size}}</text>
+      </view>
+    </view>
+    <view>
+      <text class="post_status">可接单</text>
+      <icon class="icon" color="#09BB07" size="30rpx" type="success"></icon>
+      <!-->icon有type : success 和 cancel
+      <-->
+    </view>
+  </view>
+</view>
+<view class="noMore">~ 我是有底线的 ~</view>
+<view class="noMore">多刷新，可能会有新订单</view>
