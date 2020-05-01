@@ -1,2 +1,17 @@
 <!--miniprogram/pages/history/history.wxml-->
-<text>miniprogram/pages/history/history.wxml</text>
+<view wx:for="{{budget.history}}" wx:for-index="idx" wx:key="id">
+  <view wx:if="{{item.peer==null}}">
+    <view wx:if="{{item.value>0}}">
+      <view>收入{{item.value}}</view>
+    </view>
+    <view wx:else>
+      <view>支出{{-item.value}}</view>
+    </view>
+  </view>
+  <view wx:else>
+  <view wx:if="{{item.name!=budget.name}}">
+  收到转账{{item.value}}
+  </view>
+  <view wx:else>发起转账{{item.value}}</view>
+  </view>
+</view>

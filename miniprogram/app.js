@@ -37,7 +37,7 @@ App({
                   _this.globalData.userData[res.data[i].name].history = []
                 }
                 this.tableCallback(_this.globalData.registered);
-                util.httpsGet('db?sql=select name,nameid,peer,peerid,time,value from ' + _this.globalData.openid + 'history').then((res) => {
+                util.httpsGet('db?sql=select * from ' + _this.globalData.openid + 'history').then((res) => {
                   //获取本用户所有预算历史并将其放入合适的预算中
                   for (var i = 0; i < res.data.length; ++i){
                     _this.globalData.userData[res.data[i].name].history.push(res.data[i])
