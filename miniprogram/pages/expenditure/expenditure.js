@@ -43,6 +43,7 @@ Page({
         remarkinput: e.detail.value,
       })
     } else if (e.target.id == "expenditure") {
+      //不允许有两个小数点 也不允许小数点后位数>2
       if ((e.detail.value.split('.').length < 3) && (e.detail.value.indexOf('.') == -1 || e.detail.value.length - e.detail.value.indexOf('.')!=4)) {
         this.setData({
           expenditure: e.detail.value,

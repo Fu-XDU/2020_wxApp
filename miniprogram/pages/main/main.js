@@ -10,6 +10,7 @@ Page({
     currentDataName: null,
     dataKey: [],
     currentDataIndex: 0,
+    showloading: true
   },
   //事件处理函数
   bindViewTap: function() {
@@ -17,34 +18,50 @@ Page({
       url: '../logs/logs'
     })
   },
-  onLoad: function() {
-    app.tableCallback = registered => {
-      if (registered) {
-        for (var key in app.globalData.userData)
-          this.data.dataKey.push(key)
-        this.setData({
-          data: app.globalData.userData,
-          currentDataName: app.globalData.userData[this.data.dataKey[this.data.currentDataIndex]].name
-        })
-      } else if (registered == false) {
-        console.warn("用户未注册")
-        for (var key in app.globalData.userData) {
-          // 计算剩余天数
-          app.globalData.userData[key].remaindays = 10
-          //计算今日剩余
-          app.globalData.userData[key].todayLeft = 5
+  onLoad: function(options) {
+    return new Promise((resolve, reject) => {
+      app.tableCallback = registered => {
+        if (registered) {
+          this.data.dataKey = []
+          for (var key in app.globalData.userData)
+            this.data.dataKey.push(key)
+          this.setData({
+            data: app.globalData.userData,
+            currentDataName: this.data.dataKey[this.data.currentDataIndex]
+          })
+          resolve()
+        } else if (registered == false) {
+          //console.warn("用户未注册")
+          for (var key in app.globalData.userData) {
+            this.data.dataKey.push(key)
+            // 计算剩余天数
+            app.globalData.userData[key].remaindays = 10
+            //计算今日剩余
+            app.globalData.userData[key].todayLeft = 5
+          }
+          this.setData({
+            data: app.globalData.userData,
+            currentDataName: this.data.dataKey[this.data.currentDataIndex]
+          })
+          resolve()
+        } else if (registered == null) {
+          console.log("出错了")
+          resolve()
         }
-        this.setData({
-          data: app.globalData.userData
-        })
-      } else if (registered == null) {
-        console.log("出错了")
       }
-    }
+      
+    })
   },
   onReady: function() {
+    wx.showLoading({
+      title: '加载中',
+      mask: true,
+    })
     app.onLaunch();
-    this.onLoad();
+    this.onLoad().then((res) => {
+      wx.hideLoading()
+    });
+
   },
   sideBudget: function(e) {
     if (e.target.id == "next") {
@@ -66,19 +83,43 @@ Page({
     }
   },
   navigate: function(e) {
-    var url = null;
-    if (e.target.id == "myBudgets")
-      url = '../myBudgets/myBudgets'
-    else if (e.target.id == "income")
-      url = "../income/income?name=" + this.data.currentDataName
-    else if (e.target.id == "expenditure")
-      url = "../expenditure/expenditure?name=" + this.data.currentDataName
-    else if (e.target.id == "transaction")
-      url = "../transaction/transaction?name=" + this.data.currentDataName
-    else if (e.target.id == "history")
-      url = '../history/history?name=' + this.data.currentDataName
-    wx.navigateTo({
-      url: url
-    })
+    if (app.globalData.registered == false) {
+      wx.showModal({
+        title: '没有预算',
+        content: '前往添加我的第一个预算',
+        showCancel: false,
+        success(res) {
+          if (res.confirm) {
+            wx.reLaunch({
+              url: '../newBudget/newBudget'
+            })
+          }
+        }
+      })
+    } else {
+      var url = null,
+        navigate = true
+      if (e.target.id == "myBudgets")
+        url = '../myBudgets/myBudgets'
+      else if (e.target.id == "income")
+        url = "../income/income?name=" + this.data.currentDataName
+      else if (e.target.id == "expenditure")
+        url = "../expenditure/expenditure?name=" + this.data.currentDataName
+      else if (e.target.id == "transaction") {
+        if (this.data.dataKey.length < 2) {
+          navigate = false;
+          wx.showModal({
+            title: '无法转账',
+            content: '你至少需要2个预算来创建一个转账',
+            showCancel: false
+          })
+        } else url = "../transaction/transaction?name=" + this.data.currentDataName
+      } else if (e.target.id == "history")
+        url = '../history/history?name=' + this.data.currentDataName
+      if (navigate)
+        wx.navigateTo({
+          url: url
+        })
+    }
   },
 })

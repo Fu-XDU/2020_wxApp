@@ -21,7 +21,9 @@ Page({
     currencyboxes: null,
     currencyindex: 0,
     total: null,
+    totalinput: null,
     balance: null,
+    balanceinput: null,
     rollover: null,
     rolloverboxes: ["是，滚存", "不，不要滚存"],
     rolloverindex: 0,
@@ -76,16 +78,16 @@ Page({
     util.httpsGet("db?sql=INSERT INTO " + app.globalData.openid + "(name, dataType, beginTime, currency, total, balance, rollover, endTime)VALUES(\"" + this.data.name + '",' + this.data.typeindex + ',"' + this.data.beginTime + '",' +
       this.data.currencyindex + ',' + this.data.total + ',' + this.data.balance + ',' + (this.data.rolloverindex + 1) % 2 + ',"' + this.data.endTime + '")_Add').then((res) => {
       if (res.data == '1') {
-        console.log("预算提交成功", res)
+        console.log("预算提交成功", res.data)
         wx.redirectTo({
           url: './newBudgetSucceed/newBudgetSucceed'
         })
       } else {
-        console.error("预算提交失败", res)
+        console.error("预算提交失败", res.data)
         util.networkError();
       }
     }).catch((err) => {
-      console.error("预算提交失败", err)
+      console.error("预算提交失败", err.data)
       util.networkError();
     })
   },
@@ -100,37 +102,54 @@ Page({
           //拿到今日日期
           util.getHttpTime("dd").then((res) => {
             this.data.beginTime = res.toString()
-            this.submitToDb()
-            return
+            this.realSubmit()
           })
         } else if (this.data.beginTimeindex == 1) {
           this.data.beginTime = "1"
-          this.submitToDb()
+          this.realSubmit()
+          
         } else if (this.data.beginTimeindex == 2) {
           this.data.beginTime = "32"
-          this.submitToDb()
+          this.realSubmit()
         } else {
           this.data.beginTime = this.data.beginTime.slice(0, this.data.beginTime.length - 1)
-          this.submitToDb()
+          this.realSubmit()
         }
       } else if (this.data.typeindex == 1) {
         this.data.endTime = ""
         this.data.beginTime = Number(this.data.beginTimeindex) + 1
-        this.submitToDb()
+        this.realSubmit()
       } else {
         this.data.rolloverindex = 1
-        this.submitToDb()
+        this.realSubmit()
       }
     })
+  },
+  realSubmit:function(){
+    if (app.globalData.registered == true){
+      this.submitToDb()
+    } else{
+      this.createTable().then((res) => {
+        if(res.data==true)
+          this.submitToDb()
+        else console.log("something wrong")
+      })
+    }
   },
   // 处理input组件输入事件
   handleInput: function(e) {
     if (e.target.id == "name")
       this.data.name = e.detail.value
     else if (e.target.id == "total") {
+      if ((e.detail.value.split('.').length < 3) && (e.detail.value.indexOf('.') == -1 || e.detail.value.length - e.detail.value.indexOf('.') != 4)) {
       this.setData({
         total: e.detail.value
       })
+      } else {
+        this.setData({
+          totalinput: this.data.total
+        })
+      }
     } else if (e.target.id == "balance") {
       if (e.detail.value > this.data.total && this.data.overflowtip) {
         wx.showModal({
@@ -140,9 +159,15 @@ Page({
         })
         this.data.overflowtip = false
       }
+      if ((e.detail.value.split('.').length < 3) && (e.detail.value.indexOf('.') == -1 || e.detail.value.length - e.detail.value.indexOf('.') != 4)) {
       this.setData({
         balance: e.detail.value
       })
+      } else {
+        this.setData({
+          balanceinput: this.data.balance
+        })
+      }
     }
   },
   // 处理picker选择器选择事件
@@ -193,6 +218,15 @@ Page({
           rolloverindex: e.detail.value,
         })
     }
+  },
+  createTable: function() {
+    return new Promise((resolve, reject) => {
+      util.httpsGet("db/initUser?openid=" + app.globalData.openid).then((res) => {
+        resolve(res);
+      }).catch((err) => {
+        reject(err);
+      })
+    })
   },
 
   /**

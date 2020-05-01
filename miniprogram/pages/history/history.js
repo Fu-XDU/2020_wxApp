@@ -16,7 +16,7 @@ Page({
     this.setData({
       budget: app.globalData.userData[options.name],
     })
-    console.log(this.data.budget.history)
+    //console.log(this.data.budget.history)
   },
 
   /**

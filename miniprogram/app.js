@@ -32,7 +32,7 @@ App({
               util.httpsGet('db?sql=select * from ' + _this.globalData.openid).then((res) => {
                 _this.globalData.userData = {}
                 //将远程数据存入本地全局变量
-                for (var i = 0; i < res.data.length; ++i) {
+                for (var i = 0; i < res.data.length; ++i){
                   _this.globalData.userData[res.data[i].name] = res.data[i]
                   _this.globalData.userData[res.data[i].name].history = []
                 }
@@ -41,31 +41,32 @@ App({
                   //获取本用户所有预算历史并将其放入合适的预算中
                   for (var i = 0; i < res.data.length; ++i){
                     _this.globalData.userData[res.data[i].name].history.push(res.data[i])
-                    if (!!res.data[i].peer)
+                    if (res.data[i].peer!=null)
                       _this.globalData.userData[res.data[i].peer].history.push(res.data[i])
                   }
                   //console.log(_this.globalData.userData)
                 }).catch((err) => {
+                  console.error(err)
                   util.networkError();
                 })
               })
             } else this.tableCallback(_this.globalData.registered);
           }).catch((err) => {
-            util.networkError();
+            util.networkError(err);
             this.tableCallback(null);
           })
         } else {
-          util.networkError();
+          util.networkError(err);
           this.tableCallback(null);
         }
       }).catch((err) => {
         console.error("服务器连接失败", err)
-        util.networkError();
+        util.networkError(err);
         this.tableCallback(null);
       })
     }).catch((err) => {
       console.error("用户登录失败", err)
-      util.networkError();
+      util.networkError(err);
       this.tableCallback(null);
     })
   },
@@ -80,7 +81,8 @@ App({
     remarks: ['手动输入','书籍和杂志', '衣服', '化妆品', '偿还债务', '饮料和小吃', '外出就餐', '娱乐', '食品', '燃油', '一般', '礼物', '假期！', '家庭用品', '儿童', '药物', '音乐', '房租', '购物', '体育运动', '交通', '公共设施账单'],
     //如果用户没注册 就用这个
     userData: {
-      "unregistered": {
+      "未注册": {
+        "name": "未注册",
         "balance": 10,
         "total": 100,
         "dataType": 0,
@@ -88,14 +90,13 @@ App({
         "beginTime": "", //预算设置时的开始时间
         "endTime": "", //如果是一次性，会有结束时间。每月和每周和工资单自动计算，不存入数据库。
         "todayLeft": 0,
-        "history": [{
-          "target": "", //如果是手动添加，target为""
-          "historytype": 0,
-          "value": 0.01,
-          "time": ""
-        }]
+        "history": [],
+        "rollover":0,
+        "remaindays":10,
+        "todayleft":20,
+        "totalpay":10,
+        "todaypay":10
       }
     }
-
   }
 })
