@@ -1,4 +1,93 @@
 /**index.wxss**/
+/* 收入与支出 */
+.in_and_out{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.btn_inandout{
+  height: 20vh;
+  width: 15vw;
+  border-radius: 30rpx;
+}
+.btn_inandout::after{
+  border: 0;
+}
+/* 剩余天数的圈 */
+.circle{
+  display: flex;
+  justify-content: center;
+}
+.remain_day{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200rpx;
+  width: 200rpx;
+  border:5rpx solid black;
+  border-radius: 100%;
+}
+.btn_img{
+  height: 70rpx;
+  width: 70rpx;
+}
+.shift_btn{
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.shift_btn::after{
+  border: 0;
+}
+.mid_items{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+.today_remain{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 5rpx solid black;
+  border-radius: 25rpx;
+  margin-bottom: 20rpx;
+  width: 40vw;
+  height: 5vh;
+}
+.bud_name{
+  margin-top: 5rpx;
+  margin-bottom: 20rpx;
+}
+/* 预算余额框 */
+.bud_remain{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 10vh;
+  width: 70vw;
+  border: 5rpx solid black;
+  margin-bottom: 10rpx;
+  margin-top: 10rpx;
+}
+.top_items{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+/* .container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 1000rpx;
+} */
 .userinfo {
   display: flex;
   flex-direction: column;

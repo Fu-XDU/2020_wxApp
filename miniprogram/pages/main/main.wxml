@@ -1,13 +1,38 @@
-<view>预算名称:{{data[currentDataName].name}}</view>
-<view>预算余额:{{data[currentDataName].balance}}</view>
-<view>预算币种:{{currencyType[data[currentDataName].currency]}}</view>
-<view>预算类型:{{dataType[data[currentDataName].dataType]}}</view>
-<view>剩余天数:{{data[currentDataName].remaindays}}</view>
-<view>今日剩余:{{data[currentDataName].todayleft}}</view>
+<!-- 包括预算名称、预算余额、币种、今日剩余 -->
+ <view class="top_items">
+  <view class="bud_name">预算名称:{{data[currentDataName].name}}
+ </view>
+  <view class="bud_remain">
+    <view>预算币种:{{currencyType[data[currentDataName].currency]}}</view>
+    <view>预算余额:{{data[currentDataName].balance}}</view>
+ </view>
+  
+  <view class="today_remain">今日剩余:{{data[currentDataName].todayleft}}</view>
+</view>
+<!-- 包括预算类型、以及预算切换button -->
+<view class="mid_items">
+  <!-- 上一个预算 -->
+  <button bindtap="sideBudget" id="previous" class="shift_btn">
+    <image src="/images/shangyiyeqianyiye.png" class="btn_img"></image>
+  </button>
+  <view>预算类型:{{dataType[data[currentDataName].dataType]}}</view>
+  <!-- 下一个预算 -->
+  <button bindtap="sideBudget" id="next" class="shift_btn">
+    <image src="/images/xiayiyehouyiye.png" class="btn_img"></image>
+  </button> 
+</view>
+ 
+ <view class="circle">
+   <view class="remain_day">剩余天数:{{data[currentDataName].remaindays}}</view>
+ </view>
+  
+  <view class="in_and_out">
+    <button bindtap="navigate" id="income" class="btn_inandout">收入</button>
+    <button bindtap="navigate" id="expenditure" class="btn_inandout">支出</button>
+  </view>
+
+
+
 <button bindtap="navigate" id="myBudgets">我的预算</button>
-<button bindtap="navigate" id="income">收入</button>
-<button bindtap="navigate" id="expenditure">支出</button>
 <button bindtap="navigate" id="transaction">转账</button>
 <button bindtap="navigate" id="history">{{data[currentDataName].name}}历史</button>
-<button bindtap="sideBudget" id="previous">上一个预算</button>
-<button bindtap="sideBudget" id="next">下一个预算</button>
