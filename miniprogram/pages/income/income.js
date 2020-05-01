@@ -9,6 +9,9 @@ Page({
   data: {
     data: null,
     income: 0,
+    incomeinput: null,
+    todayleft: null,
+    totalleft: null,
     remarks: null,
     remarkindex: 1,
     remarkinput: null,
@@ -21,7 +24,9 @@ Page({
   onLoad: function(options) {
     this.setData({
       data: app.globalData.userData[options.name],
-      remarks: app.globalData.remarks
+      remarks: app.globalData.remarks,
+      todayleft: util.toFix(app.globalData.userData[options.name].todayleft + this.data.income / app.globalData.userData[options.name].remaindays),
+      totalleft: util.toFix(app.globalData.userData[options.name].balance + this.data.income)
     })
     //sconsole.log(this.data.data)
   },
@@ -38,18 +43,26 @@ Page({
         remarkinput: e.detail.value,
       })
     } else if (e.target.id == "income") {
-      this.setData({
-        income: Number(e.detail.value),
-      })
+      if ((e.detail.value.split('.').length < 3) && (e.detail.value.indexOf('.') == -1 || e.detail.value.length - e.detail.value.indexOf('.') != 4)) {
+        this.setData({
+          income: e.detail.value,
+          todayleft: util.toFix(this.data.data.todayleft + e.detail.value / this.data.data.remaindays),
+          totalleft: util.toFix(this.data.data.balance + e.detail.value * 1)
+        })
+      } else {
+        this.setData({
+          incomeinput: this.data.income
+        })
+      }
     }
   },
   checkForm: function() {
     var _this = this
     return new Promise((resolve, reject) => {
-      if (_this.data.income == 0) {
+      if (!_this.data.income ||_this.data.income == 0) {
         wx.showModal({
           title: '提示',
-          content: '收入为0！',
+          content: '未填写收入！',
           showCancel: false
         })
         reject();
@@ -79,7 +92,7 @@ Page({
       if (this.data.remarkindex > 0) remarkstosubmit = this.data.remarks[this.data.remarkindex]
       else if (!!remarkinput) remarkstosubmit = this.data.remarkinput
       util.getHttpTime("yyyy-MM-dd").then((time) => {
-        util.httpsGet("db?sql=INSERT INTO " + app.globalData.openid + "history" + this.data.data.id + "" + "(" + this.data.income+""+"name, nameid, value, time, remarks)VALUES(\"" + this.data.data.name + '",' + this.data.data.id + ',' + this.data.income + ',"' +
+        util.httpsGet("db?sql=INSERT INTO " + app.globalData.openid + "history" + this.data.data.id + "" + "(" + this.data.income + "" + "name, nameid, value, time, remarks)VALUES(\"" + this.data.data.name + '",' + this.data.data.id + ',' + this.data.income + ',"' +
           time + '","' + remarkstosubmit + '")_AddIncome').then((res) => {
           if (res.data == '1') {
             console.log("收入提交成功", res.data)

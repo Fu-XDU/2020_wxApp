@@ -40,14 +40,14 @@ const httpsGet = function(url) {
     })
   })
 }
-const networkError = function () {
+const networkError = function() {
   wx.showModal({
     title: '网络连接失败',
     content: '请检查网络设置',
     showCancel: false
   })
 }
-const login = function () {
+const login = function() {
   return new Promise((resolve, reject) => {
     wx.cloud.callFunction({
       name: "login",
@@ -62,11 +62,15 @@ const login = function () {
     })
   })
 }
+const toFix = function(value) {
+  return value.toFixed(2) //保留两位小数
+}
 
 module.exports = {
   formatTime: formatTime,
   getHttpTime: getHttpTime,
   httpsGet: httpsGet,
   networkError: networkError,
-  login:login,
+  login: login,
+  toFix: toFix,
 }

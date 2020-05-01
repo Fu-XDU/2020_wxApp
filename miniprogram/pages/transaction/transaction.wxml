@@ -1,2 +1,20 @@
 <!--miniprogram/pages/transaction/transaction.wxml-->
-<text>miniprogram/pages/transaction/transaction.wxml</text>
+<view wx:if="{{select}}">
+  <text>请选择目标账户</text>
+  <view wx:for="{{name}}" wx:key="*this">
+    <view id="{{item}}" bindtap="secectBudget">{{item}}</view>
+  </view>
+</view>
+<view wx:else>
+  <view>预算名称:{{frmdata.name}}</view>
+  <view>今日剩余:{{todayleft}}</view>
+  <view>本月剩余:{{totalleft}}</view>
+  <picker wx:if="{{remarkindex!=0}}" mode="selector" bindchange="bindPickerChange" value="{{remarkindex}}" range="{{remarks}}" id="remarks">添加注释:{{remarks[remarkindex]}}
+  </picker>
+  <view wx:else>添加注释:
+    <input placeholder="在此键入您的注释" bindinput="handleInput" id="remarks"></input>
+  </view>
+  <text>添加转账:</text>
+  <input placeholder="在此键入您的转账" value="{{valueinput}}" bindinput="handleInput" maxlength="15" type="digit" id="value"> </input>
+  <button bindtap="submit">提交转账</button>
+</view>

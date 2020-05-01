@@ -1,13 +1,13 @@
 <!--miniprogram/pages/expenditure/expenditure.wxml-->
 <view>预算名称:{{data.name}}</view>
 <view>今日支出</view>
-<view>今日剩余:{{data.todayleft-expenditure}}</view>
-<view>本月剩余:{{data.balance-expenditure}}</view>
+<view>今日剩余:{{todayleft}}</view>
+<view>本月剩余:{{totalleft}}</view>
 <picker wx:if="{{remarkindex!=0}}" mode="selector" bindchange="bindPickerChange" value="{{remarkindex}}" range="{{remarks}}" id="remarks">添加注释:{{remarks[remarkindex]}}
 </picker>
 <view wx:else>添加注释:
   <input placeholder="在此键入您的注释" bindinput="handleInput" id="remarks"></input>
 </view>
 <text>添加支出:</text>
-<input placeholder="在此键入您的支出" value="{{expenditure}}" bindinput="handleInput" maxlength="15" type="digit" id="expenditure"> </input>
+<input placeholder="在此键入您的支出" value="{{expenditureinput}}" bindinput="handleInput" maxlength="15" type="digit" id="expenditure"> </input>
 <button bindtap="submit">提交支出</button>

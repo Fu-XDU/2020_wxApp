@@ -1,18 +1,22 @@
 // miniprogram/pages/history/history.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    budget:null,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      budget: app.globalData.userData[options.name],
+    })
+    console.log(this.data.budget.history)
   },
 
   /**

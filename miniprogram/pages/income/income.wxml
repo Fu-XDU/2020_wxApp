@@ -1,13 +1,13 @@
 <!--miniprogram/pages/income/income.wxml-->
 <view>预算名称:{{data.name}}</view>
 <view>今日收入</view>
-<view>今日剩余:{{((data.balance+income)/data.remaindays)-data.todaypay}}</view>
-<view>本月剩余:{{data.balance+income}}</view>
+<view>今日剩余:{{todayleft}}</view>
+<view>本月剩余:{{totalleft}}</view>
 <picker wx:if="{{remarkindex!=0}}" mode="selector" bindchange="bindPickerChange" value="{{remarkindex}}" range="{{remarks}}" id="remarks">添加注释:{{remarks[remarkindex]}}
 </picker>
 <view wx:else>添加注释:
   <input placeholder="在此键入您的注释" bindinput="handleInput" id="remarks"></input>
 </view>
 <text>添加收入:</text>
-<input placeholder="在此键入您的收入" value="{{income}}" bindinput="handleInput" maxlength="15" type="digit" id="income"> </input>
+<input placeholder="在此键入您的收入" value="{{incomeinput}}" bindinput="handleInput" maxlength="15" type="digit" id="income"> </input>
 <button bindtap="submit">提交收入</button>
