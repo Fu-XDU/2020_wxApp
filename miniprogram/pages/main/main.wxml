@@ -1,4 +1,4 @@
-<image src="../../images/3.jpg" style="position: fixed; z-index: -999; width: 100%; height: 100%;"></image>
+<image src="../../images/1.jpg" style="position: fixed; z-index: -999; width: 100%; height: 100%;"></image>
 <!-- 包括预算名称、预算余额、币种、今日剩余 -->
 <view class="top_items">
   <view class="bud_name">预算名称:{{data[currentDataName].name}}

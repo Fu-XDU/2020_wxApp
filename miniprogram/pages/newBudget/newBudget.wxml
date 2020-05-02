@@ -1,6 +1,5 @@
-<!--miniprogram/pages/newBudget/newBudget.wxml-->
-<text>miniprogram/pages/newBudget/newBudget.wxml</text>
-<input placeholder="为您的预算命名" value="{{name}}" bindinput="handleInput" maxlength="30" id="name"></input>
+<image src="../../images/1.jpg" style="position: fixed; z-index: -999; width: 100%; height: 100%;"></image>
+<input class="input" placeholder="为您的预算命名" value="{{name}}" bindinput="handleInput" maxlength="30" id="name"></input>
 <picker mode="selector" bindchange="bindPickerChange" value="{{typeindex}}" range="{{typeboxes}}" id="type">预算类型：{{typeboxes[typeindex]}}
 </picker>
 <picker wx:if="{{typeindex != 2}}" mode="selector" bindchange="bindPickerChange" value="{{beginTimeindex}}" range="{{beginTimeboxes}}" id="beginTimeSelector">起始日期：{{beginTimeboxes[beginTimeindex]}}
@@ -19,4 +18,4 @@
 <input wx:if="{{total>0}}" placeholder="剩余资金" value="{{balanceinput}}" bindinput="handleInput" maxlength="15" type="digit" id="balance"> </input>
 <picker wx:if="{{typeindex != 2}}" mode="selector" bindchange="bindPickerChange" value="{{rolloverindex}}" range="{{rolloverboxes}}" id="rollover">滚存：{{rolloverboxes[rolloverindex]}}
 </picker>
-<button bindtap="submitForm">提交</button>
+<button plain="ture" bindtap="submitForm">提交</button>

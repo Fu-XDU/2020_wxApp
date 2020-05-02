@@ -7,11 +7,13 @@
   align-items: center;
 }
 .btn_inandout{
-  height: 12vh;
+  height: 15vh;
   width: 15vw;
   border-radius: 30rpx;
   text-align: center;
   margin-top: 50rpx;
+  font-size: 40rpx;
+  font-weight: bold;
 }
 .btn_inandout::after{
   border: 0;
@@ -19,8 +21,10 @@
 .btn_planandhistory{
   width: 90%;
   margin-top: 50rpx;
-  
+  font-weight: bold;
   text-align: center;
+  font-size: 35rpx;
+  height:94rpx;
 }
 /* 剩余天数的圈 */
 .circle{

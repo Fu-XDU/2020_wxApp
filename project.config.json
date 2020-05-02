@@ -66,6 +66,20 @@
 					"id": -1,
 					"name": "newBudgetSucceed",
 					"pathName": "pages/newBudget/newBudgetSucceed/newBudgetSucceed",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/newBudget/newBudget",
+					"pathName": "pages/newBudget/newBudget",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/main/main",
+					"pathName": "pages/main/main",
 					"scene": null
 				}
 			]
