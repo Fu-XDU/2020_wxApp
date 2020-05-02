@@ -10,12 +10,12 @@ Page({
     budgets: null,
     leftplain: true,
     rightplain: true,
-    leftdata: [],
-    rightdata: [],
-    todayleft: [],
-    totalleft: [],
-    todayspent: [],
-    totalspent: []
+    leftdata: null,
+    rightdata: null,
+    todayleft: null,
+    totalleft: null,
+    todayspent: null,
+    totalspent: null
   },
 
   /**
@@ -23,6 +23,12 @@ Page({
    */
   onLoad: function(options) {
     this.data.budgets = app.globalData.userData
+    this.data.leftdata = []
+    this.data.rightdata = []
+    this.data.todayleft = []
+    this.data.totalleft = []
+    this.data.todayspent = []
+    this.data.totalspent = []
     for (var key in this.data.budgets) {
       this.data.leftdata.push(key)
       this.data.todayleft.push(this.data.budgets[key].todayleft)
@@ -91,28 +97,33 @@ Page({
         content: '仅删除其历史，不进行历史回滚',
         success(res) {
           if (res.confirm) {
-            _this.deleteBudget(_this.data.budgets[e.target.dataset.name].id)
+            _this.deleteBudget(e.target.dataset.name)
           }
         }
       })
     }
   },
   deleteBudget: function(e) {
-    var _this=this
-    util.httpsGet("db/deleteBudget?openid=" + app.globalData.openid + "&budgetid=" + e).then((res) => {
-      if(res.data){
+    var _this = this
+    util.httpsGet("db/deleteBudget?openid=" + app.globalData.openid + "&budgetid=" + _this.data.budgets[e].id).then((res) => {
+      if (res.data) {
+        delete app.globalData.userData[e];
         wx.showModal({
           title: '提示',
           content: '删除成功',
-          showCancel:false,
+          showCancel: false,
           success(res) {
             if (res.confirm) {
               console.log(_this.data.leftdata.length)
-              if(_this.data.leftdata.length==1)
-                app.globalData.registered=false
-              wx.reLaunch({
-                url: '../main/main'
-              })
+              if (_this.data.leftdata.length == 1) {
+                app.globalData.registered = false
+                wx.reLaunch({
+                  url: '../main/main',
+                })
+              } else{
+                _this.onLoad()
+                app.globalData.refreshdata=true;
+              }
             }
           }
         })

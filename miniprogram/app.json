@@ -1,8 +1,6 @@
 {
   "pages": [
     "pages/main/main",
-    "pages/functions/car/car",
-    "pages/functions/mind/mind",
     "pages/logs/logs",
     "pages/myBudgets/myBudgets",
     "pages/newBudget/newBudget",

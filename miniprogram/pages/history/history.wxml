@@ -9,10 +9,10 @@
     </view>
   </view>
   <view wx:else>
-  <view wx:if="{{item.name!=budget.name}}">
-  收到转账{{item.value}}
-  </view>
-  <view wx:else>发起转账{{item.value}}</view>
+    <view wx:if="{{item.name!=budget.name}}">
+      收到转账{{item.value}}
+    </view>
+    <view wx:else>发起转账{{item.value}}</view>
   </view>
   <button size="mini" id="deleteHistory" bindtap="buttonTap" data-id="{{item.id}}">删除</button>
 </view>

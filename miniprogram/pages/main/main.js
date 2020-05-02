@@ -121,7 +121,11 @@ Page({
         })
     }
   },
-  onShow: function () {
+  onShow: function() {
     //TODO:监听是否有删除或修改操作
+    if (app.globalData.refreshdata) {
+      this.onLoad()
+      app.globalData.refreshdata = false;
+    }
   },
 })
