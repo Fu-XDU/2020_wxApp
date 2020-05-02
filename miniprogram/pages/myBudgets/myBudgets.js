@@ -88,7 +88,7 @@ Page({
       //删除此预算
       wx.showModal({
         title: '提示',
-        content: '仅删除历史，不进行历史回滚',
+        content: '仅删除其历史，不进行历史回滚',
         success(res) {
           if (res.confirm) {
             _this.deleteBudget(_this.data.budgets[e.target.dataset.name].id)
@@ -118,7 +118,6 @@ Page({
         })
       }
     });
-
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

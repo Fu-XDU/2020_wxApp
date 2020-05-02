@@ -121,4 +121,7 @@ Page({
         })
     }
   },
+  onShow: function () {
+    //TODO:监听是否有删除或修改操作
+  },
 })

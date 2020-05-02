@@ -34,12 +34,12 @@ App({
                 //将远程数据存入本地全局变量
                 for (var i = 0; i < res.data.length; ++i) {
                   _this.globalData.userData[res.data[i].name] = res.data[i]
-                  _this.globalData.userData[res.data[i].name].history = []
                 }
                 this.tableCallback(_this.globalData.registered);
                 util.httpsGet('db?sql=select * from ' + _this.globalData.openid + 'history').then((res) => {
                   //获取本用户所有预算历史并将其放入合适的预算中
                   for (var i = 0; i < res.data.length; ++i) {
+                    _this.globalData.userData[res.data[i].name].history = []
                     _this.globalData.userData[res.data[i].name].history.push(res.data[i])
                     if (res.data[i].peer != null)
                       _this.globalData.userData[res.data[i].peer].history.push(res.data[i])
@@ -76,7 +76,7 @@ App({
   globalData: {
     userInfo: null,
     apiUrl: 'https://flxdu.cn/api/',
-    openid: "oSyGb5YWWq1cqCTi8Wt2W3LsrZdE",
+    openid: "",
     registered: null,
     dataType: ["每月", "每周", "一次性"],
     historyType: ["收入", "支出"],
@@ -101,6 +101,7 @@ App({
         "todaypay": 10
       }
     },
-    userData: {}
+    userData: {},
+    refreshdata:false
   }
 })

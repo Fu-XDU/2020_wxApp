@@ -14,4 +14,5 @@
   </view>
   <view wx:else>发起转账{{item.value}}</view>
   </view>
+  <button size="mini" id="deleteHistory" bindtap="buttonTap" data-id="{{item.id}}">删除</button>
 </view>
