@@ -90,7 +90,7 @@ Page({
     this.checkForm().then((res) => {
       var remarkstosubmit = "";
       if (this.data.remarkindex > 0) remarkstosubmit = this.data.remarks[this.data.remarkindex]
-      else if (!!remarkinput) remarkstosubmit = this.data.remarkinput
+      else if (!!this.data.remarkinput) remarkstosubmit = this.data.remarkinput
       util.getHttpTime("yyyy-MM-dd").then((time) => {
         util.httpsGet("db?sql=INSERT INTO " + app.globalData.openid + "history" + this.data.data.id + "" + "(" + this.data.income + "" + "name, nameid, value, time, remarks)VALUES(\"" + this.data.data.name + '",' + this.data.data.id + ',' + this.data.income + ',"' +
           time + '","' + remarkstosubmit + '")_AddIncome').then((res) => {

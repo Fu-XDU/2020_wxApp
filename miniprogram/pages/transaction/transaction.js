@@ -97,7 +97,7 @@ Page({
     this.checkForm().then((res) => {
       var remarkstosubmit = "";
       if (this.data.remarkindex > 0) remarkstosubmit = this.data.remarks[this.data.remarkindex]
-      else if (!!remarkinput) remarkstosubmit = this.data.remarkinput
+      else if (!!this.data.remarkinput) remarkstosubmit = this.data.remarkinput
       util.getHttpTime("yyyy-MM-dd").then((time) => {
         util.httpsGet("db?sql=INSERT INTO " + app.globalData.openid + this.data.frmdata.id + "" + "history" + this.data.to.id + "" + "(" + this.data.value + "" + "name, nameid, peer, peerid,value, time, remarks)VALUES(\"" + this.data.frmdata.name + '",' + this.data.frmdata.id + ',"' + this.data.to.name + '",' + this.data.to.id + "," + this.data.value + ',"' +
           time + '","' + remarkstosubmit + '")_AddTransaction').then((res) => {
@@ -126,6 +126,13 @@ Page({
       })
     })
 
+  },
+  bindPickerChange: function (e) {
+    if (e.target.id == "remarks") {
+      this.setData({
+        remarkindex: e.detail.value,
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

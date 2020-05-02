@@ -107,7 +107,7 @@ Page({
         } else if (this.data.beginTimeindex == 1) {
           this.data.beginTime = "1"
           this.realSubmit()
-          
+
         } else if (this.data.beginTimeindex == 2) {
           this.data.beginTime = "32"
           this.realSubmit()
@@ -125,12 +125,12 @@ Page({
       }
     })
   },
-  realSubmit:function(){
-    if (app.globalData.registered == true){
+  realSubmit: function() {
+    if (app.globalData.registered == true) {
       this.submitToDb()
-    } else{
+    } else {
       this.createTable().then((res) => {
-        if(res.data==true)
+        if (res.data == true)
           this.submitToDb()
         else console.log("something wrong")
       })
@@ -142,27 +142,29 @@ Page({
       this.data.name = e.detail.value
     else if (e.target.id == "total") {
       if ((e.detail.value.split('.').length < 3) && (e.detail.value.indexOf('.') == -1 || e.detail.value.length - e.detail.value.indexOf('.') != 4)) {
-      this.setData({
-        total: e.detail.value
-      })
+        this.setData({
+          total: e.detail.value
+        })
       } else {
         this.setData({
           totalinput: this.data.total
         })
       }
     } else if (e.target.id == "balance") {
-      if (e.detail.value > this.data.total && this.data.overflowtip) {
+      /*
+      //检查是否超额
+      if ((e.detail.value > this.data.total) && this.data.overflowtip) {
         wx.showModal({
           title: '友情提示',
           content: '您将为自己提供超过自己所设定的总预算的资金。',
           showCancel: false
         })
         this.data.overflowtip = false
-      }
+      }*/
       if ((e.detail.value.split('.').length < 3) && (e.detail.value.indexOf('.') == -1 || e.detail.value.length - e.detail.value.indexOf('.') != 4)) {
-      this.setData({
-        balance: e.detail.value
-      })
+        this.setData({
+          balance: e.detail.value
+        })
       } else {
         this.setData({
           balanceinput: this.data.balance

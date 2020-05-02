@@ -1,5 +1,6 @@
 // miniprogram/pages/myBudgets/myBudgets.js
 const app = getApp()
+const util = require("../../utils/util.js")
 Page({
 
   /**
@@ -20,7 +21,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     this.data.budgets = app.globalData.userData
     for (var key in this.data.budgets) {
       this.data.leftdata.push(key)
@@ -35,7 +36,7 @@ Page({
     this.showData()
     //console.log(this.data.budgets)
   },
-  showData: function () {
+  showData: function() {
     var temp;
     if (this.data.leftplain && this.data.rightplain) temp = this.data.todayleft
     else if (!this.data.leftplain && this.data.rightplain) temp = this.data.todayspent
@@ -45,18 +46,15 @@ Page({
       rightdata: temp
     })
   },
-  newBudget: function () {
-    wx.navigateTo({
-      url: '../newBudget/newBudget'
-    })
-  },
-  buttonTap: function (e) {
+  buttonTap: function(e) {
+    var _this = this
     if (e.target.id == "left") {
       if (!this.data.leftplain) {
         this.setData({
           leftplain: !this.data.leftplain,
         })
         //更改显示的数据
+        this.showData()
       }
     } else if (e.target.id == "spent") {
       if (this.data.leftplain) {
@@ -64,6 +62,7 @@ Page({
           leftplain: !this.data.leftplain,
         })
         //更改显示的数据
+        this.showData()
       }
     } else if (e.target.id == "today") {
       if (!this.data.rightplain) {
@@ -71,6 +70,7 @@ Page({
           rightplain: !this.data.rightplain,
         })
         //更改显示的数据
+        this.showData()
       }
     } else if (e.target.id == "total") {
       if (this.data.rightplain) {
@@ -78,56 +78,94 @@ Page({
           rightplain: !this.data.rightplain,
         })
         //更改显示的数据
+        this.showData()
       }
+    } else if (e.target.id == "newBudget") {
+      wx.navigateTo({
+        url: '../newBudget/newBudget'
+      })
+    } else if (e.target.id == "deleteBudget") {
+      //删除此预算
+      wx.showModal({
+        title: '提示',
+        content: '仅删除历史，不进行历史回滚',
+        success(res) {
+          if (res.confirm) {
+            _this.deleteBudget(_this.data.budgets[e.target.dataset.name].id)
+          }
+        }
+      })
     }
-    this.showData()
+  },
+  deleteBudget: function(e) {
+    var _this=this
+    util.httpsGet("db/deleteBudget?openid=" + app.globalData.openid + "&budgetid=" + e).then((res) => {
+      if(res.data){
+        wx.showModal({
+          title: '提示',
+          content: '删除成功',
+          showCancel:false,
+          success(res) {
+            if (res.confirm) {
+              console.log(_this.data.leftdata.length)
+              if(_this.data.leftdata.length==1)
+                app.globalData.registered=false
+              wx.reLaunch({
+                url: '../main/main'
+              })
+            }
+          }
+        })
+      }
+    });
+
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   }
 })
