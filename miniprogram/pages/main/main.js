@@ -123,7 +123,10 @@ Page({
   },
   onShow: function() {
     //TODO:监听是否有删除或修改操作
+    console.log("onShow")
     if (app.globalData.refreshdata) {
+      console.log("refresh")
+      app.onLaunch();
       this.onLoad()
       app.globalData.refreshdata = false;
     }
