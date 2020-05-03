@@ -101,6 +101,10 @@ Page({
           }
         }
       })
+    } else if (e.target.id == "editBudget") {
+      wx.navigateTo({
+        url: './editBudget/editBudget?name=' + e.target.dataset.name,
+      })
     }
   },
   deleteBudget: function(e) {
@@ -120,9 +124,9 @@ Page({
                 wx.reLaunch({
                   url: '../main/main',
                 })
-              } else{
+              } else {
                 _this.onLoad()
-                app.globalData.refreshdata=true;
+                app.globalData.refreshdata = true;
               }
             }
           }
