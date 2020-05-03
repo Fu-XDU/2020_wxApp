@@ -1,1 +1,8 @@
 /* miniprogram/pages/myBudgets/myBudgets.wxss */
+.top{
+  text-align: center;
+  width: 100%;
+}
+.top_{
+  width:25%;
+}

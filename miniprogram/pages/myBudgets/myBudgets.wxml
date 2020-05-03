@@ -1,8 +1,10 @@
 <!--miniprogram/pages/myBudgets/myBudgets.wxml-->
-<button size="mini" plain="{{leftplain}}" bindtap="buttonTap" id="left">剩余</button>
-<button size="mini" plain="{{!leftplain}}" bindtap="buttonTap" id="spent">已花费</button>
-<button size="mini" plain="{{rightplain}}" bindtap="buttonTap" id="today">今日</button>
-<button size="mini" plain="{{!rightplain}}" bindtap="buttonTap" id="total">总计</button>
+<view class="top">
+<button class="top_" size="mini" plain="{{leftplain}}" bindtap="buttonTap" id="left">剩余</button>
+<button class="top_" size="mini" plain="{{!leftplain}}" bindtap="buttonTap" id="spent">已花费</button>
+<button class="top_" size="mini" plain="{{rightplain}}" bindtap="buttonTap" id="today">今日</button>
+<button class="top_" size="mini" plain="{{!rightplain}}" bindtap="buttonTap" id="total">总计</button>
+</view>
 <view wx:for="{{leftdata}}" wx:for-index="idx" wx:key="*this">
   <view>{{item}}:{{rightdata[idx]}}
     <button size="mini" id="deleteBudget" bindtap="buttonTap" data-name="{{item}}">删除</button>
