@@ -6,7 +6,7 @@
         </view>
         <view class="weui-msg__text-area">
             <view class="weui-msg__title">预算添加成功</view>
-            <view class="weui-msg__desc"><text>第一行文字\n</text><text>第二行文字</text></view>
+            <view class="weui-msg__desc"><text>计划消费\n</text><text>从现在做起</text></view>
         </view>
         <view class="weui-msg__opr-area">
             <view class="weui-btn-area">
