@@ -20,11 +20,13 @@ App({
     }).then((res) => {
       //console.log("用户登录成功", res)
       _this.globalData.openid = res.result.openid
+      //处理openid,我服了
+      _this.globalData.openid=_this.globalData.openid.replace(/-/g, '_');
       util.httpsGet('ping').then((res) => {
         if (res.statusCode == 200) {
           //console.log("服务器连接成功", res)
           /* 下面这句不要删 测试用 发布时必删 不删不能用 */
-          //_this.globalData.openid = "oSyGb5YWWq1cqCTi8Wt2W3LsrZdE"
+          //_this.globalData.openid = "oSyGb5UnRscPC1eVlm32isfX__OY"
           /* 上面这句不要删 测试用 发布时必删 不删不能用 */
           util.httpsGet('db?sql=SHOW TABLES LIKE "' + _this.globalData.openid + '"').then((res) => {
             _this.globalData.registered = res.data.length != 0
