@@ -6,3 +6,6 @@
 .top_{
   width:25%;
 }
+.list{
+  text-align: center;
+}

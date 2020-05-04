@@ -15,7 +15,11 @@ Page({
     todayleft: null,
     totalleft: null,
     todayspent: null,
-    totalspent: null
+    totalspent: null,
+    delBtnWidth:160,
+    data: [{ content: "1", right: 0 }, { content: "2", right: 0 }, { content: "3", right: 0 }, { content: "4", right: 0 }, { content: "5", right: 0 }, { content: "6", right: 0 }, { content: "7", right: 0 }, { content: "8", right: 0 }, { content: "9", right: 0 }, { content: "10",  right: 0 }],
+    isScroll:true,
+    windowHeight:0,
   },
 
   /**
@@ -134,6 +138,7 @@ Page({
       }
     });
   },
+  
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -162,6 +167,7 @@ Page({
 
   },
 
+  
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
