@@ -14,7 +14,7 @@
 </view> -->
 
 <view class="list" wx:for="{{leftdata}}" wx:for-index="idx" wx:key="*this">
-  <slide_delete pid="{{item.idx}}" bindaction="handleSlideDelete" wx:key="*this">
+  <slide_delete pid="{{item.idx}}" bindaction="deleteBudget" wx:key="*this">
         <view class="product-item-wrap">
           <view class="product-movable-item">
            {{item}}:{{rightdata[idx]}}
