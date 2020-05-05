@@ -19,7 +19,7 @@ Page({
     delBtnWidth:160,
     data: [{ content: "1", right: 0 }, { content: "2", right: 0 }, { content: "3", right: 0 }, { content: "4", right: 0 }, { content: "5", right: 0 }, { content: "6", right: 0 }, { content: "7", right: 0 }, { content: "8", right: 0 }, { content: "9", right: 0 }, { content: "10",  right: 0 }],
     isScroll:true,
-    windowHeight:0,
+    windowHeight:0
   },
 
   /**
@@ -111,6 +111,7 @@ Page({
       })
     }
   },
+  
   deleteBudget: function(e) {
     var _this = this
     util.httpsGet("db/deleteBudget?openid=" + app.globalData.openid + "&budgetid=" + _this.data.budgets[e].id).then((res) => {

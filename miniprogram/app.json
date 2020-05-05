@@ -8,7 +8,8 @@
     "pages/income/income",
     "pages/expenditure/expenditure",
     "pages/transaction/transaction",
-    "pages/history/history"
+    "pages/history/history",
+    "components/slide_delete/slide_delete"
   ],
   "window": {
     "backgroundTextStyle": "light",
