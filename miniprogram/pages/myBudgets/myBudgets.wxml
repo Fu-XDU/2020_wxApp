@@ -7,9 +7,19 @@
 <button class="top_" size="mini" plain="{{!rightplain}}" bindtap="buttonTap" id="total">总计</button>
 </view>
 
-<view class="list" wx:for="{{leftdata}}" wx:for-index="idx" wx:key="*this">
+<!-- <view class="list" wx:for="{{leftdata}}" wx:for-index="idx" wx:key="*this">
   <view>{{item}}:{{rightdata[idx]}}
     <button plain="ture" size="mini" id="deleteBudget" bindtap="buttonTap" data-name="{{item}}">删除</button>
   </view>
-  </view>
+</view> -->
+
+<view class="list" wx:for="{{leftdata}}" wx:for-index="idx" wx:key="*this">
+  <slide_delete pid="{{item.idx}}" bindaction="deleteBudget" wx:key="*this">
+        <view class="product-item-wrap">
+          <view class="product-movable-item">
+           {{item}}:{{rightdata[idx]}}
+          </view>
+        </view>
+  </slide_delete>
+</view>
 <button id="newBudget" bindtap="buttonTap">添加新预算</button>

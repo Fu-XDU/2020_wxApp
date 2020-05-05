@@ -57,10 +57,12 @@ App({
               this.tableCallback(_this.globalData.registered);
             }
           }).catch((err) => {
+            console.error(err)
             util.networkError(err);
             this.tableCallback(null);
           })
         } else {
+          console.error(err)
           util.networkError(err);
           this.tableCallback(null);
         }

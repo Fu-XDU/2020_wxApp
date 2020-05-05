@@ -1,13 +1,34 @@
 <!--miniprogram/pages/expenditure/expenditure.wxml-->
-<view>预算名称:{{data.name}}</view>
-<view>今日支出</view>
-<view>今日剩余:{{todayleft}}</view>
-<view>本月剩余:{{totalleft}}</view>
-<picker wx:if="{{remarkindex!=0}}" mode="selector" bindchange="bindPickerChange" value="{{remarkindex}}" range="{{remarks}}" id="remarks">添加注释:{{remarks[remarkindex]}}
+<view class="item_bars">
+  <text class="iconfont icon-yunpanlogo- texts"></text>
+  <view class="texts">预算名称:{{data.name}}</view>
+</view>
+<!-- <view>今日支出</view> -->
+
+<view class="remain">
+  <view class="remain_item">
+    <text class="iconfont icon-shengyukeyongedu"></text>
+    <view class="texts">今日剩余:{{todayleft}}</view>
+  </view>
+  <view class="remain_item">
+    <text class="iconfont icon-shengyukeyongedu"></text>
+    <view class="texts">本月剩余:{{totalleft}}</view>
+  </view>
+</view> 
+
+<view class="item_bars">
+<picker wx:if="{{remarkindex!=0}}" mode="selector" bindchange="bindPickerChange" value="{{remarkindex}}" range="{{remarks}}" id="remarks">
+   <text class="iconfont icon-ico- texts"></text>
+添加注释:{{remarks[remarkindex]}}
 </picker>
 <view wx:else>添加注释:
   <input placeholder="在此键入您的注释" bindinput="handleInput" id="remarks"></input>
 </view>
-<text>添加支出:</text>
-<input placeholder="在此键入您的支出" value="{{expenditureinput}}" bindinput="handleInput" maxlength="15" type="digit" id="expenditure"> </input>
-<button bindtap="submit">提交支出</button>
+</view>
+<view class="item_bars">
+  <text class="iconfont icon-jinqian texts"></text>
+  <text class="texts">添加支出:</text>
+  <input placeholder="在此键入您的支出" value="{{expenditureinput}}" bindinput="handleInput" maxlength="15" type="digit" id="expenditure" class="texts"> </input>
+</view>
+
+<button bindtap="submit" class="submit_btn">提交支出</button>
