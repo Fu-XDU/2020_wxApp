@@ -31,6 +31,7 @@
   display: flex;
   justify-content: center;
   margin-top: 50rpx;
+  z-index: 999;
 }
 .remain_day{
   display: flex;
@@ -38,18 +39,37 @@
   align-items: center;
   height: 200rpx;
   width: 200rpx;
-  border:5rpx solid black;
+  border:5rpx solid write;
   border-radius: 100%;
+  position: absolute;
+  left: 0;
+  top: 0px;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  text-align: center;
 }
 .btn_img{
   height: 70rpx;
   width: 70rpx;
 }
+.btn_img_{
+  border-radius: 200rpx;
+  margin-top: 50rpx;
+  justify-content: center;
+  z-index: -999;
+  height: 200rpx;
+  width: 200rpx;
+  position: relative;
+}
 .shift_btn{
+  height: 80rpx;
+  width: 120rpx;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
+  border:5rpx solid black;
 }
 .shift_btn::after{
   border: 0;
@@ -66,16 +86,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 5rpx solid black;
+  border: 5rpx solid write;
   border-radius: 25rpx;
   margin-bottom: 20rpx;
   margin-top: 20rpx;
   width: 40vw;
   height: 5vh;
+  font-weight: bold;
 }
 .bud_name{
   margin-top: 5rpx;
   margin-bottom: 20rpx;
+  font-weight: bold;
 }
 /* 预算余额框 */
 .bud_remain{
@@ -85,9 +107,10 @@
   align-items: center;
   height: 10vh;
   width: 70vw;
-  border: 5rpx solid black;
+  border: 5rpx solid write;
   margin-bottom: 10rpx;
   margin-top: 10rpx;
+  font-weight: bold;
 }
 .top_items{
   display: flex;

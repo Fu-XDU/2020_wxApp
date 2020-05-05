@@ -1,11 +1,10 @@
-<image src="../../images/1.jpg" style="position: fixed; z-index: -999; width: 100%; height: 100%;"></image>
+
 <!-- 包括预算名称、预算余额、币种、今日剩余 -->
 <view class="top_items">
   <view class="bud_name">预算名称:{{data[currentDataName].name}}
   </view>
   <view class="bud_remain">
-    <view>预算币种:{{currencyType[data[currentDataName].currency]}}</view>
-    <view>预算余额:{{data[currentDataName].balance}}</view>
+    <view><text>预算币种:{{currencyType[data[currentDataName].currency]}}\n\n</text><text>预算余额:{{data[currentDataName].balance}}</text></view>
   </view>
 
   <view class="today_remain">今日剩余:{{data[currentDataName].todayleft}}</view>
@@ -16,7 +15,7 @@
   <button bindtap="sideBudget" id="previous" class="shift_btn" plain="ture">
     <image src="/images/shangyiyeqianyiye.png" class="btn_img" plain="ture"></image>
   </button>
-  <view>预算类型:{{dataType[data[currentDataName].dataType]}}</view>
+  <view class="today_remain">预算类型:{{dataType[data[currentDataName].dataType]}}</view>
   <!-- 下一个预算 -->
   <button bindtap="sideBudget" id="next" class="shift_btn" plain="ture">
     <image src="/images/xiayiyehouyiye.png" class="btn_img" plain="ture"></image>
@@ -24,7 +23,9 @@
 </view>
 
 <view class="circle">
+<image src="/images/1.PNG" class="btn_img_" plain="ture">
   <view class="remain_day">剩余天数:{{data[currentDataName].remaindays}}</view>
+  </image>
 </view>
 
 <view class="in_and_out">
