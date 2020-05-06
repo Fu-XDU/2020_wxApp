@@ -8,7 +8,7 @@
       <slot/>
   </view>
   <view class="action-wrap">
-      <view class="action del" bindtap="handleAction" data-type="del">
+      <view class="action del" data-type="del">
           <text>删除</text>
       </view>
   </view>
