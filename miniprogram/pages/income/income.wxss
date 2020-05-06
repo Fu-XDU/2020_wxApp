@@ -11,14 +11,14 @@
 }
 .remain{
   border: 5rpx solid black;
-  margin: 20rpx 10rpx 20rpx 10rpx;
+  margin: 20rpx 20rpx 20rpx 20rpx;
   border-radius: 45rpx;
   background-color: #FADA61;
 }
 .remain_item{
   display: flex;
   flex-direction: row;
-  margin-left: 20rpx;
+  margin-left: 15rpx;
   margin-bottom: 10rpx;
   margin-top: 10rpx;
 }
@@ -34,6 +34,12 @@
 }
 .submit_btn::after{
   border: 0;
+}
+.divline{
+  background: #FADA61;
+  width: 100%;
+  height: 5rpx;
+  margin-top: 10rpx;
 }
 @font-face {font-family: "iconfont";
   src: url('//at.alicdn.com/t/font_1798440_y4rwxdz8o2.eot?t=1588663772431'); /* IE9 */
