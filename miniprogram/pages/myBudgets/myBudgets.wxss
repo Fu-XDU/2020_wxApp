@@ -2,9 +2,11 @@
 .top{
   text-align: center;
   width: 100%;
+  background-color:#FADA61;
 }
 .top_{
   width:25%;
+  background-color:  #FADA61;
 }
 .list{
   text-align: center;

@@ -1,5 +1,4 @@
 <!--miniprogram/pages/myBudgets/myBudgets.wxml-->
-<image src="../../images/1.jpg" style="position: fixed; z-index: -999; width: 100%; height: 100%;"></image>
 <view class="top">
 <button class="top_" plain="ture" size="mini" plain="{{leftplain}}" bindtap="buttonTap" id="left">剩余</button>
 <button class="top_" size="mini" plain="{{!leftplain}}" bindtap="buttonTap" id="spent">已花费</button>

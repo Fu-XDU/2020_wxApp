@@ -1,18 +1,21 @@
 <!--miniprogram/pages/income/income.wxml-->
 <view class="item_bars">
   <text class="iconfont icon-yunpanlogo- texts"></text>
-  <view class="budget_name texts">预算名称:{{data.name}}</view>
+  <view class="budget_name texts">预算名称:</view>
+  <view class="right">{{data.name}}</view>
 </view>
 <!-- <view>今日收入</view> -->
 
 <view class="remain">
   <view class="remain_item">
     <text class="iconfont icon-shengyukeyongedu texts"></text>
-    <view class="texts">今日剩余:{{todayleft}}</view>
+    <view class="texts">今日剩余:</view>
+  <view class="right">{{todayleft}}</view>
   </view>
   <view class="remain_item">
     <text class="iconfont icon-shengyukeyongedu texts"></text>
-    <view class="texts">本月剩余:{{totalleft}}</view>
+    <view class="texts">本月剩余:</view>
+    <view class="right">{{totalleft}}</view>
   </view>
 </view> 
 

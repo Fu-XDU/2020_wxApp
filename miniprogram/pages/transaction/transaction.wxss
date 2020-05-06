@@ -33,11 +33,20 @@
   border-radius: 25rpx;
   background-color: #FADA61;
   height: 70rpx;
+  flex-flow:row;
 }
+.item_bars view{
+  width:50%;
+  display:inline-block;
+  }
+.right{
+  text-align:right;
+  padding-right:30rpx;
+  }
 .remain{
   border: 5rpx solid black;
   margin: 20rpx 20rpx 20rpx 20rpx;
-  border-radius: 45rpx;
+  border-radius: 25rpx;
   background-color: #FADA61;
 }
 .remain_item{
@@ -46,7 +55,12 @@
   margin-left: 15rpx;
   margin-bottom: 10rpx;
   margin-top: 10rpx;
+  flex-flow:row;
 }
+.remain_item view{
+  width:50%;
+  display:inline-block;
+  }
 .texts{
   margin-left: 10rpx;
   /* border-bottom: 3rpx solid #FADA61; */
@@ -82,7 +96,6 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 .icon-jinqian:before {
   content: "\e643";
 }

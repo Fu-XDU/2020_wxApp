@@ -91,6 +91,13 @@
 					"id": -1,
 					"name": "pages/myBudgets/myBudgets",
 					"pathName": "pages/myBudgets/myBudgets",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/transaction/transaction",
+					"pathName": "pages/transaction/transaction",
 					"scene": null
 				}
 			]
