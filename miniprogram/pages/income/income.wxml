@@ -24,9 +24,9 @@
    <text class="iconfont icon-ico- texts"></text>
 添加注释:{{remarks[remarkindex]}}
 </picker>
-<view wx:else class="texts item_bars">添加注释:
-  <input placeholder="在此键入您的注释" bindinput="handleInput" id="remarks"></input>
-</view>
+<view wx:else class="item_bars">添加注释:
+  <input class="right" placeholder="在此键入您的注释" bindinput="handleInput" id="remarks"></input>
+  </view>
 </view>
 
 <view class="item_bars">

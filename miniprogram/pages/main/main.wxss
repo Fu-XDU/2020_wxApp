@@ -32,6 +32,7 @@
   justify-content: center;
   margin-top: 50rpx;
   z-index: 999;
+  
 }
 .remain_day{
   display: flex;
@@ -48,6 +49,7 @@
   bottom: 0;
   margin: auto;
   text-align: center;
+  background-color: #FADA61;
 }
 .btn_img{
   height: 70rpx;
