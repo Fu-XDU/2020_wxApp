@@ -40,7 +40,7 @@
 <view class="item_bars">
   <text class="iconfont icon-jinqian texts"></text>
   <text class="texts">添加转账:</text>
-  <input placeholder="在此键入您的转账" value="{{incomeinput}}" bindinput="handleInput" maxlength="15" type="value" id="income" class="texts"> </input>
+  <input placeholder="在此键入您的转账" value="{{valueinput}}" bindinput="handleInput" maxlength="15" type="value" id="value" class="texts"> </input>
 </view>
 
   <button bindtap="submit" class="submit_btn">提交转账</button>
