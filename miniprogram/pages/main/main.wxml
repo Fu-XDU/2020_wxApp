@@ -12,13 +12,13 @@
 <!-- 包括预算类型、以及预算切换button -->
 <view class="mid_items">
   <!-- 上一个预算 -->
-  <button bindtap="sideBudget" id="previous" class="shift_btn" plain="ture">
-    <image src="/images/shangyiyeqianyiye.png" class="btn_img" plain="ture"></image>
+  <button bindtap="sideBudget" id="previous" class="shift_btn">
+    <image src="/images/shangyiyeqianyiye.png" class="btn_img"></image>
   </button>
   <view class="today_remain">预算类型:{{dataType[data[currentDataName].dataType]}}</view>
   <!-- 下一个预算 -->
-  <button bindtap="sideBudget" id="next" class="shift_btn" plain="ture">
-    <image src="/images/xiayiyehouyiye.png" class="btn_img" plain="ture"></image>
+  <button bindtap="sideBudget" id="next" class="shift_btn">
+    <image src="/images/xiayiyehouyiye.png" class="btn_img"></image>
   </button>
 </view>
 
@@ -29,12 +29,12 @@
 </view>
 
 <view class="in_and_out">
-  <button bindtap="navigate" id="income" class="btn_inandout" plain="ture">收入</button>
-  <button bindtap="navigate" id="expenditure" class="btn_inandout" plain="ture">支出</button>
+  <button bindtap="navigate" id="income" class="btn_inandout">收入</button>
+  <button bindtap="navigate" id="expenditure" class="btn_inandout">支出</button>
 </view>
 
 
 
-<button bindtap="navigate" id="myBudgets" plain="ture" class="btn_planandhistory">我的预算</button>
-<button bindtap="navigate" id="transaction" plain="ture" class="btn_planandhistory">转账</button>
-<button bindtap="navigate" id="history" plain="ture" class="btn_planandhistory">历史 {{data[currentDataName].name}}</button>
+<button bindtap="navigate" id="myBudgets" class="btn_planandhistory">我的预算</button>
+<button bindtap="navigate" id="transaction" class="btn_planandhistory">转账</button>
+<button bindtap="navigate" id="history"  class="btn_planandhistory">历史 {{data[currentDataName].name}}</button>
