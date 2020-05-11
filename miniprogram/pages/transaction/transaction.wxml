@@ -43,4 +43,9 @@
   </view>
 
   <button bindtap="submit" class="submit_btn">提交转账</button>
+
+  <view>
+    <view>目标预算名称：{{to.name}}</view>
+    <view>目标预算总（本月/周）剩余：{{tototalleft+value}}</view>
+  </view>
 </view>

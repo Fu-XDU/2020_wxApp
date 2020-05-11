@@ -19,6 +19,8 @@ Page({
     remarkindex: 1,
     remarkinput: null,
     remarkscansubmit: null,
+    totodayleft: null,
+    tototalleft: null,
   },
 
   /**
@@ -41,7 +43,9 @@ Page({
   secectBudget: function(e) {
     this.setData({
       select: false,
-      to: app.globalData.userData[e.target.id]
+      to: app.globalData.userData[e.target.id],
+      totodayleft: app.globalData.userData[e.target.id].todayleft,
+      tototalleft: app.globalData.userData[e.target.id].balance,
     })
   },
   handleInput: function(e) {
@@ -52,7 +56,7 @@ Page({
     } else if (e.target.id == "value") {
       if ((e.detail.value.split('.').length < 3) && (e.detail.value.indexOf('.') == -1 || e.detail.value.length - e.detail.value.indexOf('.') != 4)) {
         this.setData({
-          value: e.detail.value,
+          value: 1*e.detail.value,
           todayleft: util.toFix(this.data.frmdata.todayleft - e.detail.value),
           totalleft: util.toFix(this.data.frmdata.balance - e.detail.value)
         })
