@@ -7,7 +7,6 @@ appid: "wxbae8c6ab08f04022"
 ## 目录详解
 
 + cloudfunctions 云函数文件目录，部署在云端
-
 + miniprogram 小程序文件目录
 
    + app.js 定义小程序全局函数和全局变量
@@ -22,21 +21,17 @@ appid: "wxbae8c6ab08f04022"
 
       + functions 没用
 + myBudgets 我的所有预算
-      + newBudget 新建预算
+  + newBudget 新建预算
    + newBudgetSucceed 新建预算成功
       + income 收入添加
 + expenditure 支出添加
-      + transaction 转账添加
+  +  transaction 转账添加
 + history 历史记录
-      + logs 日志页面
+  + logs 日志页面
 + sitemap.json  配置小程序及其页面是否允许被微信索引，用不到
-      
 + style 样式文件定义，用不到
-   
 + utils 中间件定义，用不到
-   
 + project.config.json 小程序项目总配置
-
 + README.md 说明   
 
 ### emoji 指南
