@@ -19,6 +19,7 @@
   border: 3rpx solid black;
   border-radius: 35rpx;
   background-color: #FADA61;
+  margin-right: 10rpx;
 }
 @font-face {font-family: "iconfont";
   src: url('//at.alicdn.com/t/font_1800609_gr5708ltynj.eot?t=1588753592939'); /* IE9 */
