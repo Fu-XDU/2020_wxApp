@@ -21,4 +21,4 @@
         </view>
   </slide_delete>
 </view>
-<button id="newBudget" bindtap="buttonTap">添加新预算</button>
+<button class="btn" id="newBudget" bindtap="buttonTap">添加新预算</button>
