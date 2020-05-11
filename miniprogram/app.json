@@ -1,7 +1,6 @@
 {
   "pages": [
     "pages/main/main",
-    "pages/logs/logs",
     "pages/myBudgets/myBudgets",
     "pages/newBudget/newBudget",
     "pages/newBudget/newBudgetSucceed/newBudgetSucceed",

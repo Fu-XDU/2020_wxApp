@@ -1,8 +1,0 @@
-{
-  "usingComponents": {
-    "sorted_bar":"/components/sorted_bar/sorted_bar",
-    "sorted_pane":"/components/sorted_pane/sorted_pane",
-    "case":"/components/case/case"
-  },
-  "navigationBarTitleText": "问题分类"
-}

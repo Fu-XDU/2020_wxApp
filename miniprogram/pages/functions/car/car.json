@@ -1,9 +1,0 @@
-{
-  "usingComponents": {
-    "car_info":"/components/car_info/car_info",
-    "search":"/components/search/search"
-  },
-  "navigationBarBackgroundColor": "#ffc0cb",
-  "navigationBarTitleText": "拼车",
-  "enablePullDownRefresh": true
-}

@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "car_info":"/components/car_info/car_info"
-  },
-  "navigationBarTitleText":"搜索"
-}

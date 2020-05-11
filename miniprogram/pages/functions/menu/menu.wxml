@@ -1,6 +1,0 @@
-<!--pages/menu/menu.wxml-->
-<text class="top">欢迎浏览</text>
-
-<button bindtap="ToZhuyuan">竹园</button>
-<button bindtap="ToHaitang">海棠</button>
-<button bindtap="ToDingxiang">丁香</button>

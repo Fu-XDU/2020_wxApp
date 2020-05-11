@@ -1,3 +1,0 @@
-<view wx:for-items="{{menu}}" wx:key="id" class="list">  
-    <view class='list-title'>{{item.name}}{{item.price}}</view>
-</view>

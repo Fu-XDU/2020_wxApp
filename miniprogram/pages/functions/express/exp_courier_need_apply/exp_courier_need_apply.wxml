@@ -1,5 +1,0 @@
-<!--miniprogram/pages/functions/express/exp_courier_need_apply/exp_courier_need_apply.wxml-->
-<text>miniprogram/pages/functions/express/exp_ courier_need_apply/exp_ courier_need_apply.wxml</text>
-<text>申请成为快递员并通过认证后可接单</text>
-<button bindtap="toApply">点此申请</button>
-
