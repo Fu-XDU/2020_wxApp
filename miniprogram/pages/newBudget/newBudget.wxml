@@ -18,5 +18,5 @@
 <input class="value" wx:if="{{total>0}}" placeholder="剩余资金" value="{{balanceinput}}" bindinput="handleInput" maxlength="15" type="digit" id="balance"> </input>
 <picker class="aboutBudget" wx:if="{{typeindex != 2}}" mode="selector" bindchange="bindPickerChange" value="{{rolloverindex}}" range="{{rolloverboxes}}" id="rollover">滚存：{{rolloverboxes[rolloverindex]}}
 </picker>
-<button class="submit_btn" plain="ture" bindtap="submitForm">提交</button>
+<button class="submit_btn" bindtap="submitForm">提交</button>
 <text class="point">一定要努力完成计划哦！</text>

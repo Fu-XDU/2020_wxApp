@@ -16,7 +16,8 @@
   <slide_delete bindtap="buttonTap" wx:key="*this" id="deleteBudget" data-name="{{item}}">
         <view>
           <view class="texts">
-           {{item}}:{{rightdata[idx]}}
+          <view class="left">{{item}}:</view>
+           <view class="right">{{rightdata[idx]}}</view>
           </view>
         </view>
   </slide_delete>
