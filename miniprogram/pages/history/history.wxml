@@ -13,10 +13,18 @@
     </view>
 </view>
   <view wx:else>
-    <view wx:if="{{item.name!=budget.name}}">
-      收到转账{{item.value}}
+    <view class="info_bar" wx:if="{{item.name!=budget.name}}">
+    <text class="iconfont icon-wodeshouru contents"></text>
+      <view class="contents">收到转账{{item.value}}</view>
+      <button class="del_button" size="mini" id="deleteHistory" bindtap="buttonTap" data-id="{{item.id}}">删除</button>
     </view>
-    <view wx:else>发起转账{{item.value}}</view>
+    
+    <view wx:else>
+    <view class="info_bar">
+    <text class="iconfont icon-wodeshouru contents"></text>
+    <view class="contents">发起转账{{item.value}}</view>
+    <button class="del_button" size="mini" id="deleteHistory" bindtap="buttonTap" data-id="{{item.id}}">删除</button>
+    </view>
   </view>
-  
+  </view>
 </view>
