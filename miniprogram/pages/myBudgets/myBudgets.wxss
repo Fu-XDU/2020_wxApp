@@ -1,4 +1,12 @@
 /* miniprogram/pages/myBudgets/myBudgets.wxss */
+.texts{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-left: 20rpx;
+  height: 7vh;
+}
 .top{
   text-align: center;
   width: 100%;
@@ -10,6 +18,9 @@
 }
 .list{
   text-align: center;
+  border-left: 10rpx solid #FADA61;
+  margin-bottom: 15rpx;
+  margin-top: 10rpx;
 }
 .item{
   position: relative;
@@ -32,12 +43,13 @@
   height: 100%;
 }
 .btn{
-  width: 95%;
+  width: 85%;
   margin-top: 50rpx;
   font-weight: bold;
   text-align: center;
   font-size: 35rpx;
   height:94rpx;
   background-color: #FADA61;
-  border: 1rpx solid gray;
+  /* border: 1rpx solid gray; */
+  border-radius: 60rpx;
 }

@@ -17,12 +17,13 @@
 .remain{
   border: 5rpx solid black;
   margin: 20rpx 20rpx 20rpx 20rpx;
-  border-radius: 45rpx;
+  border-radius: 25rpx;
   background-color: #FADA61;
 }
 .remain_item{
   display: flex;
   flex-direction: row;
+  align-items: center;
   margin-left: 15rpx;
   margin-bottom: 10rpx;
   margin-top: 10rpx;
@@ -39,7 +40,6 @@
 
 .texts{
   margin-left: 10rpx;
-  /* border-bottom: 3rpx solid #FADA61; */
 }
 
 .submit_btn{

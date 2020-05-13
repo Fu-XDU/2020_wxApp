@@ -20,8 +20,9 @@
   background-color: #FADA61;
   height: 100rpx;
 }
-.icon{
-  margin-left: 600rpx;
+.texts{
+  margin-left: 7rpx;
+  /* margin-right: 500rpx; */
 }
 /* miniprogram/pages/income/income.wxss */
 .item_bars{
@@ -52,6 +53,7 @@
 .remain_item{
   display: flex;
   flex-direction: row;
+  align-items: center;
   margin-left: 15rpx;
   margin-bottom: 10rpx;
   margin-top: 10rpx;

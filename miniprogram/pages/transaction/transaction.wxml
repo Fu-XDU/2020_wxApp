@@ -2,29 +2,41 @@
 <view wx:if="{{select}}">
   <text class="select_tip">请选择目标账户</text>
   <view wx:for="{{name}}" wx:key="*this" class="account_items" bindtap="secectBudget" id="{{item}}">
-    {{item}}
-    <text class="iconfont icon-youjiantou icon"></text>
+    <view class="texts">{{item}}</view>
+    <text class="iconfont icon-youjiantou"></text>
   </view>
 
 </view>
 <view wx:else>
   <view class="item_bars">
     <text class="iconfont icon-yunpanlogo- texts"></text>
-    <view class="budget_name texts">预算名称:</view>
+    <view class="budget_name texts">当前预算名称:</view>
     <view class="right">{{frmdata.name}}</view>
   </view>
 
   <view class="remain">
     <view class="remain_item">
-      <text class="iconfont icon-shengyukeyongedu texts"></text>
+      <text class="iconfont icon-shengyukeyongedu"></text>
       <view class="texts">今日剩余:</view>
       <view class="right">{{todayleft}}</view>
     </view>
     <view class="remain_item">
-      <text class="iconfont icon-shengyukeyongedu texts"></text>
+      <text class="iconfont icon-shengyukeyongedu"></text>
       <view class="texts">本月剩余:</view>
       <view class="right">{{totalleft}}</view>
     </view>
+  </view>
+
+  <view class="item_bars">
+    <text class="iconfont icon-yunpanlogo- texts"></text>
+    <view class="budget_name texts">目标预算名称:</view>
+    <view class="right">{{to.name}}</view>
+  </view>
+
+  <view class="item_bars">
+      <text class="iconfont icon-shengyukeyongedu texts"></text>
+      <view class="texts">目标预算总剩余:</view>
+      <view class="right">{{tototalleft+value}}</view>
   </view>
 
 
@@ -44,8 +56,4 @@
 
   <button bindtap="submit" class="submit_btn">提交转账</button>
 
-  <view>
-    <view>目标预算名称：{{to.name}}</view>
-    <view>目标预算总（本月/周）剩余：{{tototalleft+value}}</view>
-  </view>
 </view>

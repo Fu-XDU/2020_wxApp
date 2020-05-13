@@ -1,4 +1,11 @@
 /* miniprogram/pages/newBudget/newBudget.wxss */
+.submit_btn{
+  width: 80%;
+  margin-top: 50rpx;
+  border-radius: 60rpx;
+  background-color: #FADA61;
+  margin-bottom: 20rpx;
+}
 .input{
   height: 100rpx;
   font-size: 50rpx;
@@ -19,14 +26,10 @@
   margin-top: 30rpx;
   font-size: 50rpx;
 }
-.signup{
-  width: 90%;
-  text-align: center;
-  margin-top: 30rpx;
-  font-size: 50rpx;
-}
 .point{
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-top: 30rpx;
   font-size: 50rpx;
 }

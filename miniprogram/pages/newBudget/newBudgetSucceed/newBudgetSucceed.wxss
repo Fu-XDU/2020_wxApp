@@ -76,8 +76,13 @@
   margin: 0 16px;
 }
 
-.weui-msg__opr-area .weui-btn+.weui-btn {
+.weui-btn+.weui-btn {
   margin-bottom: 16px;
+}
+
+.button{
+  border-radius: 60rpx;
+  background-color: #FADA61;
 }
 
 .weui-msg__opr-area:last-child {

@@ -3,9 +3,10 @@
 <view class="top_items">
   <view class="bud_name">预算名称:{{data[currentDataName].name}}
   </view>
-  <view class="bud_remain">
-    <view><text>预算币种:{{currencyType[data[currentDataName].currency]}}\n\n</text><text>预算余额:{{data[currentDataName].balance}}</text></view>
-  </view>
+    <view class="bud_remain">
+      <text>预算币种:{{currencyType[data[currentDataName].currency]}}\n\n</text>
+      <text>预算余额:{{data[currentDataName].balance}}</text>
+    </view>
 
   <view class="today_remain">今日剩余:{{data[currentDataName].todayleft}}</view>
 </view>

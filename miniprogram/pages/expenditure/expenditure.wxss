@@ -27,6 +27,7 @@
 .remain_item{
   display: flex;
   flex-direction: row;
+  align-items: center;
   margin-left: 15rpx;
   margin-bottom: 10rpx;
   margin-top: 10rpx;

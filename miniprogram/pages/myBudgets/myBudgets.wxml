@@ -14,8 +14,8 @@
 
 <view class="list" wx:for="{{leftdata}}" wx:for-index="idx" wx:key="*this">
   <slide_delete bindtap="buttonTap" wx:key="*this" id="deleteBudget" data-name="{{item}}">
-        <view class="product-item-wrap">
-          <view class="product-movable-item">
+        <view>
+          <view class="texts">
            {{item}}:{{rightdata[idx]}}
           </view>
         </view>

@@ -10,7 +10,7 @@
         </view>
         <view class="weui-msg__opr-area">
             <view class="weui-btn-area">
-                <button class="weui-btn" type="primary" bindtap='ToMain'>返回主页</button>
+                <button class="button" type="primary" bindtap='ToMain'>返回主页</button>
             </view>
         </view>
     </view>
