@@ -29,6 +29,7 @@
   text-align: center;
   width: 100%;
   background-color:#FADA61;
+  height: 60rpx;
 }
 .top_{
   width:25%;
