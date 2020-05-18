@@ -3,6 +3,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: flex-start;
+  margin-left: 20rpx;
   height: 7vh;
   flex-direction: row;
   align-items:center;

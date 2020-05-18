@@ -13,7 +13,7 @@
   <view class="right">{{todayleft}}</view>
   </view>
   <view class="remain_item">
-    <text class="iconfont icon-shengyukeyongedu"></text>
+    <text class="iconfont icon-jinbi"></text>
     <view class="texts">本月剩余:</view>
     <view class="right">{{totalleft}}</view>
   </view>
