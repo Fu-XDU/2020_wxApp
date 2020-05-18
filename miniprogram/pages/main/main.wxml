@@ -2,13 +2,12 @@
 <image src="../../images/back.png" style="position: fixed; z-index: -999; width: 100%; height: 100%;"></image>
 <!-- 包括预算名称、预算余额、币种、今日剩余 -->
 <view class="top_items">
-  <view class="bud_name">预算名称:{{data[currentDataName].name}}
-  </view>
+<image src="/images/left.png" class="left"></image>
+  <view class="bud_name">预算名称:{{data[currentDataName].name}}</view>
     <view class="bud_remain">
       <text>预算币种:{{currencyType[data[currentDataName].currency]}}\n\n</text>
       <text>预算余额:{{data[currentDataName].balance}}</text>
     </view>
-
   <view class="today_remain">今日剩余:{{data[currentDataName].todayleft}}</view>
 </view>
 <!-- 包括预算类型、以及预算切换button -->
@@ -17,7 +16,7 @@
   <button bindtap="sideBudget" id="previous" class="shift_btn">
     <image src="/images/shangyiyeqianyiye.png" class="btn_img"></image>
   </button>
-  <view class="today_remain">预算类型:{{dataType[data[currentDataName].dataType]}}</view>
+  <view class="today_remain_">预算类型:{{dataType[data[currentDataName].dataType]}}</view>
   <!-- 下一个预算 -->
   <button bindtap="sideBudget" id="next" class="shift_btn">
     <image src="/images/xiayiyehouyiye.png" class="btn_img"></image>

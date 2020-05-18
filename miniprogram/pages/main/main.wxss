@@ -64,7 +64,7 @@
   margin-top: 50rpx;
   justify-content: center;
   z-index: -999;
-  height:320rpx;
+  height: 320rpx;
   width: 320rpx;
   position: relative;
 }
@@ -94,6 +94,22 @@
   align-items: center;
   justify-content: center;
   border: 5rpx solid write;
+  margin-bottom: 20rpx;
+  position: absolute;
+  width: 40vw;
+  height: 5vh;
+  font-weight: bold;
+  left: 0;
+  top: 130px;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+.today_remain_{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 5rpx solid write;
   border-radius: 25rpx;
   margin-bottom: 20rpx;
   margin-top: 20rpx;
@@ -104,9 +120,13 @@
 }
 .bud_name{
   margin-top: 5rpx;
-  margin-bottom: 20rpx;
   font-weight: bold;
-  border-bottom: 8rpx solid #FADA61;
+  position: absolute;
+  left: 0;
+  top: 20px;
+  right: 0;
+  bottom: 0;
+  text-align: center;
 }
 /* 预算余额框 */
 .bud_remain{
@@ -118,15 +138,17 @@
   width: 70vw;
   /* border: 5rpx solid write; */
   margin-bottom: 10rpx;
-  margin-top: 10rpx;
   font-weight: bold;
-  border-bottom: 8rpx solid #FADA61;
+  position: absolute;
+  top: 50px;
 }
 .top_items{
   display: flex;
   flex-direction: column;
-  justify-content: left;
+  justify-content: center;
   align-items: center;
+  z-index: 999;
+  position: relative;
   /* background-color: #FADA61; */
 }
 /* .container{
@@ -187,4 +209,9 @@
   
   border-radius: 100rpx;
   margin-bottom: 30rpx;
+}
+.left{
+  height: 350rpx;
+  width: 700rpx;
+  z-index: -999;
 }
