@@ -8,7 +8,9 @@
       <text>预算币种:{{currencyType[data[currentDataName].currency]}}\n\n</text>
       <text>预算余额:{{data[currentDataName].balance}}</text>
     </view>
-  <view class="today_remain">今日剩余:{{data[currentDataName].todayleft}}</view>
+    <image src="/images/right.png" class="right"></image>
+  <view class="today_remain">今日剩余:</view>
+  <view class="today_remain-data">{{data[currentDataName].todayleft}}</view>
 </view>
 <!-- 包括预算类型、以及预算切换button -->
 <view class="mid_items">

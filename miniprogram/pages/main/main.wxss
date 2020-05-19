@@ -40,20 +40,9 @@
 }
 .remain_day{
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 200rpx;
-  width: 200rpx;
-  border:5rpx solid write;
-  border-radius: 100%;
   position: absolute;
-  left: 0;
-  top: 0px;
-  right: 0;
-  bottom: 0;
-  margin: auto;
-  text-align: center;
   font-weight: bold;
+  margin-top: 137rpx;
 }
 .btn_img{
   height: 70rpx;
@@ -61,7 +50,6 @@
 }
 .btn_img_{
   border-radius: 200rpx;
-  margin-top: 50rpx;
   justify-content: center;
   z-index: -999;
   height: 320rpx;
@@ -91,19 +79,31 @@
 }
 .today_remain{
   display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 5rpx solid write;
-  margin-bottom: 20rpx;
-  position: absolute;
-  width: 40vw;
-  height: 5vh;
+  flex-direction: column;
+  justify-content: right;
+  text-align: right;
+  height: 10vh;
+  width: 70vw;
+  right: 100rpx;
+  /* border: 5rpx solid write; */
+  margin-bottom: 10rpx;
   font-weight: bold;
-  left: 0;
-  top: 130px;
-  right: 0;
-  bottom: 0;
-  margin: auto;
+  position: absolute;
+  top: 50px;
+}
+.today_remain-data{
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+  text-align: right;
+  height: 10vh;
+  width: 70vw;
+  right: 130rpx;
+  /* border: 5rpx solid write; */
+  margin-bottom: 10rpx;
+  font-weight: bold;
+  position: absolute;
+  top: 80px;
 }
 .today_remain_{
   display: flex;
@@ -126,29 +126,31 @@
   top: 20px;
   right: 0;
   bottom: 0;
-  text-align: center;
+  margin-left: 100rpx;
+  text-align: left;
 }
 /* 预算余额框 */
 .bud_remain{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  text-align: left;
   height: 10vh;
   width: 70vw;
+  left: 100rpx;
   /* border: 5rpx solid write; */
   margin-bottom: 10rpx;
   font-weight: bold;
   position: absolute;
-  top: 50px;
+  top: 60px;
 }
 .top_items{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-  position: relative;
+  margin-top: 0;
+  /* background-color: #FADA61; */
+}
+.top_items view{
+  width:60%;
+  display:inline-block;
   /* background-color: #FADA61; */
 }
 /* .container{
@@ -211,7 +213,16 @@
   margin-bottom: 30rpx;
 }
 .left{
-  height: 350rpx;
-  width: 700rpx;
+  height: 250rpx;
+  width: 400rpx;
   z-index: -999;
+  left: 0;
+  margin-left: 20rpx;
+}
+.right{
+  height: 250rpx;
+  width: 250rpx;
+  z-index: -999;
+  margin-left: 50rpx;
+  right: 0;
 }
