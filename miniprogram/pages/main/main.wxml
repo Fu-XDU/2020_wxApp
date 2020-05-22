@@ -32,8 +32,10 @@
 </view>
 
 <view class="in_and_out">
-  <button bindtap="navigate" id="income" class="btn_inandout">收入</button>
-  <button bindtap="navigate" id="expenditure" class="btn_inandout">支出</button>
+<image src="/images/income.png" class="back-left"></image>
+  <button bindtap="navigate" id="income" class="btn_inandout-left" plain="true">收入</button>
+<image src="/images/income.png" class="back-right"></image>
+  <button bindtap="navigate" id="expenditure" class="btn_inandout-right" plain="true">支出</button>
 </view>
 
 
