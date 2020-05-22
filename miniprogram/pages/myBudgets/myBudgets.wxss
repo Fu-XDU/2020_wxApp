@@ -11,7 +11,7 @@
   margin: 20rpx;
   border: 5rpx solid black;
   border-radius: 25rpx;
-  background-color: #FADA61;
+  background-color: rgb(253,234,165);
   flex-flow:row;
   font-size: 38rpx;
 }
@@ -30,16 +30,16 @@
 .top{
   text-align: center;
   width: 100%;
-  background-color:#FADA61;
+  background-color:rgb(253,234,165);
   height: 60rpx;
 }
 .top_{
   width:25%;
-  background-color:  #FADA61;
+  background-color:  rgb(253,234,165);
 }
 .list{
   text-align: center;
-  border-left: 10rpx solid #FADA61;
+  border-left: 10rpx solid rgb(253,234,165);
   margin-bottom: 15rpx;
   margin-top: 10rpx;
 }
@@ -70,7 +70,7 @@
   text-align: center;
   font-size: 35rpx;
   height:94rpx;
-  background-color: #FADA61;
+  background-color: rgb(253,234,165);
   /* border: 1rpx solid gray; */
   border-radius: 60rpx;
 }

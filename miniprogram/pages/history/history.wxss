@@ -6,7 +6,7 @@
   margin: 10rpx;
   border: 5rpx solid black;
   border-radius: 25rpx;
-  background-color: #FADA61;
+  background-color: rgb(253,234,165);
   height: 70rpx;
 }
 .contents{
@@ -18,7 +18,7 @@
   /* justify-content: right; */
   border: 3rpx solid black;
   border-radius: 35rpx;
-  background-color: #FADA61;
+  background-color: rgb(253,234,165);
   margin-right: 10rpx;
 }
 @font-face {font-family: "iconfont";

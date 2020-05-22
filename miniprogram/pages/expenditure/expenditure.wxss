@@ -6,7 +6,7 @@
   margin: 20rpx;
   border: 5rpx solid black;
   border-radius: 25rpx;
-  background-color: #FADA61;
+  background-color: rgb(253,234,165);
   height: 70rpx;
   flex-flow:row;
 }
@@ -22,7 +22,7 @@
   border: 5rpx solid black;
   margin: 20rpx 20rpx 20rpx 20rpx;
   border-radius: 25rpx;
-  background-color: #FADA61;
+  background-color: rgb(253,234,165);
 }
 .remain_item{
   display: flex;

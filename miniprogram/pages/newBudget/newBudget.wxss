@@ -3,7 +3,7 @@
   width: 80%;
   margin-top: 50rpx;
   border-radius: 60rpx;
-  background-color: #FADA61;
+  background-color: rgb(253,234,165);
   margin-bottom: 20rpx;
 }
 .input{

@@ -82,7 +82,7 @@
 
 .button{
   border-radius: 60rpx;
-  background-color: #FADA61;
+  background-color: rgb(253,234,165);
 }
 
 .weui-msg__opr-area:last-child {
