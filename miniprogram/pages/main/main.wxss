@@ -9,7 +9,7 @@
 .back-left{
   height: 16.5vh;
   width: 17vw;
-  left: 120rpx;
+  left: 119rpx;
   margin-top: 20rpx;
   position: absolute;
   border-radius: 50rpx;
