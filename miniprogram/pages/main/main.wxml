@@ -40,6 +40,6 @@
 
 
 
-<button bindtap="navigate" id="myBudgets" class="btn_planandhistory">我的预算</button>
+<button bindtap="navigate" id="myBudgets" class="btn_planandhistory">预算明细</button>
 <button bindtap="navigate" id="transaction" class="btn_planandhistory">转账</button>
-<button bindtap="navigate" id="history"  class="btn_planandhistory">历史 {{data[currentDataName].name}}</button>
+<button bindtap="navigate" id="history"  class="btn_planandhistory">交易历史</button>
