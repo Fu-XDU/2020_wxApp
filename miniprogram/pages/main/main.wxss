@@ -89,9 +89,9 @@
   position: relative;
 }
 .shift_btn{
-  height: 80rpx;
+  height: 90rpx;
   width: 120rpx;
-  border-radius: 40%;
+  border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -131,7 +131,7 @@
   text-align: right;
   height: 10vh;
   width: 70vw;
-  right: 130rpx;
+  right: 135rpx;
   /* border: 5rpx solid write; */
   margin-bottom: 10rpx;
   font-weight: bold;

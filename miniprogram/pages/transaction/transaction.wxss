@@ -15,7 +15,7 @@
 }
 .ige{
   width: 100%;
-  height:8vh;
+  height:18vh;
 }
 .account_items{
   display: flex;
