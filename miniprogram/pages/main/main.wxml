@@ -26,7 +26,7 @@
 </view>
 
 <view class="circle">
-<image src="/images/center(none).png" class="btn_img_"></image>
+<image src="/images/.png" class="btn_img_"></image>
   <view class="remain_day">剩余天数:{{data[currentDataName].remaindays}}</view>
   
 </view>
@@ -37,7 +37,6 @@
 <image src="/images/income.png" class="back-right"></image>
   <button bindtap="navigate" id="expenditure" class="btn_inandout-right" plain="true">支出</button>
 </view>
-
 
 
 <button bindtap="navigate" id="myBudgets" class="btn_planandhistory">预算明细</button>

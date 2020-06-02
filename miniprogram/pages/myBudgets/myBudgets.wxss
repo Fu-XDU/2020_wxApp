@@ -31,10 +31,11 @@
   text-align: center;
   width: 100%;
   background-color:rgb(253,234,165);
-  height: 60rpx;
+  height: 70rpx;
 }
 .top_{
   width:25%;
+  height: 100%;
   background-color:  rgb(253,234,165);
 }
 .list{
