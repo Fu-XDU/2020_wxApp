@@ -18,8 +18,8 @@
   border-radius: 200rpx;
   justify-content: center;
   z-index: -999;
-  height: 320rpx;
-  width: 320rpx;
+  height: 300rpx;
+  width: 300rpx;
   position: relative;
 }
 .shift_btn{
