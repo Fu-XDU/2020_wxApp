@@ -13,6 +13,15 @@
   height: 70rpx;
   width: 70rpx;
 }
+
+.btn_img_{
+  border-radius: 200rpx;
+  justify-content: center;
+  z-index: -999;
+  height: 320rpx;
+  width: 320rpx;
+  position: relative;
+}
 .shift_btn{
   height: 90rpx;
   width: 90rpx;
@@ -99,6 +108,13 @@
 .mid_btn_l{
   height: 180rpx;
   width: 180rpx;
+}
+.mid_btn_c{
+  
+  position: absolute;
+  left: 40%;
+  font-size: 28rpx;
+  font-weight: bold;
 }
 .remain_day{
   border: 5rpx solid black;

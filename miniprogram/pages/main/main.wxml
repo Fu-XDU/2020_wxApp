@@ -35,7 +35,8 @@
 <view class="mid_items">
 <!-- <image src="/images/.png" class="btn_img_"></image> -->
   <button bindtap="navigate" id="myBudgets" class="mid_btn_l">预算明细</button>
-   <view class="">剩余天数:{{data[currentDataName].remaindays}}</view>
+  <image src="/images/center(none).png" class="btn_img_"></image>
+   <view class="mid_btn_c">剩余天数:{{data[currentDataName].remaindays}}</view>
   <button bindtap="navigate" id="transaction" class="mid_btn_r">转账</button>
 </view>
  
