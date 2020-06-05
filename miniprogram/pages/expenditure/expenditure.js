@@ -12,7 +12,7 @@ Page({
     expenditureinput: null,
     todayleft: null,
     totalleft: null,
-    remarks: null,
+    remarks: app.globalData.remarks,
     remarkindex: 1,
     remarkinput: null,
     remarkscansubmit: null,
@@ -24,7 +24,6 @@ Page({
   onLoad: function(options) {
     this.setData({
       data: app.globalData.userData[options.name],
-      remarks: app.globalData.remarks,
       todayleft: util.toFix(app.globalData.userData[options.name].todayleft - this.data.expenditure * 1),
       totalleft: util.toFix(app.globalData.userData[options.name].balance - this.data.expenditure * 1)
     })

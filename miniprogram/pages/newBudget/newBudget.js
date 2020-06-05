@@ -8,23 +8,23 @@ Page({
    */
   data: {
     name: null,
-    type: null,
-    typeboxes: null,
+    type: app.globalData.dataType[0],
+    typeboxes: app.globalData.dataType,
     typeindex: 0,
-    beginTime: null,
+    beginTime: "今日",
     beginTimeboxes: ["今日", "每月第一天", "每月最后一天", "2日", "3日", "4日", "5日", "6日", "7日", "8日", "9日", "10日", "11日", "12日", "13日", "14日", "15日", "16日", "17日", "18日", "19日", "20日", "21日", "22日", "23日", "24日", "25日", "26日", "27日", "28日", "29日", "30日", "31日"],
     beginTimeindex: 0,
-    endTime: null,
+    endTime: app.globalData.currencyType[0],
     endTimeboxes: ["今日"],
     endTimeindex: 0,
-    currency: null,
-    currencyboxes: null,
+    currency: app.globalData.currencyType[0],
+    currencyboxes: app.globalData.currencyType,
     currencyindex: 0,
     total: null,
     totalinput: null,
     balance: null,
     balanceinput: null,
-    rollover: null,
+    rollover: "是，滚存",
     rolloverboxes: ["是，滚存", "不，不要滚存"],
     rolloverindex: 0,
     overflowtip: true
@@ -34,15 +34,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    this.setData({
-      typeboxes: app.globalData.dataType,
-      currencyboxes: app.globalData.currencyType,
-    })
-    this.data.type = this.data.typeboxes[this.data.typeindex]
-    this.data.beginTime = this.data.beginTimeboxes[this.data.beginTimeindex]
-    this.data.endTime = this.data.endTimeboxes[this.data.endTimeindex]
-    this.data.currency = this.data.currencyboxes[this.data.currencyindex]
-    this.data.rollover = this.data.rolloverboxes[this.data.rolloverindex]
   },
   checkForm: function() {
     var _this = this
@@ -75,21 +66,29 @@ Page({
     })
   },
   submitToDb: function() {
-    util.httpsGet("db?sql=INSERT INTO " + app.globalData.openid + "(name, dataType, beginTime, currency, total, balance, rollover, endTime)VALUES(\"" + this.data.name + '",' + this.data.typeindex + ',"' + this.data.beginTime + '",' +
-      this.data.currencyindex + ',' + this.data.total + ',' + this.data.balance + ',' + (this.data.rolloverindex + 1) % 2 + ',"' + this.data.endTime + '")_Add').then((res) => {
-      if (res.data == '1') {
-        console.log("预算提交成功", res.data)
-        wx.redirectTo({
-          url: './newBudgetSucceed/newBudgetSucceed'
-        })
-      } else {
-        console.error("预算提交失败", res.data)
+    if (!app.globalData.userData[this.data.name]) {
+      util.httpsGet("db?sql=INSERT INTO " + app.globalData.openid + "(name, dataType, beginTime, currency, total, balance, rollover, endTime)VALUES(\"" + this.data.name + '",' + this.data.typeindex + ',"' + this.data.beginTime + '",' +
+        this.data.currencyindex + ',' + this.data.total + ',' + this.data.balance + ',' + (this.data.rolloverindex + 1) % 2 + ',"' + this.data.endTime + '")_Add').then((res) => {
+        if (res.data == '1') {
+          console.log("预算提交成功", res.data)
+          wx.redirectTo({
+            url: './newBudgetSucceed/newBudgetSucceed'
+          })
+        } else {
+          console.error("预算提交失败", res.data)
+          util.networkError();
+        }
+      }).catch((err) => {
+        console.error("预算提交失败", err.data)
         util.networkError();
-      }
-    }).catch((err) => {
-      console.error("预算提交失败", err.data)
-      util.networkError();
-    })
+      })
+    } else {
+      wx.showModal({
+        title: '重名啦',
+        content: '你已经有名为' + this.data.name + '的预算啦',
+        showCancel: false
+      })
+    }
   },
   submitForm: function() {
     this.checkForm().then(() => {

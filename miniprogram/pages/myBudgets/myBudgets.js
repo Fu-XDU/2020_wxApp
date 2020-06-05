@@ -10,12 +10,12 @@ Page({
     budgets: null,
     leftplain: true,
     rightplain: true,
-    leftdata: null,
-    rightdata: null,
-    todayleft: null,
-    totalleft: null,
-    todayspent: null,
-    totalspent: null,
+    leftdata: [],
+    rightdata: [],
+    todayleft: [],
+    totalleft: [],
+    todayspent: [],
+    totalspent: [],
     delBtnWidth:160,
     data: [{ content: "1", right: 0 }, { content: "2", right: 0 }, { content: "3", right: 0 }, { content: "4", right: 0 }, { content: "5", right: 0 }, { content: "6", right: 0 }, { content: "7", right: 0 }, { content: "8", right: 0 }, { content: "9", right: 0 }, { content: "10",  right: 0 }],
     isScroll:true,
@@ -27,12 +27,6 @@ Page({
    */
   onLoad: function(options) {
     this.data.budgets = app.globalData.userData
-    this.data.leftdata = []
-    this.data.rightdata = []
-    this.data.todayleft = []
-    this.data.totalleft = []
-    this.data.todayspent = []
-    this.data.totalspent = []
     for (var key in this.data.budgets) {
       this.data.leftdata.push(key)
       this.data.todayleft.push(this.data.budgets[key].todayleft)

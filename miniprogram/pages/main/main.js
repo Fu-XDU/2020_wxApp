@@ -4,10 +4,10 @@ const app = getApp()
 Page({
   data: {
     data: undefined,
-    dataType: ["每月", "每周", "一次性", "工资单"],
-    historyType: ["收入", "支出"],
-    currencyType: ["RMB"],
     currentDataName: null,
+    currencyType : app.globalData.currencyType,
+    historyType : app.globalData.historyType,
+    dataType : app.globalData.dataType,
     dataKey: [],
     currentDataIndex: 0,
     showloading: true
@@ -60,7 +60,6 @@ Page({
     this.onLoad().then((res) => {
       wx.hideLoading()
     });
-
   },
   sideBudget: function(e) {
     if (e.target.id == "next") {

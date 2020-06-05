@@ -2,7 +2,7 @@
 <!--miniprogram/pages/transaction/transaction.wxml-->
 <view wx:if="{{select}}">
   <text class="select_tip">请选择目标账户</text>
-  <view wx:for="{{name}}" wx:key="*this" class="account_items" bindtap="secectBudget" id="{{item}}">
+  <view wx:for="{{names}}" wx:key="*this" class="account_items" bindtap="secectBudget" id="{{item}}">
     <view class="texts" id="{{item}}">{{item}}</view>
     <text class="iconfont icon-youjiantou" id="{{item}}"></text>
   </view>

@@ -15,7 +15,7 @@ Page({
     valueinput: null,
     todayleft: null,
     totalleft: null,
-    remarks: null,
+    remarks: app.globalData.remarks,
     remarkindex: 1,
     remarkinput: null,
     remarkscansubmit: null,
@@ -27,14 +27,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    var name = []
+    var names = []
     for (var key in app.globalData.userData) {
       if (key != options.name)
-        name.push(key)
+        names.push(key)
     }
     this.setData({
-      remarks: app.globalData.remarks,
-      name: name,
+      names: names,
       frmdata: app.globalData.userData[options.name],
       todayleft: util.toFix(app.globalData.userData[options.name].todayleft - this.data.value),
       totalleft: util.toFix(app.globalData.userData[options.name].balance - this.data.value)
