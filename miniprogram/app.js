@@ -34,6 +34,11 @@ App({
               util.httpsGet('db?sql=select * from ' + _this.globalData.openid).then((res) => {
                 _this.globalData.userData = {}
                 //将远程数据存入本地全局变量
+                if (res.data =="数据库连接失败！"){
+                  console.error(res.data)
+                  util.networkError();
+                  this.tableCallback(null);
+                }
                 for (var i = 0; i < res.data.length; ++i) {
                   _this.globalData.userData[res.data[i].name] = res.data[i]
                   _this.globalData.userData[res.data[i].name].history = []

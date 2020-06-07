@@ -45,7 +45,7 @@ Page({
           })
           resolve()
         } else if (registered == null) {
-          console.log("出错了")
+          console.error("出错了")
           resolve()
         }
       }
