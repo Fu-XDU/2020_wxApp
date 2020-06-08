@@ -35,11 +35,14 @@
 <view class="mid_items">
 <!-- <image src="/images/.png" class="btn_img_"></image> -->
   <navigator  class="mid_btn_l" url="../myBudegts/myBudegts">
-  <image  bindtap="navigate" id="myBudgets" src="/images/mybudget.jpg" class="mid_btn_l_img" ></image>
+  <image  bindtap="navigate" id="myBudgets" src="/images/mybudget.jpg" class="mid_btn_l_img" mode="widthFix"></image>
+  <text>我的预算</text>
   </navigator>
   <image src="/images/center(none).png" class="btn_img_"></image>
    <view class="mid_btn_c">剩余天数:{{data[currentDataName].remaindays}}</view>
-  <button bindtap="navigate" id="transaction" class="mid_btn_r">转账</button>
+  <navigator  class="mid_btn_r" url = "../transaction/transaction">
+  <image  bindtap="navigate" id="transaction" src="/images/translate.jpg" class="mid_btn_r_img" ></image>
+  </navigator>
 </view>
  
 
