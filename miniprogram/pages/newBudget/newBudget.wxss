@@ -1,9 +1,14 @@
 /* miniprogram/pages/newBudget/newBudget.wxss */
+.bold{
+  font-weight: bold;
+}
 .submit_btn{
   width: 80%;
   margin-top: 50rpx;
   border-radius: 60rpx;
-  background-color: rgb(253,234,165);
+  /* background-color: rgb(253,234,165); */
+  background-color: #288af5;
+  color: #fff;
   margin-bottom: 20rpx;
 }
 .input{

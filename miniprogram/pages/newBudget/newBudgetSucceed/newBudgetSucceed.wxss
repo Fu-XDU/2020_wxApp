@@ -4,7 +4,9 @@
  * Copyright 2019 Tencent, Inc.
  * Licensed under the MIT license
  */
-
+ .bold{
+  font-weight: bold;
+}
 .weui-msg {
   padding-top: 36px;
   text-align: center;
@@ -23,6 +25,7 @@
 
 .weui-msg__link {
   color: #576b95;
+  
   display: inline-block;
   vertical-align: baseline;
 }
@@ -82,7 +85,9 @@
 
 .button{
   border-radius: 60rpx;
-  background-color: rgb(253,234,165);
+  /* background-color: rgb(253,234,165); */
+  background-color: #288af5;
+  color: #fff;
 }
 
 .weui-msg__opr-area:last-child {

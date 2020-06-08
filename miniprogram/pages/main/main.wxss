@@ -1,4 +1,7 @@
 /**index.wxss**/
+.bold{
+  font-weight: bold;
+}
 .top_items{
   display: flex;
   flex-direction: row;
@@ -134,15 +137,10 @@
   align-items: center;
   margin-top: 20rpx;
 }
-.btn_inandout-left{
- 
-}
 .btn_inandout-left::after{
   border: 0;
 }
-.btn_inandout-right{
- 
-}
+
 .btn_inandout-right::after{
   border: 0;
 }

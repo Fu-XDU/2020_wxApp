@@ -8,9 +8,11 @@
   padding: 200rpx 0;
   box-sizing: border-box;
 }
-/* page{
+page{
   /* 定义主题颜色 */
   /* --themeColor:pink; */
   /* 定义字体大小 */
   /* font-size: 28rpx; */
-/* } */
+  font-family: STSong;
+  /* font-weight: bold; */
+}

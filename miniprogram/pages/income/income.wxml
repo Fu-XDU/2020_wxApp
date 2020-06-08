@@ -1,39 +1,43 @@
-<image src="../../images/back.png" style="position: fixed; z-index: -999; width: 100%; height: 100%;"></image>
+<!-- <image src="../../images/back.png" style="position: fixed; z-index: -999; width: 100%; height: 100%;"></image> -->
 <!--miniprogram/pages/income/income.wxml-->
-<view class="item_bars">
-  <text class="iconfont icon-yunpanlogo- texts"></text>
-  <view class="budget_name texts">预算名称:</view>
-  <view class="right">{{data.name}}</view>
-</view>
-<!-- <view>今日收入</view> -->
-
-<view class="remain">
-  <view class="remain_item">
-    <text class="iconfont icon-shengyukeyongedu"></text>
-    <view class="texts">今日剩余:</view>
-  <view class="right">{{todayleft}}</view>
+<view class="item_bars_1">
+  <view class="each_item">
+    <text class="iconfont icon-yunpanlogo- icons"></text>
+    <view class="budget_name texts bold">预算名称:</view>
+    <view class="right bold">{{data.name}}</view>
   </view>
-  <view class="remain_item">
-    <text class="iconfont icon-jinbi"></text>
-    <view class="texts">本月剩余:</view>
-    <view class="right">{{totalleft}}</view>
+</view>
+
+<view class="item_bars_2">
+  <view class="each_item">
+    <text class="iconfont icon-shengyukeyongedu icons"></text>
+    <view class="texts bold">今日剩余:</view>
+    <view class="right bold">{{todayleft}}</view>
+  </view>
+  <view class="each_item">
+    <text class="iconfont icon-jinbi icons"></text>
+    <view class="texts bold">本月剩余:</view>
+    <view class="right bold">{{totalleft}}</view>
   </view>
 </view> 
 
-<view class="item_bars">
-<picker wx:if="{{remarkindex!=0}}" mode="selector" bindchange="bindPickerChange" value="{{remarkindex}}" range="{{remarks}}" id="remarks">
-   <text class="iconfont icon-ico- texts"></text>
-添加注释:{{remarks[remarkindex]}}
-</picker>
-<view wx:else>
-<input placeholder="在此键入您的注释" bindinput="handleInput" id="remarks"></input>
+<view class="item_bars_1">
+    <view class="each_item">
+    <picker wx:if="{{remarkindex!=0}}" mode="selector" bindchange="bindPickerChange" value="{{remarkindex}}" range="{{remarks}}" id="remarks">
+      <text class="iconfont icon-ico- icons"></text> 添加注释:{{remarks[remarkindex]}}
+    </picker>
+    <view wx:else>
+      <input placeholder="在此键入您的注释" bindinput="handleInput" id="remarks"></input>
+    </view>
+    </view>
+  </view>
+
+<view class="item_bars_1">
+    <view class="each_item">
+  <text class="iconfont icon-jinqian icons"></text>
+  <text class="texts bold">添加收入:</text>
+  <input placeholder="在此键入您的收入" value="{{incomeinput}}" bindinput="handleInput" maxlength="15" type="digit" id="income" class="texts"> </input>
   </view>
 </view>
 
-<view class="item_bars">
-  <text class="iconfont icon-jinqian texts"></text>
-  <text class="texts">添加收入:</text>
-  <input placeholder="在此键入您的收入" value="{{incomeinput}}" bindinput="handleInput" maxlength="15" type="digit" id="income" class="texts"> </input>
-</view>
-
-<button bindtap="submit" class="submit_btn">提交收入</button>
+<button bindtap="submit" class="submit_btn bold">提交收入</button>

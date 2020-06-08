@@ -1,58 +1,65 @@
 /* miniprogram/pages/income/income.wxss */
-.item_bars{
+.bold{
+  font-weight: bold;
+}
+.texts{
+  margin-left: 12rpx;
+  color: #fff;
+}
+.icons{
+  margin-left: 10rpx;
+  margin-right: 20rpx;
+}
+
+.each_item{
+  display: flex;
+  flex-direction: row;
+  margin-top: 20rpx;
+  margin-left: 20rpx;
+  margin-bottom: 10rpx;
+}
+.item_bars_1{
   display: flex;
   flex-direction: row;
   align-items: center;
   margin: 20rpx;
-  border: 5rpx solid black;
+  border: 5rpx solid white;
   border-radius: 25rpx;
-  background-color: rgb(253,234,165);
-  height: 70rpx;
-  flex-flow:row;
+  background-color: #288af5;
+  height: 100rpx;
 }
-.item_bars view{
-  width:100%;
-  display:inline-block;
-  }
-.remain{
-  border: 5rpx solid black;
-  margin: 20rpx 20rpx 20rpx 20rpx;
-  border-radius: 25rpx;
-  background-color: rgb(253,234,165);
-}
-.remain_item{
+.item_bars_2{
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-left: 15rpx;
-  margin-bottom: 10rpx;
-  margin-top: 10rpx;
-  flex-flow:row;
+  flex-direction: column;
+  justify-content: center;
+  margin: 20rpx;
+  border: 5rpx solid white;
+  border-radius: 25rpx;
+  background-color: #288af5;
+  height: 200rpx;
 }
-.remain_item view{
-  width:50%;
-  display:inline-block;
-  }
-  .right{
+
+.right{
     text-align:right;
     padding-right:30rpx;
-    }
-
-.texts{
-  margin-left: 10rpx;
+    color: #fff;
 }
 
 .submit_btn{
   width: 80%;
   margin-top: 50rpx;
   border-radius: 60rpx;
-  background-color: rgb(253,234,165);
+  /* background-color: rgb(253,234,165); */
+  background-color: #288af5;
+  color: #fff;
 }
 .submit_btn::after{
   border: 0;
 }
 .divline{
-  background: rgb(253,234,165);
+  /* background: rgb(253,234,165); */
+  background-color: #288af5;
+
   width: 100%;
   height: 5rpx;
   margin-top: 10rpx;
@@ -68,8 +75,9 @@
 
 .iconfont {
   font-family: "iconfont" !important;
-  font-size: 26px;
+  font-size: 16px;
   font-style: normal;
+  color: #fff;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

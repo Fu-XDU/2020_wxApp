@@ -1,4 +1,7 @@
 /* miniprogram/pages/myBudgets/myBudgets.wxss */
+.bold{
+  font-weight: bold;
+}
 .texts{
   display: flex;
   flex-direction: column;
@@ -9,11 +12,14 @@
   flex-direction: row;
   align-items:center;
   margin: 20rpx;
-  border: 5rpx solid black;
+  border: 5rpx solid white;
   border-radius: 25rpx;
-  background-color: rgb(253,234,165);
+  /* background-color: rgb(253,234,165); */
+  background-color: #288af5;
   flex-flow:row;
   font-size: 38rpx;
+  color: #fff;
+  font-family: STSong;
 }
 .texts view{
   width:50%;
@@ -30,17 +36,23 @@
 .top{
   text-align: center;
   width: 100%;
-  background-color:rgb(253,234,165);
+  /* background-color:rgb(253,234,165); */
+  background-color: #288af5;
+  color: #fff;
   height: 70rpx;
 }
 .top_{
   width:25%;
   height: 100%;
-  background-color:  rgb(253,234,165);
+  /* background-color:  rgb(253,234,165); */
+  background-color: #288af5;
+  color: #fff;
 }
 .list{
   text-align: center;
-  border-left: 10rpx solid rgb(253,234,165);
+  /* border-left: 10rpx solid rgb(253,234,165); */
+  background-color: #288af5;
+  color: #fff;
   margin-bottom: 15rpx;
   margin-top: 10rpx;
 }
@@ -71,7 +83,7 @@
   text-align: center;
   font-size: 35rpx;
   height:94rpx;
-  background-color: rgb(253,234,165);
-  /* border: 1rpx solid gray; */
+  background-color: #288af5;
   border-radius: 60rpx;
+  color: #fff;
 }

@@ -6,7 +6,7 @@
   <button bindtap="sideBudget" id="previous" class="shift_btn">
     <image src="/images/shangyiyeqianyiye.png" class="btn_img"></image>
   </button>
-  <view class="name_and_type">
+  <view class="name_and_type bold">
     <view>预算名称:{{data[currentDataName].name}}</view>
     <view>预算类型:{{dataType[data[currentDataName].dataType]}}</view>
   </view>
@@ -17,7 +17,7 @@
 </view>
 
 <!-- 包括币种、今日剩余 -->
-<view class="">
+<view class="bold">
 <image src="/images/banner.jpg" class="banner"></image>
   
     <view class="bud_remain">
