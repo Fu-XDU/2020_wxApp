@@ -46,7 +46,7 @@
   <view class="item_bars_1">
     <view class="each_item">
     <picker wx:if="{{remarkindex!=0}}" mode="selector" bindchange="bindPickerChange" value="{{remarkindex}}" range="{{remarks}}" id="remarks">
-      <text class="iconfont icon-ico- icons"></text> 添加注释:{{remarks[remarkindex]}}
+      <text class="iconfont icon-ico- icons"></text> <view class="picker"> 添加注释:{{remarks[remarkindex]}}</view>
     </picker>
     <view wx:else>
       <input placeholder="在此键入您的注释" bindinput="handleInput" id="remarks"></input>

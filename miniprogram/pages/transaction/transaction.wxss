@@ -147,4 +147,7 @@
 .icon-yunpanlogo-:before {
   content: "\e617";
 }
+.picker{
+  font-weight: bold;
+}
 

@@ -109,6 +109,15 @@
   align-items: center;
 }
 .mid_btn_l{
+  height: 200rpx;
+  width: 180rpx;
+  display:flex;
+ justify-content: center;
+ align-items: center;
+ height: 100%;
+ margin-left: 40rpx;
+}
+.mid_btn_l_img{
   height: 180rpx;
   width: 180rpx;
 }

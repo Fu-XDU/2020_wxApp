@@ -34,7 +34,9 @@
 
 <view class="mid_items">
 <!-- <image src="/images/.png" class="btn_img_"></image> -->
-  <button bindtap="navigate" id="myBudgets" class="mid_btn_l">预算明细</button>
+  <navigator  class="mid_btn_l" url="../myBudegts/myBudegts">
+  <image  bindtap="navigate" id="myBudgets" src="/images/mybudget.jpg" class="mid_btn_l_img" ></image>
+  </navigator>
   <image src="/images/center(none).png" class="btn_img_"></image>
    <view class="mid_btn_c">剩余天数:{{data[currentDataName].remaindays}}</view>
   <button bindtap="navigate" id="transaction" class="mid_btn_r">转账</button>
@@ -43,7 +45,7 @@
 
 <view class="in_and_out">
 <!-- <image src="/images/income.png" class="back-left"></image> -->
-  <button bindtap="navigate" id="income" class="" plain="true">收入</button>
+  <button bindtap="navigate" id="income" class="" plain="true">收入{{item.value}}</button>
 <!-- <image src="/images/income.png" class="back-right"></image> -->
   <button bindtap="navigate" id="expenditure" class="" plain="true">支出</button>
 </view>
@@ -51,4 +53,37 @@
 <view class="history">
   <text>交易历史</text>
   <button bindtap="navigate" id="history" class="btn_history">更多</button>
+</view>
+
+<text>收入{{item.value}}\n注释:{{item.remarks}}</text>
+
+
+<view wx:for="{{budget.history}}" wx:for-index="idx" wx:key="id">
+  <view wx:if="{{item.peer==null}}">
+    <view class="info_bar" wx:if="{{item.value>0}}">
+      <text class="iconfont icon-wodeshouru contents"></text>
+      <text class="contents">收入{{item.value}}\n注释:{{item.remarks}}</text>
+      <button class="del_button" size="mini" id="deleteHistory" bindtap="buttonTap" data-id="{{item.id}}">删除</button>
+    </view>
+    <view class="info_bar" wx:else>      
+      <text class="iconfont icon-huafei contents"></text>
+      <text class="contents">支出{{-item.value}}\n注释:{{item.remarks}}</text>
+      <button class="del_button" size="mini" id="deleteHistory" bindtap="buttonTap" data-id="{{item.id}}">删除</button>
+    </view>
+</view>
+  <view wx:else>
+    <view class="info_bar" wx:if="{{item.name!=budget.name}}">
+    <text class="iconfont icon-wodeshouru contents"></text>
+      <text class="contents" space="ensp">收到转账{{item.value}}\n转账方:{{item.name}}   注释:{{item.remarks}}</text>
+      <button class="del_button" size="mini" id="deleteHistory" bindtap="buttonTap" data-id="{{item.id}}">删除</button>
+    </view>
+    
+    <view wx:else>
+    <view class="info_bar">
+    <text class="iconfont icon-wodeshouru contents"></text>
+    <text class="contents" space="ensp">发起转账{{item.value}}\n转到:{{item.peer}}   注释:{{item.remarks}}</text>
+    <button class="del_button" size="mini" id="deleteHistory" bindtap="buttonTap" data-id="{{item.id}}">删除</button>
+    </view>
+  </view>
+  </view>
 </view>
