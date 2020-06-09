@@ -40,13 +40,24 @@
     <text>我的预算</text>
   </navigator>
   <image src="/images/center(none).png" class="btn_img_"></image>
-  <view class="mid_btn_c">剩余天数:{{data[currentDataName].remaindays}}</view>
-  <navigator class="mid_btn_r">
-    <!--不准加URL-->
-    <image bindtap="navigate" id="transaction" src="/images/translate.jpg" class="mid_btn_r_img"></image>
+
+   <view class="mid_btn_c">剩余天数:{{data[currentDataName].remaindays}}</view>
+  <navigator  class="mid_btn_r"><!--不准加URL-->
+  <image  bindtap="navigate" id="transaction" src="/images/translate.jpg" class="mid_btn_r_img" mode="widthFix"></image>
+  <text>转账</text>
   </navigator>
 </view>
-
+<view class="in_and_out">
+<!-- <image src="/images/income.png" class="back-left"></image> -->
+<navigator  class="" url="../income/income">
+  <image  bindtap="navigate" id="income" src="/images/income.jpg" class="income" mode="widthFix"></image>
+  </navigator>
+  
+<!-- <image src="/images/income.png" class="back-right"></image> -->
+<navigator  class="" url="../expenditure/expenditure">
+  <image  bindtap="navigate" id="expenditure" src="/images/outcome.jpg" class="outcome" mode="widthFix"></image>
+  </navigator>
+</view>
 
 <view class="in_and_out">
   <!-- <image src="/images/income.png" class="back-left"></image> -->
