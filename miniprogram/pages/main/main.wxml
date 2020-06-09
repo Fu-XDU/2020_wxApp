@@ -34,13 +34,15 @@
 
 <view class="mid_items">
   <!-- <image src="/images/.png" class="btn_img_"></image> -->
-  <navigator class="mid_btn_l"><!--不准加URL-->
+  <navigator class="mid_btn_l">
+    <!--不准加URL-->
     <image bindtap="navigate" id="myBudgets" src="/images/mybudget.jpg" class="mid_btn_l_img" mode="widthFix"></image>
     <text>我的预算</text>
   </navigator>
   <image src="/images/center(none).png" class="btn_img_"></image>
   <view class="mid_btn_c">剩余天数:{{data[currentDataName].remaindays}}</view>
-  <navigator class="mid_btn_r"><!--不准加URL-->
+  <navigator class="mid_btn_r">
+    <!--不准加URL-->
     <image bindtap="navigate" id="transaction" src="/images/translate.jpg" class="mid_btn_r_img"></image>
   </navigator>
 </view>
@@ -48,9 +50,13 @@
 
 <view class="in_and_out">
   <!-- <image src="/images/income.png" class="back-left"></image> -->
-  <button bindtap="navigate" id="income" class="" plain="true">收入{{item.value}}</button>
+  <navigator class="" url="../income/income">
+    <image bindtap="navigate" id="income" src="/images/income.jpg" class="income" mode="widthFix"></image>
+  </navigator>
   <!-- <image src="/images/income.png" class="back-right"></image> -->
-  <button bindtap="navigate" id="expenditure" class="" plain="true">支出</button>
+  <navigator class="" url="../expenditure/expenditure">
+    <image bindtap="navigate" id="expenditure" src="/images/outcome.jpg" class="outcome" mode="widthFix"></image>
+  </navigator>
 </view>
 <view wx:if="{{data[currentDataName].history.length!=0}}">
   <view class="history">

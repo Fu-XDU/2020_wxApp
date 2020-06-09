@@ -112,11 +112,8 @@
 .mid_btn_l{
   height: 200rpx;
   width: 180rpx;
-  display:flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
  margin-left: 40rpx;
+ text-align: center;
 }
 .mid_btn_l_img{
   height: 180rpx;
@@ -136,16 +133,25 @@
 .mid_btn_r{
   height: 200rpx;
   width: 180rpx;
-  display:flex;
- justify-content: center;
- align-items: center;
- height: 100%;
  margin-right: 40rpx;
+ text-align: center;
 }
 .mid_btn_r_img{
   height: 180rpx;
   width: 180rpx;
 }
+
+.income{
+  height: 180rpx;
+  width: 180rpx;
+  margin-left: 40rpx;
+}
+.outcome{
+  height: 180rpx;
+  width: 180rpx;
+  margin-right: 40rpx;
+}
+
 
 /* 收入与支出 */
 .in_and_out{
