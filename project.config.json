@@ -7,7 +7,6 @@
 		"urlCheck": true,
 		"es6": true,
 		"postcss": true,
-		"preloadBackgroundData": false,
 		"minified": true,
 		"newFeature": true,
 		"coverView": true,
@@ -24,11 +23,13 @@
 			"disablePlugins": [],
 			"outputPath": ""
 		},
+		"enhance": true,
+		"preloadBackgroundData": false,
 		"useCompilerModule": false,
 		"userConfirmedUseCompilerModuleSwitch": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.11.0",
+	"libVersion": "2.11.1",
 	"appid": "wxbae8c6ab08f04022",
 	"projectname": "Program1",
 	"miniprogramRoot": "miniprogram/",

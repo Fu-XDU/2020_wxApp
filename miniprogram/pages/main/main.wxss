@@ -1,4 +1,5 @@
 /**index.wxss**/
+@import "../history/history.wxss";
 .bold{
   font-weight: bold;
 }
