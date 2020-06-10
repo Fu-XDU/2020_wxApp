@@ -1,13 +1,14 @@
 //index.js
 //获取应用实例
 const app = getApp()
+const util = require("../../utils/util.js")
 Page({
   data: {
     data: undefined,
     currentDataName: null,
-    currencyType : app.globalData.currencyType,
-    historyType : app.globalData.historyType,
-    dataType : app.globalData.dataType,
+    currencyType: app.globalData.currencyType,
+    historyType: app.globalData.historyType,
+    dataType: app.globalData.dataType,
     dataKey: [],
     currentDataIndex: 0,
     showloading: true
@@ -18,53 +19,109 @@ Page({
       url: '../logs/logs'
     })
   },
+
   onLoad: function(options) {
-    return new Promise((resolve, reject) => {
-      app.tableCallback = registered => {
-        if (registered) {
-          this.data.dataKey = []
-          for (var key in app.globalData.userData)
-            this.data.dataKey.push(key)
-          this.setData({
-            data: app.globalData.userData,
-            currentDataName: this.data.dataKey[this.data.currentDataIndex]
-          })
-          resolve()
-        } else if (registered == false) {
-          //console.warn("用户未注册")
-          for (var key in app.globalData.userData) {
-            this.data.dataKey.push(key)
-            // 计算剩余天数
-            app.globalData.userData[key].remaindays = 10
-            //计算今日剩余
-            app.globalData.userData[key].todayLeft = 5
-          }
-          this.setData({
-            data: app.globalData.userData,
-            currentDataName: this.data.dataKey[this.data.currentDataIndex]
-          })
-          resolve()
-        } else if (registered == null) {
-          console.error("出错了")
-          resolve()
+    var _this=this;
+    if (app.globalData.openid == "") {
+      wx.cloud.callFunction({
+        name: "login",
+        data: {},
+        success(res) {
+          app.globalData.openid = res.result.openid.replace(/-/g, '_');
+          _this.fetchData();
+        },
+        fail(err) {
+          util.networkError();
         }
-      }
-    })
+      })
+    } else {
+      _this.fetchData();
+    }
   },
   onReady: function() {
-    wx.showLoading({
-      title: '加载中',
-      mask: true,
+
+  },
+  fetchData: function () {
+    new Promise((resolve, reject) => {
+      util.httpsGet('ping').then((res) => {
+        if (res.statusCode == 200) {
+          //console.log("服务器连接成功", res)
+          /* 下面这句不要删 测试用 发布时必删 不删不能用 */
+          //app.globalData.openid = "oSyGb5UnRscPC1eVlm32isfX__OY"
+          /* 上面这句不要删 测试用 发布时必删 不删不能用 */
+          util.httpsGet('db?sql=SHOW TABLES LIKE "' + app.globalData.openid + '"').then((res) => {
+            app.globalData.registered = res.data.length != 0
+            if (app.globalData.registered) {
+              util.httpsGet('db?sql=select * from ' + app.globalData.openid).then((res) => {
+                app.globalData.userData = {}
+                //将远程数据存入本地全局变量
+                if (res.data == "数据库连接失败！") {
+                  console.error(res.data)
+                  util.networkError();
+                }
+                for (var i = 0; i < res.data.length; ++i) {
+                  app.globalData.userData[res.data[i].name] = res.data[i]
+                  app.globalData.userData[res.data[i].name].history = []
+                }
+                util.httpsGet('db?sql=select * from ' + app.globalData.openid + 'history').then((res) => {
+                  //获取本用户所有预算历史并将其放入合适的预算中
+                  for (var i = 0; i < res.data.length; ++i) {
+                    app.globalData.userData[res.data[i].name].history.push(res.data[i])
+                    if (res.data[i].peer != null)
+                      app.globalData.userData[res.data[i].peer].history.push(res.data[i])
+                  }
+                  resolve();
+                  //console.log(app.globalData.userData)
+                }).catch((err) => {
+                  console.error(err)
+                  util.networkError();
+                })
+              })
+            } else app.globalData.userData = app.globalData.unregisteredData
+          }).catch((err) => {
+            console.error(err)
+            util.networkError(err);
+          })
+        } else {
+          console.error(err)
+          util.networkError(err);
+        }
+      }).catch((err) => {
+        console.error("服务器连接失败", err)
+        util.networkError(err);
+      })
+    }).then((res) => {
+      if (app.globalData.registered) {
+        this.data.dataKey = []
+        for (var key in app.globalData.userData) 
+          this.data.dataKey.push(key)
+        this.setData({
+          data: app.globalData.userData,
+          currentDataName: this.data.dataKey[this.data.currentDataIndex],
+        })
+      } else if (app.globalData.registered == false) {
+        //console.warn("用户未注册")
+        for (var key in app.globalData.userData) {
+          this.data.dataKey.push(key)
+          // 计算剩余天数
+          app.globalData.userData[key].remaindays = 10
+          //计算今日剩余
+          app.globalData.userData[key].todayLeft = 5
+        }
+        this.setData({
+          data: app.globalData.userData,
+          currentDataName: this.data.dataKey[this.data.currentDataIndex]
+        })
+      } else if (app.globalData.registered == null) {
+        console.error("出错了")
+      }
     })
-    app.onLaunch();
-    this.onLoad().then((res) => {
-      wx.hideLoading()
-    });
   },
   sideBudget: function(e) {
     if (e.target.id == "next") {
       if (this.data.currentDataIndex == this.data.dataKey.length - 1) {
         console.log("没有下个一个预算了")
+        console.log(this.data.data[this.data.currentDataName].history.length)
       } else {
         this.setData({
           currentDataName: app.globalData.userData[this.data.dataKey[++this.data.currentDataIndex]].name

@@ -3,29 +3,28 @@
 <view wx:for="{{budget.history}}" wx:for-index="idx" wx:key="id">
   <view wx:if="{{item.peer==null}}">
     <view class="info_bar" wx:if="{{item.value>0}}">
-      <text class="iconfont icon-wodeshouru contents"></text>
-      <text class="contents">收入{{item.value}}\n注释:{{item.remarks}}</text>
+      <text class="iconfont icon-jinbi icons"></text>
+      <text class="contents bold">收入{{item.value}}\n注释:{{item.remarks}}</text>
       <button class="del_button" size="mini" id="deleteHistory" bindtap="buttonTap" data-id="{{item.id}}">删除</button>
     </view>
-    <view class="info_bar" wx:else>      
-      <text class="iconfont icon-huafei contents"></text>
-      <text class="contents">支出{{-item.value}}\n注释:{{item.remarks}}</text>
+    <view class="info_bar" wx:else>
+      <text class="iconfont icon-shengyukeyongedu icons"></text>
+      <text class="contents bold">支出{{-item.value}}\n注释:{{item.remarks}}</text>
       <button class="del_button" size="mini" id="deleteHistory" bindtap="buttonTap" data-id="{{item.id}}">删除</button>
-    </view>
-</view>
-  <view wx:else>
-    <view class="info_bar" wx:if="{{item.name!=budget.name}}">
-    <text class="iconfont icon-wodeshouru contents"></text>
-      <text class="contents" space="ensp">收到转账{{item.value}}\n转账方:{{item.name}}   注释:{{item.remarks}}</text>
-      <button class="del_button" size="mini" id="deleteHistory" bindtap="buttonTap" data-id="{{item.id}}">删除</button>
-    </view>
-    
-    <view wx:else>
-    <view class="info_bar">
-    <text class="iconfont icon-wodeshouru contents"></text>
-    <text class="contents" space="ensp">发起转账{{item.value}}\n转到:{{item.peer}}   注释:{{item.remarks}}</text>
-    <button class="del_button" size="mini" id="deleteHistory" bindtap="buttonTap" data-id="{{item.id}}">删除</button>
     </view>
   </view>
+  <view wx:else>
+    <view class="info_bar" wx:if="{{item.name!=budget.name}}">
+      <text class="iconfont icon-zhuanzhang icons"></text>
+      <text class="contents bold" space="ensp">收到转账{{item.value}}\n转账方:{{item.name}}   注释:{{item.remarks}}</text>
+      <button class="del_button" size="mini" id="deleteHistory" bindtap="buttonTap" data-id="{{item.id}}">删除</button>
+    </view>
+    <view wx:else>
+      <view class="info_bar">
+        <text class="iconfont icon-zhuanzhang icons"></text>
+        <text class="contents bold" space="ensp">发起转账{{item.value}}\n转到:{{item.peer}}   注释:{{item.remarks}}</text>
+        <button class="del_button" size="mini" id="deleteHistory" bindtap="buttonTap" data-id="{{item.id}}">删除</button>
+      </view>
+    </view>
   </view>
 </view>

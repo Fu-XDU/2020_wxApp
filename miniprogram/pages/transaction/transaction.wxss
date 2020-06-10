@@ -2,6 +2,14 @@
 .bold{
   font-weight: bold;
 }
+.texts{
+  margin-left: 10rpx;
+  color: #fff;
+}
+.icons{
+  margin-left: 10rpx;
+  margin-right: 20rpx;
+}
 .select_tip{
   display: flex;
   border: 5rpx solid white;
@@ -36,9 +44,7 @@
 
   height: 100rpx;
 }
-.texts{
-  margin-left: 12rpx;
-}
+
 .item_bars_3{
   display: flex;
   flex-direction: column;
@@ -86,14 +92,7 @@
   padding-right:30rpx;
   color: #fff;
 }
-.texts{
-  margin-left: 10rpx;
-  color: #fff;
-}
-.icons{
-  margin-left: 10rpx;
-  margin-right: 20rpx;
-}
+
 .submit_btn{
   width: 80%;
   margin-top: 50rpx;
