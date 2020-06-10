@@ -8,7 +8,6 @@
 		"es6": true,
 		"enhance": true,
 		"postcss": true,
-		"preloadBackgroundData": false,
 		"minified": true,
 		"newFeature": true,
 		"coverView": true,
@@ -25,6 +24,8 @@
 			"disablePlugins": [],
 			"outputPath": ""
 		},
+		"enhance": true,
+		"preloadBackgroundData": false,
 		"useCompilerModule": false,
 		"userConfirmedUseCompilerModuleSwitch": false
 	},

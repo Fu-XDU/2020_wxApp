@@ -77,7 +77,7 @@
   <view wx:if="{{!data[currentDataName].history[0].peer}}">
     <view class="info_bar" wx:if="{{data[currentDataName].history[0].value>0}}">
       <text class="iconfont icon-jinbi contents"></text>
-      <text class="contents text_to_right">收入{{data[currentDataName].history[0].value}}\n注释:{{data[currentDataName].history[0].remarks}}</text>
+      <text class="contents bold text_to_right">收入{{data[currentDataName].history[0].value}}\n注释:{{data[currentDataName].history[0].remarks}}</text>
     </view>
     <view class="info_bar" wx:else>
       <text class="iconfont icon-shengyukeyongedu contents"></text>
