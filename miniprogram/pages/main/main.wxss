@@ -171,6 +171,7 @@
 
 .income{
 <<<<<<< HEAD
+<<<<<<< HEAD
   height: 280rpx;
   width: 280rpx;
   margin-left: 40rpx;
@@ -180,6 +181,8 @@
   width: 280rpx;
   margin-right: 0rpx;
 =======
+=======
+>>>>>>> Result
   height: 180rpx;
   width: 180rpx;
   margin-left: 40rpx;
@@ -188,6 +191,9 @@
   height: 180rpx;
   width: 180rpx;
   margin-right: 40rpx;
+<<<<<<< HEAD
+>>>>>>> Result
+=======
 >>>>>>> Result
 }
 
@@ -246,8 +252,11 @@
   margin-top: 200px;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> Result
 =======
 >>>>>>> Result
