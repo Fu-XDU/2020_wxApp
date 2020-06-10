@@ -13,6 +13,7 @@
 .each_item{
   display: flex;
   flex-direction: row;
+  align-items: center;
   margin-top: 20rpx;
   margin-left: 20rpx;
   margin-bottom: 10rpx;
@@ -55,7 +56,6 @@
   width: 80%;
   margin-top: 50rpx;
   border-radius: 60rpx;
-  /* background-color: #FADA61; */
   background-color: #288af5;
   color: #fff;
 }

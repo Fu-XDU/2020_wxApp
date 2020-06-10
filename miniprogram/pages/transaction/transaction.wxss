@@ -52,6 +52,7 @@
 .each_item{
   display: flex;
   flex-direction: row;
+  align-items: center;
   margin-top: 20rpx;
   margin-left: 20rpx;
   margin-bottom: 10rpx;
@@ -146,8 +147,5 @@
 
 .icon-yunpanlogo-:before {
   content: "\e617";
-}
-.picker{
-  font-weight: bold;
 }
 

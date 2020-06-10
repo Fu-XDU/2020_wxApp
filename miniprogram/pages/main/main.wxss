@@ -93,6 +93,7 @@
   height: 10vh;
   width: 70vw;
   left: 100rpx;
+  margin-top: 20rpx;
   margin-bottom: 10rpx;
   position: absolute;
   top: 60px;
