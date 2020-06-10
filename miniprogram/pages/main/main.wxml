@@ -1,34 +1,32 @@
-<!-- <image src="../../images/back.png" style="position: fixed; z-index: -999; width: 100%; height: 100%;"></image> -->
 
 <!-- 包括预算类型、预算名称以及预算切换button -->
 <view class="top_items">
+  <image src="/images/kafei.png" class="kafei"></image>
+  <view class="name_and_type bold">
+    <view >预算名称:{{data[currentDataName].name}}</view>
+    <view >预算类型:{{dataType[data[currentDataName].dataType]}}</view>
+  </view>
   <!-- 上一个预算 -->
   <button bindtap="sideBudget" id="previous" class="shift_btn">
     <image src="/images/shangyiyeqianyiye.png" class="btn_img"></image>
   </button>
-  <view class="name_and_type bold">
-    <view>预算名称:{{data[currentDataName].name}}</view>
-    <view>预算类型:{{dataType[data[currentDataName].dataType]}}</view>
-  </view>
   <!-- 下一个预算 -->
-  <button bindtap="sideBudget" id="next" class="shift_btn_right">
+  <button bindtap="sideBudget" id="next" class="shift_btn_r">
     <image src="/images/xiayiyehouyiye.png" class="btn_img"></image>
   </button>
 </view>
 
 <!-- 包括币种、今日剩余 -->
-<view class="bold">
-  <image src="/images/banner.jpg" class="banner"></image>
-
-  <view class="bud_remain">
-    <view class="">今日剩余预算:</view>
-    <view class="num">
-      <text>{{currencyType[data[currentDataName].currency]}}</text>
-      <view class="texts">{{data[currentDataName].todayleft}}</view>
+<view class="">
+<image src="/images/banner.jpg" class="banner"></image>
+    <view class="bud_remain">
+      <view class="">今日剩余预算:</view>
+      <view class="num bold">
+        <text>{{currencyType[data[currentDataName].currency]}}</text>
+        <view class="texts">{{data[currentDataName].todayleft}}</view>
+      </view>
     </view>
-    <!-- <text>预算余额:{{data[currentDataName].balance}}</text> -->
   </view>
-</view>
 
 
 <view class="mid_items">
@@ -36,15 +34,17 @@
   <navigator class="mid_btn_l">
     <!--不准加URL-->
     <image bindtap="navigate" id="myBudgets" src="/images/mybudget.jpg" class="mid_btn_l_img" mode="widthFix"></image>
-    <text>我的预算</text>
+    <text class="bold">我的预算</text>
   </navigator>
-  <image src="/images/center(none).png" class="btn_img_"></image>
+  <view class="center">
+    <image src="/images/rili.png" class="btn_img_"></image>
+    <view class="bold">剩余天数:{{data[currentDataName].remaindays}}</view>
+  </view>
 
-  <view class="mid_btn_c">剩余天数:{{data[currentDataName].remaindays}}</view>
   <navigator class="mid_btn_r">
     <!--不准加URL-->
     <image bindtap="navigate" id="transaction" src="/images/translate.jpg" class="mid_btn_r_img" mode="widthFix"></image>
-    <text>转账</text>
+    <text class="bold">转账</text>
   </navigator>
 </view>
 <view class="in_and_out">
@@ -60,28 +60,28 @@
 </view>
 <view wx:if="{{data[currentDataName].history.length!=0}}">
   <view class="history">
-    <text>交易历史</text>
-    <button bindtap="navigate" id="history" class="btn_history">更多</button>
+    <text class="bold">交易历史</text>
+    <button bindtap="navigate" id="history" class="btn_history bold">更多</button>
   </view>
   <view wx:if="{{!data[currentDataName].history[0].peer}}">
     <view class="info_bar" wx:if="{{data[currentDataName].history[0].value>0}}">
-      <text class="iconfont icon-wodeshouru contents"></text>
-      <text class="contents">收入{{data[currentDataName].history[0].value}}\n注释:{{data[currentDataName].history[0].remarks}}</text>
+      <text class="iconfont icon-jinbi icons"></text>
+      <text class="contents bold">收入{{data[currentDataName].history[0].value}}\n注释:{{data[currentDataName].history[0].remarks}}</text>
     </view>
     <view class="info_bar" wx:else>
-      <text class="iconfont icon-huafei contents"></text>
-      <text class="contents">支出{{-data[currentDataName].history[0].value}}\n注释:{{data[currentDataName].history[0].remarks}}</text>
+      <text class="iconfont icon-shengyukeyongedu icons"></text>
+      <text class="contents bold">支出{{-data[currentDataName].history[0].value}}\n注释:{{data[currentDataName].history[0].remarks}}</text>
     </view>
   </view>
   <view wx:else>
     <view class="info_bar" wx:if="{{data[currentDataName].history[0].name!=budget.name}}">
-      <text class="iconfont icon-wodeshouru contents"></text>
-      <text class="contents" space="ensp">收到转账{{data[currentDataName].history[0].value}}\n转账方:{{data[currentDataName].history[0].name}}   注释:{{data[currentDataName].history[0].remarks}}</text>
+      <text class="iconfont icon-zhuanzhang icons"></text>
+      <text class="contents bold" space="ensp">收到转账{{data[currentDataName].history[0].value}}\n转账方:{{data[currentDataName].history[0].name}}   注释:{{data[currentDataName].history[0].remarks}}</text>
     </view>
     <view wx:else>
       <view class="info_bar">
-        <text class="iconfont icon-wodeshouru contents"></text>
-        <text class="contents" space="ensp">发起转账{{data[currentDataName].history[0].value}}\n转到:{{data[currentDataName].history[0].peer}}   注释:{{data[currentDataName].history[0].remarks}}</text>
+        <text class="iconfont icon-zhuanzhang icons"></text>
+        <text class="contents bold" space="ensp">发起转账{{data[currentDataName].history[0].value}}\n转到:{{data[currentDataName].history[0].peer}}   注释:{{data[currentDataName].history[0].remarks}}</text>
       </view>
     </view>
   </view>
