@@ -1,0 +1,10 @@
+<block wx:for="{{Cases}}" wx:key="index">
+  <view class="case">
+    <text >Ta的问题: {{item.problem}}</text>
+    <view class="inside">
+      <text class="inside_text">老师回答：</text>
+      <button size="mini" class="inside_button">查看详情</button>
+    </view>
+  </view>
+</block>
+

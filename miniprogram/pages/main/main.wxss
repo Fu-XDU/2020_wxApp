@@ -1,0 +1,208 @@
+/**index.wxss**/
+@import "../history/history.wxss";
+.bold{
+  font-weight: bold;
+}
+.top_items{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.name_and_type{
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+}
+.btn_img{
+  height: 70rpx;
+  width: 70rpx;
+}
+
+.btn_img_{
+  border-radius: 200rpx;
+  justify-content: center;
+  z-index: -999;
+  height: 300rpx;
+  width: 300rpx;
+  position: relative;
+}
+.shift_btn{
+  height: 90rpx;
+  width: 90rpx;
+  margin-left: 0;
+  display: flex; 
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(253,234,165);
+}
+.shift_btn_right{
+  height: 90rpx;
+  width: 90rpx;
+  margin-right: 0;
+  display: flex; 
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(253,234,165);
+}
+.shift_btn::after{
+  border: 0;
+}
+.shift_btn_right::after{
+  border: 0;
+}
+
+
+.banner{
+  border-radius: 30rpx;
+  height: 200rpx;
+  width: 650rpx;
+  margin: 15rpx 50rpx 15rpx 50rpx;
+}
+.contents{
+  display: flex;
+  flex-direction: column;
+}
+.bud_name{
+  margin-top: 5rpx;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+  top: 20px;
+  right: 0;
+  bottom: 0;
+  margin-left: 100rpx;
+  text-align: left;
+  font-size: 28rpx;
+}
+.num{
+  display: flex;
+  flex-direction: row;
+  font-size: 50rpx;
+  color: white;
+  margin-top: 20rpx;
+}
+.texts{
+  margin-left: 10rpx;
+}
+.bud_remain{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  height: 10vh;
+  width: 70vw;
+  left: 100rpx;
+  margin-bottom: 10rpx;
+  position: absolute;
+  top: 60px;
+  font-size: 28rpx;
+  color: white;
+}
+
+
+
+.mid_items{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.mid_btn_l{
+  height: 200rpx;
+  width: 180rpx;
+ margin-left: 40rpx;
+ text-align: center;
+}
+.mid_btn_l_img{
+  height: 180rpx;
+  width: 180rpx;
+}
+.mid_btn_c{
+  
+  position: absolute;
+  left: 40%;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+.remain_day{
+  border: 5rpx solid black;
+  border-radius: 45%;
+}
+.mid_btn_r{
+  height: 200rpx;
+  width: 180rpx;
+ margin-right: 40rpx;
+ text-align: center;
+}
+.mid_btn_r_img{
+  height: 180rpx;
+  width: 180rpx;
+}
+
+.income{
+  height: 180rpx;
+  width: 180rpx;
+  margin-left: 40rpx;
+}
+.outcome{
+  height: 180rpx;
+  width: 180rpx;
+  margin-right: 40rpx;
+}
+
+
+/* 收入与支出 */
+.in_and_out{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20rpx;
+}
+.btn_inandout-left::after{
+  border: 0;
+}
+
+.btn_inandout-right::after{
+  border: 0;
+}
+
+
+.history{
+  display: flex;
+  flex-direction: row;
+  margin-top: 20rpx;
+  margin-left: 15rpx;
+}
+.btn_history{
+  width: 160rpx;
+  height: 80rpx;
+  text-align: center;
+  border-radius: 20rpx;
+  margin-right: 5rpx;
+}
+
+
+
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.usermotto {
+  margin-top: 200px;
+}

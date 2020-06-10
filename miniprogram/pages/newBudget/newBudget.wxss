@@ -1,0 +1,40 @@
+/* miniprogram/pages/newBudget/newBudget.wxss */
+.bold{
+  font-weight: bold;
+}
+.submit_btn{
+  width: 80%;
+  margin-top: 50rpx;
+  border-radius: 60rpx;
+  /* background-color: rgb(253,234,165); */
+  background-color: #288af5;
+  color: #fff;
+  margin-bottom: 20rpx;
+}
+.input{
+  height: 100rpx;
+  font-size: 50rpx;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  text-align: center;
+}
+.selector{
+  font-size: 50rpx;
+}
+.aboutBudget{
+  text-align: center;
+  margin-top: 30rpx;
+  font-size: 50rpx;
+}
+.value{
+  height: 100rpx;
+  text-align: center;
+  margin-top: 30rpx;
+  font-size: 50rpx;
+}
+.point{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30rpx;
+  font-size: 50rpx;
+}
