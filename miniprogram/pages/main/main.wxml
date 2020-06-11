@@ -88,4 +88,75 @@
       </view>
     </view>
   </view>
+
+<view wx:if="{{!data[currentDataName].history[1].peer}}">
+    <view class="info_bar" wx:if="{{data[currentDataName].history[1].value>0}}">
+      <text class="iconfont icon-jinbi icons"></text>
+      <text class="contents bold">收入{{data[currentDataName].history[1].value}}\n注释:{{data[currentDataName].history[1].remarks}}</text>
+    </view>
+    <view class="info_bar" wx:else>
+      <text class="iconfont icon-shengyukeyongedu icons"></text>
+      <text class="contents bold">支出{{-data[currentDataName].history[1].value}}\n注释:{{data[currentDataName].history[1].remarks}}</text>
+    </view>
+  </view>
+  <view wx:else>
+    <view class="info_bar" wx:if="{{data[currentDataName].history[1].name!=budget.name}}">
+      <text class="iconfont icon-zhuanzhang icons"></text>
+      <text class="contents bold" space="ensp">收到转账{{data[currentDataName].history[1].value}}\n转账方:{{data[currentDataName].history[1].name}}   注释:{{data[currentDataName].history[1].remarks}}</text>
+    </view>
+    <view wx:else>
+      <view class="info_bar">
+        <text class="iconfont icon-zhuanzhang icons"></text>
+        <text class="contents bold" space="ensp">发起转账{{data[currentDataName].history[1].value}}\n转到:{{data[currentDataName].history[1].peer}}   注释:{{data[currentDataName].history[1].remarks}}</text>
+      </view>
+    </view>
+  </view>
+
+
+<view wx:if="{{!data[currentDataName].history[2].peer}}">
+    <view class="info_bar" wx:if="{{data[currentDataName].history[2].value>0}}">
+      <text class="iconfont icon-jinbi icons"></text>
+      <text class="contents bold">收入{{data[currentDataName].history[2].value}}\n注释:{{data[currentDataName].history[2].remarks}}</text>
+    </view>
+    <view class="info_bar" wx:else>
+      <text class="iconfont icon-shengyukeyongedu icons"></text>
+      <text class="contents bold">支出{{-data[currentDataName].history[2].value}}\n注释:{{data[currentDataName].history[2].remarks}}</text>
+    </view>
+  </view>
+  <view wx:else>
+    <view class="info_bar" wx:if="{{data[currentDataName].history[2].name!=budget.name}}">
+      <text class="iconfont icon-zhuanzhang icons"></text>
+      <text class="contents bold" space="ensp">收到转账{{data[currentDataName].history[2].value}}\n转账方:{{data[currentDataName].history[2].name}}   注释:{{data[currentDataName].history[2].remarks}}</text>
+    </view>
+    <view wx:else>
+      <view class="info_bar">
+        <text class="iconfont icon-zhuanzhang icons"></text>
+        <text class="contents bold" space="ensp">发起转账{{data[currentDataName].history[2].value}}\n转到:{{data[currentDataName].history[2].peer}}   注释:{{data[currentDataName].history[2].remarks}}</text>
+      </view>
+    </view>
+  </view>
+
+<view wx:if="{{!data[currentDataName].history[3].peer}}">
+    <view class="info_bar" wx:if="{{data[currentDataName].history[3].value>0}}">
+      <text class="iconfont icon-jinbi icons"></text>
+      <text class="contents bold">收入{{data[currentDataName].history[3].value}}\n注释:{{data[currentDataName].history[3].remarks}}</text>
+    </view>
+    <view class="info_bar" wx:else>
+      <text class="iconfont icon-shengyukeyongedu icons"></text>
+      <text class="contents bold">支出{{-data[currentDataName].history[3].value}}\n注释:{{data[currentDataName].history[3].remarks}}</text>
+    </view>
+  </view>
+  <view wx:else>
+    <view class="info_bar" wx:if="{{data[currentDataName].history[3].name!=budget.name}}">
+      <text class="iconfont icon-zhuanzhang icons"></text>
+      <text class="contents bold" space="ensp">收到转账{{data[currentDataName].history[3].value}}\n转账方:{{data[currentDataName].history[3].name}}   注释:{{data[currentDataName].history[3].remarks}}</text>
+    </view>
+    <view wx:else>
+      <view class="info_bar">
+        <text class="iconfont icon-zhuanzhang icons"></text>
+        <text class="contents bold" space="ensp">发起转账{{data[currentDataName].history[3].value}}\n转到:{{data[currentDataName].history[3].peer}}   注释:{{data[currentDataName].history[3].remarks}}</text>
+      </view>
+    </view>
+  </view>
+
 </view>
