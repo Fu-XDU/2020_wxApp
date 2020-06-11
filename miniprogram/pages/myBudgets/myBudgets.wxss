@@ -32,7 +32,7 @@
 .right{
   text-align:right;
   padding-right:30rpx;
-  }
+}
 .top{
   text-align: center;
   width: 100%;

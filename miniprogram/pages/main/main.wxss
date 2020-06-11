@@ -188,33 +188,19 @@
   margin-left: 10rpx;
 }
 .bud_remain{
-
   display: flex;
-
   flex-direction: column;
-
   justify-content: center;
-
-  text-align: left;
-
   height: 10vh;
-
   width: 70vw;
-
-  left: 100rpx;
-
+  /* left: 100rpx; */
   margin-top: 20rpx;
-
   margin-bottom: 10rpx;
-
+  margin-left: 70rpx;
   position: absolute;
-
   top: 60px;
-
   font-size: 28rpx;
-
   color: white;
-
 }
 .mid_items{
   display: flex;
@@ -225,12 +211,19 @@
 .mid_btn_l{
   height: 200rpx;
   width: 180rpx;
- margin-left: 40rpx;
- text-align: center;
+  margin-left: 40rpx;
+  text-align: center;
 }
 .mid_btn_l_img{
   height: 180rpx;
   width: 180rpx;
+}
+.shadow{
+  display: inline-block;
+  box-shadow: 1px 2px 5px gray;
+  border-radius: 20rpx;
+  width: 250rpx;
+  height: 270rpx;
 }
 .center{
   display: flex;
@@ -300,13 +293,12 @@
   margin-left: 15rpx;
 }
 .btn_history{
-  width: 150rpx;
-  height: 70rpx;
   border-radius: 25rpx;
   margin-right: 5rpx;
   background-color: #288af5;
   color: #fff;
   text-align: center;
+  font-size: 25rpx;
 }
 
 

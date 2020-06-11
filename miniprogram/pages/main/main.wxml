@@ -36,10 +36,13 @@
     <image bindtap="navigate" id="myBudgets" src="/images/mybudget.jpg" class="mid_btn_l_img" mode="widthFix"></image>
     <text class="bold">我的预算</text>
   </navigator>
+  <view class="shadow">
   <view class="center">
     <image src="/images/rili.png" class="btn_img_"></image>
     <view class="bold">剩余天数:{{data[currentDataName].remaindays}}</view>
   </view>
+  </view>
+  
 
   <navigator class="mid_btn_r">
     <!--不准加URL-->
