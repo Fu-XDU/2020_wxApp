@@ -31,7 +31,7 @@
 
 <view class="mid_items">
   <!-- <image src="/images/.png" class="btn_img_"></image> -->
-  <navigator class="mid_btn_l">
+  <navigator class="mid_btn_l" hover-class="none">
     <!--不准加URL-->
     <image bindtap="navigate" id="myBudgets" src="/images/mybudget.jpg" class="mid_btn_l_img" mode="widthFix"></image>
     <text class="bold">我的预算</text>
@@ -44,21 +44,21 @@
   </view>
   
 
-  <navigator class="mid_btn_r">
+  <navigator class="mid_btn_r" hover-class="none">
     <!--不准加URL-->
-    <image bindtap="navigate" id="transaction" src="/images/translate.jpg" class="mid_btn_r_img" mode="widthFix"></image>
+    <image bindtap="navigate" id="transaction" src="/images/translate.jpg" class="mid_btn_r_img" mode="widthFix" ></image>
     <text class="bold">转账</text>
   </navigator>
 </view>
 <view class="in_and_out">
   <!-- <image src="/images/income.png" class="back-left"></image> -->
-  <navigator class="" url="../income/income">
-    <image bindtap="navigate" id="income" src="/images/income.jpg" class="income" mode="widthFix"></image>
+  <navigator class="" url="../income/income" hover-class="none">
+    <image bindtap="navigate" id="income" src="/images/income.jpg" class="income" mode="widthFix" ></image>
   </navigator>
 
   <!-- <image src="/images/income.png" class="back-right"></image> -->
-  <navigator class="" url="../expenditure/expenditure">
-    <image bindtap="navigate" id="expenditure" src="/images/outcome.jpg" class="outcome" mode="widthFix"></image>
+  <navigator class="" url="../expenditure/expenditure" hover-class="none">
+    <image bindtap="navigate" id="expenditure" src="/images/outcome.jpg" class="outcome" mode="widthFix" ></image>
   </navigator>
 </view>
 <view wx:if="{{data[currentDataName].history.length!=0}}">
