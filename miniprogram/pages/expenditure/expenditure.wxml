@@ -22,7 +22,7 @@
   </view>
 </view> 
 
-<view class="item_bars_1">
+<view class="item_bars_0">
     <picker wx:if="{{remarkindex!=0}}" mode="selector" bindchange="bindPickerChange" value="{{remarkindex}}" range="{{remarks}}" id="remarks">
   <view class="each_item">
      <text class="iconfont icon-ico- icons"></text> <view class="texts bold"> 添加注释:{{remarks[remarkindex]}}</view>
@@ -33,7 +33,7 @@
     </view>
   </view>
 
-<view class="item_bars_1">
+<view class="item_bars_0">
     <view class="each_item">
   <text class="iconfont icon-jinqian icons"></text>
   <text class="texts bold">添加支出:</text>
