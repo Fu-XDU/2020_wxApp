@@ -41,9 +41,9 @@
 }
 
 .right{
-    text-align:right;
-    padding-right:30rpx;
-    color: #fff;
+  text-align: right;
+  padding-right:20rpx;
+  color: #fff;
 }
 
 .submit_btn{
