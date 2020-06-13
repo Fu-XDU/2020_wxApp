@@ -67,6 +67,14 @@ Page({
   },
   submitToDb: function() {
     if (!app.globalData.userData[this.data.name]) {
+      this.data.name = this.data.name.replace(/%/g, '%25');
+      this.data.name = this.data.name.replace(/#/g, '%23');
+      this.data.name = this.data.name.replace(/&/g, '%26');
+      this.data.name = this.data.name.replace(/=/g, '%3D');
+      this.data.name = this.data.name.replace(/\?/g, '%3F');
+      this.data.name = this.data.name.replace(/\//g, '%2F');
+      this.data.name = this.data.name.replace(/ /g, '%20');
+      this.data.name = this.data.name.replace(/\+/g, '%2B');
       util.httpsGet("db?sql=INSERT INTO " + app.globalData.openid + "(name, dataType, beginTime, currency, total, balance, rollover, endTime)VALUES(\"" + this.data.name + '",' + this.data.typeindex + ',"' + this.data.beginTime + '",' +
         this.data.currencyindex + ',' + this.data.total + ',' + this.data.balance + ',' + (this.data.rolloverindex + 1) % 2 + ',"' + this.data.endTime + '")_Add').then((res) => {
         if (res.data == '1') {

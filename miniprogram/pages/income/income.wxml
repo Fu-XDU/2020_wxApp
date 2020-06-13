@@ -36,7 +36,7 @@
     <view class="each_item">
   <text class="iconfont icon-jinqian icons"></text>
   <text class="texts bold">添加收入:</text>
-  <input placeholder="在此键入您的收入" value="{{incomeinput}}" bindinput="handleInput" maxlength="15" type="digit" id="income" class="texts"> </input>
+  <input placeholder="在此键入您的收入" value="{{incomeinput}}" bindinput="handleInput" maxlength="15" type="digit" id="income" class="texts right"> </input>
   </view>
 </view>
 

@@ -195,7 +195,7 @@
   width: 70vw;
   /* left: 100rpx; */
   margin-top: 20rpx;
-  margin-bottom: 10rpx;
+  margin-bottom: 20rpx;
   margin-left: 70rpx;
   position: absolute;
   top: 60px;

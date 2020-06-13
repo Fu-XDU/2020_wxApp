@@ -1,5 +1,6 @@
 {
   "usingComponents": {
     "slide_delete":"../../components/slide_delete/slide_delete"
-  }
+  },
+  "navigationBarTitleText": "我的预算"
 }
