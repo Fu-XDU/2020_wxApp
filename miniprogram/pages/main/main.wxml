@@ -61,6 +61,7 @@
     <image bindtap="navigate" id="expenditure" src="/images/outcome.jpg" class="outcome" mode="widthFix" ></image>
   </navigator>
 </view>
+
 <view wx:if="{{data[currentDataName].history.length!=0}}">
   <view class="history">
     <text class="bold">交易历史</text>
@@ -88,7 +89,6 @@
       </view>
     </view>
   </view>
-
 <view wx:if="{{!data[currentDataName].history[1].peer}}">
     <view class="info_bar" wx:if="{{data[currentDataName].history[1].value>0}}">
       <text class="iconfont icon-jinbi icons"></text>
@@ -111,7 +111,6 @@
       </view>
     </view>
   </view>
-
 
 <view wx:if="{{!data[currentDataName].history[2].peer}}">
     <view class="info_bar" wx:if="{{data[currentDataName].history[2].value>0}}">
@@ -158,5 +157,6 @@
       </view>
     </view>
   </view>
+  </view>
 
-</view>
+
