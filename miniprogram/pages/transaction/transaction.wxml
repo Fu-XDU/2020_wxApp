@@ -62,7 +62,7 @@
     <view class="each_item">
     <text class="iconfont icon-jinqian icons"></text>
     <text class="texts bold">添加转账:</text>
-    <input class="texts right" placeholder="在此键入您的转账" value="{{valueinput}}" bindinput="handleInput" maxlength="15" type="value" id="value"> </input>
+    <input class="texts" placeholder="在此键入您的转账" value="{{valueinput}}" bindinput="handleInput" maxlength="15" type="digit" id="value"> </input>
     </view>
   </view>
 

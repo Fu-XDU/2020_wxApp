@@ -16,10 +16,41 @@ Page({
     totalleft: [],
     todayspent: [],
     totalspent: [],
-    delBtnWidth:160,
-    data: [{ content: "1", right: 0 }, { content: "2", right: 0 }, { content: "3", right: 0 }, { content: "4", right: 0 }, { content: "5", right: 0 }, { content: "6", right: 0 }, { content: "7", right: 0 }, { content: "8", right: 0 }, { content: "9", right: 0 }, { content: "10",  right: 0 }],
-    isScroll:true,
-    windowHeight:0
+    currencyTypeSignal: app.globalData.currencyTypeSignal,
+    delBtnWidth: 160,
+    data: [{
+      content: "1",
+      right: 0
+    }, {
+      content: "2",
+      right: 0
+    }, {
+      content: "3",
+      right: 0
+    }, {
+      content: "4",
+      right: 0
+    }, {
+      content: "5",
+      right: 0
+    }, {
+      content: "6",
+      right: 0
+    }, {
+      content: "7",
+      right: 0
+    }, {
+      content: "8",
+      right: 0
+    }, {
+      content: "9",
+      right: 0
+    }, {
+      content: "10",
+      right: 0
+    }],
+    isScroll: true,
+    windowHeight: 0
   },
 
   /**
@@ -29,10 +60,10 @@ Page({
     this.data.budgets = app.globalData.userData
     for (var key in this.data.budgets) {
       this.data.leftdata.push(key)
-      this.data.todayleft.push(this.data.budgets[key].todayleft)
-      this.data.totalleft.push(this.data.budgets[key].balance)
-      this.data.todayspent.push(this.data.budgets[key].todaypay)
-      this.data.totalspent.push(this.data.budgets[key].totalpay)
+      this.data.todayleft.push(this.data.currencyTypeSignal[this.data.budgets[key]['currency']] + " " + this.data.budgets[key].todayleft + "")
+      this.data.totalleft.push(this.data.currencyTypeSignal[this.data.budgets[key]['currency']] + " " + this.data.budgets[key].balance + "")
+      this.data.todayspent.push(this.data.currencyTypeSignal[this.data.budgets[key]['currency']] + " " + this.data.budgets[key].todaypay + "")
+      this.data.totalspent.push(this.data.currencyTypeSignal[this.data.budgets[key]['currency']] + " " + this.data.budgets[key].totalpay + "")
     }
     this.setData({
       leftdata: this.data.leftdata
@@ -105,7 +136,7 @@ Page({
       })
     }
   },
-  
+
   deleteBudget: function(e) {
     var _this = this
     util.httpsGet("db/deleteBudget?openid=" + app.globalData.openid + "&budgetid=" + _this.data.budgets[e].id).then((res) => {
@@ -117,14 +148,15 @@ Page({
           showCancel: false,
           success(res) {
             if (res.confirm) {
-              console.log(_this.data.leftdata.length)
               if (_this.data.leftdata.length == 1) {
                 app.globalData.registered = false
                 wx.reLaunch({
                   url: '../main/main',
                 })
               } else {
-                _this.onLoad()
+                wx.reLaunch({
+                  url: '../main/main',
+                })
                 app.globalData.refreshdata = true;
               }
             }
@@ -133,7 +165,7 @@ Page({
       }
     });
   },
-  
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -162,7 +194,7 @@ Page({
 
   },
 
-  
+
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */

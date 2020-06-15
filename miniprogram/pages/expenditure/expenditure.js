@@ -16,6 +16,7 @@ Page({
     remarkindex: 1,
     remarkinput: null,
     remarkscansubmit: null,
+    currencyTypeSignal: app.globalData.currencyTypeSignal,
   },
 
   /**
@@ -24,8 +25,8 @@ Page({
   onLoad: function(options) {
     this.setData({
       data: app.globalData.userData[options.name],
-      todayleft: util.toFix(app.globalData.userData[options.name].todayleft - this.data.expenditure * 1),
-      totalleft: util.toFix(app.globalData.userData[options.name].balance - this.data.expenditure * 1)
+      todayleft: this.data.currencyTypeSignal[app.globalData.userData[options.name]['currency']] + " " + util.toFix(app.globalData.userData[options.name].todayleft - this.data.expenditure * 1) + "",
+      totalleft: this.data.currencyTypeSignal[app.globalData.userData[options.name]['currency']] + " " + util.toFix(app.globalData.userData[options.name].balance - this.data.expenditure * 1) + ""
     })
     //sconsole.log(this.data.data)
   },
@@ -43,11 +44,11 @@ Page({
       })
     } else if (e.target.id == "expenditure") {
       //不允许有两个小数点 也不允许小数点后位数>2
-      if ((e.detail.value.split('.').length < 3) && (e.detail.value.indexOf('.') == -1 || e.detail.value.length - e.detail.value.indexOf('.')!=4)) {
+      if ((e.detail.value.split('.').length < 3) && (e.detail.value.indexOf('.') == -1 || e.detail.value.length - e.detail.value.indexOf('.') != 4)) {
         this.setData({
           expenditure: e.detail.value,
-          todayleft: util.toFix(this.data.data.todayleft - e.detail.value * 1),
-          totalleft: util.toFix(this.data.data.balance - e.detail.value * 1)
+          todayleft: this.data.currencyTypeSignal[this.data.data['currency']] + " " + util.toFix(this.data.data.todayleft - e.detail.value * 1) + "",
+          totalleft: this.data.currencyTypeSignal[this.data.data['currency']] + " " + util.toFix(this.data.data.balance - e.detail.value * 1) + ""
         })
       } else {
         this.setData({
@@ -59,7 +60,7 @@ Page({
   checkForm: function() {
     var _this = this
     return new Promise((resolve, reject) => {
-      if (!_this.data.expenditure ||_this.data.expenditure == 0) {
+      if (!_this.data.expenditure || _this.data.expenditure == 0) {
         wx.showModal({
           title: '提示',
           content: '未填写支出！',

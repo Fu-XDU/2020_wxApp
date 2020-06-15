@@ -13,6 +13,7 @@ Page({
     todayleft: null,
     totalleft: null,
     remarks: app.globalData.remarks,
+    currencyTypeSignal: app.globalData.currencyTypeSignal,
     remarkindex: 1,
     remarkinput: null,
     remarkscansubmit: null,
@@ -24,8 +25,8 @@ Page({
   onLoad: function(options) {
     this.setData({
       data: app.globalData.userData[options.name],
-      todayleft: util.toFix(app.globalData.userData[options.name].todayleft + this.data.income / app.globalData.userData[options.name].remaindays),
-      totalleft: util.toFix(app.globalData.userData[options.name].balance + this.data.income)
+      todayleft: this.data.currencyTypeSignal[app.globalData.userData[options.name]['currency']] + " " + util.toFix(app.globalData.userData[options.name].todayleft + this.data.income / app.globalData.userData[options.name].remaindays)+"",
+      totalleft: this.data.currencyTypeSignal[app.globalData.userData[options.name]['currency']] + " " + util.toFix(app.globalData.userData[options.name].balance + this.data.income)+""
     })
   },
   bindPickerChange: function(e) {
@@ -44,8 +45,8 @@ Page({
       if ((e.detail.value.split('.').length < 3) && (e.detail.value.indexOf('.') == -1 || e.detail.value.length - e.detail.value.indexOf('.') != 4)) {
         this.setData({
           income: e.detail.value,
-          todayleft: util.toFix(this.data.data.todayleft + e.detail.value / this.data.data.remaindays),
-          totalleft: util.toFix(this.data.data.balance + e.detail.value * 1)
+          todayleft: this.data.currencyTypeSignal[this.data.data['currency']] + " " + util.toFix(this.data.data.todayleft + e.detail.value / this.data.data.remaindays) + "",
+          totalleft: this.data.currencyTypeSignal[this.data.data['currency']] + " " + util.toFix(this.data.data.balance + e.detail.value * 1) + ""
         })
       } else {
         this.setData({

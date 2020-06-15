@@ -11,7 +11,8 @@ Page({
     dataType: app.globalData.dataType,
     dataKey: [],
     currentDataIndex: 0,
-    showloading: true
+    showloading: true,
+    historyArray: []
   },
   //事件处理函数
   bindViewTap: function() {
@@ -21,7 +22,7 @@ Page({
   },
 
   onLoad: function(options) {
-    var _this=this;
+    var _this = this;
     if (app.globalData.openid == "") {
       wx.cloud.callFunction({
         name: "login",
@@ -41,7 +42,7 @@ Page({
   onReady: function() {
 
   },
-  fetchData: function () {
+  fetchData: function() {
     new Promise((resolve, reject) => {
       util.httpsGet('ping').then((res) => {
         if (res.statusCode == 200) {
@@ -93,7 +94,7 @@ Page({
     }).then((res) => {
       if (app.globalData.registered) {
         this.data.dataKey = []
-        for (var key in app.globalData.userData) 
+        for (var key in app.globalData.userData)
           this.data.dataKey.push(key)
         this.setData({
           data: app.globalData.userData,
@@ -115,24 +116,47 @@ Page({
       } else if (app.globalData.registered == null) {
         console.error("出错了")
       }
+      var temp = this.data.data[app.globalData.userData[this.data.dataKey[this.data.currentDataIndex]].name].history.length;
+      for (var i = 0; i < (temp <= 4 ? temp : 4); i++)
+        this.data.historyArray.push(i)
+      this.setData({
+        historyArray: this.data.historyArray
+      })
     })
   },
   sideBudget: function(e) {
     if (e.target.id == "next") {
       if (this.data.currentDataIndex == this.data.dataKey.length - 1) {
-        console.log("没有下个一个预算了")
-        console.log(this.data.data[this.data.currentDataName].history.length)
+        wx.showToast({
+          title: '没有下个一个预算了',
+          icon: 'none',
+          duration: 500
+        })
       } else {
+        this.data.historyArray = []
+        var temp = this.data.data[app.globalData.userData[this.data.dataKey[this.data.currentDataIndex + 1]].name].history.length;
+        for (var i = 0; i < (temp <= 4 ? temp : 4); i++)
+          this.data.historyArray.push(i)
         this.setData({
-          currentDataName: app.globalData.userData[this.data.dataKey[++this.data.currentDataIndex]].name
+          currentDataName: app.globalData.userData[this.data.dataKey[++this.data.currentDataIndex]].name,
+          historyArray: this.data.historyArray
         })
       }
     } else if (e.target.id == "previous") {
       if (this.data.currentDataIndex == 0) {
-        console.log("没有上个一个预算了")
+        wx.showToast({
+          title: '没有上个一个预算了',
+          icon: 'none',
+          duration: 500
+        })
       } else {
+        this.data.historyArray = []
+        var temp = this.data.data[app.globalData.userData[this.data.dataKey[this.data.currentDataIndex - 1]].name].history.length;
+        for (var i = 0; i < (temp <= 4 ? temp : 4); i++)
+          this.data.historyArray.push(i)
         this.setData({
-          currentDataName: app.globalData.userData[this.data.dataKey[--this.data.currentDataIndex]].name
+          currentDataName: app.globalData.userData[this.data.dataKey[--this.data.currentDataIndex]].name,
+          historyArray: this.data.historyArray
         })
       }
     }
@@ -180,8 +204,6 @@ Page({
   onShow: function() {
     //TODO:监听是否有删除或修改操作
     if (app.globalData.refreshdata) {
-      console.log("refresh")
-      app.onLaunch();
       this.onLoad()
       app.globalData.refreshdata = false;
     }

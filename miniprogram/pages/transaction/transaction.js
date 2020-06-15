@@ -19,6 +19,7 @@ Page({
     remarkindex: 1,
     remarkinput: null,
     remarkscansubmit: null,
+    currencyTypeSignal: app.globalData.currencyTypeSignal,
     totodayleft: null,
     tototalleft: null,
   },
@@ -35,8 +36,8 @@ Page({
     this.setData({
       names: names,
       frmdata: app.globalData.userData[options.name],
-      todayleft: util.toFix(app.globalData.userData[options.name].todayleft - this.data.value),
-      totalleft: util.toFix(app.globalData.userData[options.name].balance - this.data.value)
+      todayleft: this.data.currencyTypeSignal[app.globalData.userData[options.name]['currency']] + " " + util.toFix(app.globalData.userData[options.name].todayleft - this.data.value)+"",
+      totalleft: this.data.currencyTypeSignal[app.globalData.userData[options.name]['currency']] + " " + util.toFix(app.globalData.userData[options.name].balance - this.data.value)+""
     })
   },
   secectBudget: function(e) {
