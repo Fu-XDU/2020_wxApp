@@ -61,6 +61,13 @@
     <image bindtap="navigate" id="expenditure" src="/images/outcome.jpg" class="outcome" mode="widthFix" ></image>
   </navigator>
 </view>
+<view wx:if="{{data[currentDataName].history.length==0}}">
+<view class="history">
+    <text class="bold">交易历史</text>
+    <button bindtap="navigate" id="history" class="btn_history bold">更多</button>
+  </view>
+<view class="centerbold">无历史记录</view>
+</view>
 
 <view wx:if="{{data[currentDataName].history.length!=0}}">
   <view class="history">

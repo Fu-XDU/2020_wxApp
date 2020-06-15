@@ -3,6 +3,11 @@
 .bold{
   font-weight: bold;
 }
+.centerbold{
+  font-weight: bold;
+  text-align: center;
+  margin-top: 50rpx;
+}
 .icons{
   margin-left: 20rpx;
 }
