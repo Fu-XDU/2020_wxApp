@@ -52,12 +52,12 @@
 </view>
 <view class="in_and_out">
   <!-- <image src="/images/income.png" class="back-left"></image> -->
-  <navigator class="" url="../income/income" hover-class="none">
+  <navigator class="" hover-class="none">
     <image bindtap="navigate" id="income" src="/images/income.jpg" class="income" mode="widthFix" ></image>
   </navigator>
 
   <!-- <image src="/images/income.png" class="back-right"></image> -->
-  <navigator class="" url="../expenditure/expenditure" hover-class="none">
+  <navigator class="" hover-class="none">
     <image bindtap="navigate" id="expenditure" src="/images/outcome.jpg" class="outcome" mode="widthFix" ></image>
   </navigator>
 </view>

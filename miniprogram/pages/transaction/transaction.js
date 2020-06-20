@@ -36,17 +36,17 @@ Page({
     this.setData({
       names: names,
       frmdata: app.globalData.userData[options.name],
-      todayleft: this.data.currencyTypeSignal[app.globalData.userData[options.name]['currency']] + " " + util.toFix(app.globalData.userData[options.name].todayleft - this.data.value)+"",
-      totalleft: this.data.currencyTypeSignal[app.globalData.userData[options.name]['currency']] + " " + util.toFix(app.globalData.userData[options.name].balance - this.data.value)+""
+      todayleft: this.data.currencyTypeSignal[app.globalData.userData[options.name]['currency']] + " " + util.toFix(app.globalData.userData[options.name].todayleft - this.data.value) + "",
+      totalleft: this.data.currencyTypeSignal[app.globalData.userData[options.name]['currency']] + " " + util.toFix(app.globalData.userData[options.name].balance - this.data.value) + ""
     })
   },
   secectBudget: function(e) {
     this.setData({
       select: false,
       to: app.globalData.userData[e.target.id],
-      totodayleft: app.globalData.userData[e.target.id].todayleft,
-      tototalleft: app.globalData.userData[e.target.id].balance,
     })
+    this.data.totodayleft = app.globalData.userData[e.target.id].todayleft
+    this.data.tototalleft = app.globalData.userData[e.target.id].balance
   },
   handleInput: function(e) {
     if (e.target.id == "remarks") {
@@ -56,7 +56,7 @@ Page({
     } else if (e.target.id == "value") {
       if ((e.detail.value.split('.').length < 3) && (e.detail.value.indexOf('.') == -1 || e.detail.value.length - e.detail.value.indexOf('.') != 4)) {
         this.setData({
-          value: 1*e.detail.value,
+          value: 1 * e.detail.value,
           todayleft: util.toFix(this.data.frmdata.todayleft - e.detail.value),
           totalleft: util.toFix(this.data.frmdata.balance - e.detail.value)
         })
@@ -131,7 +131,7 @@ Page({
     })
 
   },
-  bindPickerChange: function (e) {
+  bindPickerChange: function(e) {
     if (e.target.id == "remarks") {
       this.setData({
         remarkindex: e.detail.value,

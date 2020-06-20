@@ -39,9 +39,7 @@ Page({
       _this.fetchData();
     }
   },
-  onReady: function() {
-
-  },
+  onReady: function() {},
   fetchData: function() {
     new Promise((resolve, reject) => {
       util.httpsGet('ping').then((res) => {
@@ -72,13 +70,15 @@ Page({
                       app.globalData.userData[res.data[i].peer].history.push(res.data[i])
                   }
                   resolve();
-                  //console.log(app.globalData.userData)
                 }).catch((err) => {
                   console.error(err)
                   util.networkError();
                 })
               })
-            } else app.globalData.userData = app.globalData.unregisteredData
+            } else {
+              app.globalData.userData = app.globalData.unregisteredData
+              resolve();
+            }
           }).catch((err) => {
             console.error(err)
             util.networkError(err);
@@ -86,10 +86,12 @@ Page({
         } else {
           console.error(err)
           util.networkError(err);
+          reject();
         }
       }).catch((err) => {
         console.error("服务器连接失败", err)
         util.networkError(err);
+        reject();
       })
     }).then((res) => {
       if (app.globalData.registered) {
@@ -101,7 +103,7 @@ Page({
           currentDataName: this.data.dataKey[this.data.currentDataIndex],
         })
       } else if (app.globalData.registered == false) {
-        //console.warn("用户未注册")
+        console.warn("用户未注册")
         for (var key in app.globalData.userData) {
           this.data.dataKey.push(key)
           // 计算剩余天数
@@ -166,12 +168,13 @@ Page({
       wx.showModal({
         title: '没有预算',
         content: '前往添加我的第一个预算',
-        showCancel: false,
         success(res) {
           if (res.confirm) {
             wx.reLaunch({
               url: '../newBudget/newBudget'
             })
+          } else if (res.cancel) {
+            //console.log('用户点击取消')
           }
         }
       })

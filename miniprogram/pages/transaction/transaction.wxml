@@ -46,11 +46,8 @@
   <view class="item_bars_1">
     <view>
     <picker wx:if="{{remarkindex!=0}}" mode="selector" bindchange="bindPickerChange" value="{{remarkindex}}" range="{{remarks}}" id="remarks">
-      
       <view class="each_item">
-
      <text class="iconfont icon-ico- icons"></text> <view class="texts bold"> 添加注释:{{remarks[remarkindex]}}</view>
-
     </view>
     </picker>
     <view wx:else>
@@ -65,7 +62,5 @@
     <input class="texts" placeholder="在此键入您的转账" value="{{valueinput}}" bindinput="handleInput" maxlength="15" type="digit" id="value"> </input>
     </view>
   </view>
-
   <button  bindtap="submit" class="submit_btn bold">提交转账</button>
-
 </view>
