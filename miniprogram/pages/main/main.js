@@ -196,8 +196,18 @@ Page({
             showCancel: false
           })
         } else url = "../transaction/transaction?name=" + this.data.currentDataName
-      } else if (e.target.id == "history")
-        url = '../history/history?name=' + this.data.currentDataName
+      } else if (e.target.id == "history") {
+        if (this.data.data[this.data.currentDataName].history.length == 0) {
+          navigate = false;
+          wx.showModal({
+            title: '没有历史记录',
+            content: '收入支出和转账会在这里显示哦',
+            showCancel: false
+          })
+        } else {
+          url = '../history/history?name=' + this.data.currentDataName
+        }
+      }
       if (navigate)
         wx.navigateTo({
           url: url
