@@ -195,7 +195,9 @@ Page({
             content: '你至少需要2个预算来创建一个转账',
             showCancel: false
           })
-        } else url = "../transaction/transaction?name=" + this.data.currentDataName
+        } else {
+          url = "../transaction/transaction?name=" + this.data.currentDataName
+        }
       } else if (e.target.id == "history") {
         if (this.data.data[this.data.currentDataName].history.length == 0) {
           navigate = false;
