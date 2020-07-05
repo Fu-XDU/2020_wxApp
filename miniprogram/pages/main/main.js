@@ -22,6 +22,7 @@ Page({
   },
 
   onLoad: function(options) {
+    wx.stopPullDownRefresh();
     var _this = this;
     if (app.globalData.openid == "") {
       wx.cloud.callFunction({
@@ -223,4 +224,11 @@ Page({
       app.globalData.refreshdata = false;
     }
   },
+  /**
+  * 页面相关事件处理函数--监听用户下拉动作
+  */
+  onPullDownRefresh: function () {
+    var that = this;
+    this.onLoad(); //重新加载onLoad()
+  }
 })
