@@ -3,8 +3,8 @@
 <view class="top_items">
   <image src="/images/kafei.png" class="kafei"></image>
   <view class="name_and_type bold">
-    <view >预算名称:{{data[currentDataName].name}}</view>
-    <view >预算类型:{{dataType[data[currentDataName].dataType]}}</view>
+    <view>预算名称:{{data[currentDataName].name}}</view>
+    <view>预算类型:{{dataType[data[currentDataName].dataType]}}</view>
   </view>
   <!-- 上一个预算 -->
   <button bindtap="sideBudget" id="previous" class="shift_btn">
@@ -17,17 +17,15 @@
 </view>
 
 <!-- 包括币种、今日剩余 -->
-<view class="">
-<image src="/images/banner.jpg" class="banner"></image>
-    <view class="bud_remain">
-      <view class="">今日剩余预算:</view>
-      <view class="num bold">
+<view class="banner-parent">
+    <image src="/images/banner.jpg" class="banner"></image>
+      <view class="bud_remain">今日剩余预算:</view>
+      <view class="numbold">
         <text>{{currencyType[data[currentDataName].currency]}}</text>
         <view class="texts">{{data[currentDataName].todayleft}}</view>
       </view>
     </view>
-  </view>
-
+  
 
 <view class="mid_items">
   <!-- <image src="/images/.png" class="btn_img_"></image> -->
