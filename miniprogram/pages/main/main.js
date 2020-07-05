@@ -120,6 +120,7 @@ Page({
         console.error("出错了")
       }
       var temp = this.data.data[app.globalData.userData[this.data.dataKey[this.data.currentDataIndex]].name].history.length;
+      this.data.historyArray=[]
       for (var i = 0; i < (temp <= 4 ? temp : 4); i++)
         this.data.historyArray.push(i)
       this.setData({
@@ -228,7 +229,6 @@ Page({
   * 页面相关事件处理函数--监听用户下拉动作
   */
   onPullDownRefresh: function () {
-    var that = this;
-    this.onLoad(); //重新加载onLoad()
+    this.onLoad();
   }
 })
